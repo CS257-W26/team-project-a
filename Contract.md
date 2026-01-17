@@ -31,13 +31,14 @@ Weekends as needed, time to be communicated, 4th floor of Libe
 ## Drop-in hour options
 M 1-3, W 2-3, TH 2:30-3:30
 # Communication
-Mostly via group text
+* Mostly via group text
 Jay - 703 887 6450
 Lloyd Stohler - 314 327 6698
 Paul - 213 603 0914
 
-Email is also to be used
+* Email is also to be used.
+* Meetings need to be attended by all participants.
 
 # Conflict resolution
-Collective Consensus
-If a solo decision is to be made, it must be communicated.
+* Decisions made by Collective Consensus
+* If a solo decision is to be made, it must be communicated.
