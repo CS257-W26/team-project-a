@@ -19,8 +19,8 @@ Clean water & sanitation
 ## Feature 2: Interactable Visual Graphss
 
 * Person responsible: Paul
-* User story:
-* Acceptance Criteria:
+* User story: I want to compare the total drinking water consumption with the freshwater reserve in California in 2020. 
+* Acceptance Criteria: A functional feature where the user can compare the type of water consumption to water source. The user can change the time and location. The comparisons will be displayed through visual graphs/charts.  
 
 ## Feature 3: Small Dictionary of Terminology
 
