@@ -25,10 +25,10 @@ Clean water & sanitation
     - The numbers pulled from dataset will corresspond to the user's input and be displayed.
     - With the inputs given in the specific command format, the output accurately reflects consumption vs. reserves.
 
-## Feature 3: Small Dictionary of Terminology
+## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: Click on the term "groundwater" and it tells you "Groundwater is the water present beneath Earth's surface in rock and soil pore spaces and in the fractures of rock formations" (taken from wikipedia, i assume wed write our own definitions)
-* Acceptance Criteria: A feature where you click on a specific term that is used in this project (such as "industrial usage", "agricultural usage", "surface water", "ground water", etc.) and gives you it's cooresponding definition
+* User story: I want to find out how the water usage in the US has changed over the last 3 years. I can give a country and 2 years to the CLI and it will return how water usage has changed.
+* Acceptance Criteria: User can input "python3 command_line.py US 2022 2025" and will recive the values of water usage for those two years, as well as how they've changed.
 
 # Datasets Metadata
 URL: https://data.apps.fao.org/aquastat/?lang=en
