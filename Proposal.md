@@ -32,17 +32,17 @@ Clean water & sanitation
 * Acceptance Criteria: User can input "python3 command_line.py US 2022 2025" and will recive the values of water usage for those two years, as well as how they've changed.
 
 # Datasets Metadata
-URL: https://data.apps.fao.org/aquastat/?lang=en
-Downloaded: 01/12/26
-Authorship: Food and Agriculture Organization
-Name: FAO AQUASTAT Dissemination System
-Terms and Conditions: https://www.fao.org/contact-us/terms/en
+* Name: FAO AQUASTAT Dissemination System
+    - URL: https://data.apps.fao.org/aquastat/?lang=en
+    - Downloaded: 01/12/26
+    - Authorship: Food and Agriculture Organization
+    - Terms and Conditions: https://www.fao.org/contact-us/terms/en
 
-URL: https://www.kaggle.com/datasets/atharvasoundankar/global-water-consumption-dataset-2000-2024
-Downloaded:  01/12/26
-Authorship: Atharva Soundankar
-Name: Global Water Consumption Dataset (2000-2024) 🌍💧
-Terms and Conditions: CC0:Public Domain
+* Name: Global Water Consumption Dataset (2000-2024) 🌍💧
+    - URL: https://www.kaggle.com/datasets/atharvasoundankar/global-water-consumption-dataset-2000-2024
+    - Downloaded:  01/12/26
+    - Authorship: Atharva Soundankar
+    - Terms and Conditions: CC0:Public Domain
 
 # Mock up
 Sketches have been included.

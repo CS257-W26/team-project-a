@@ -31,7 +31,8 @@ Tuesday and/or Thursday, 4:00PM, 4th floor of Libe. Thursday primary
 Weekends as needed, time to be communicated, 4th floor of Libe
 
 ## Drop-in hour options
-Thursday 2:30-3:30 
+Lloyed can attend Monday and Wednesday's drop in hours.
+Paul and Jay can attend Thursday's drop in hours.
 
 # Communication
 * Mostly via group text
@@ -43,5 +44,6 @@ Paul - 213 603 0914
 * Meetings need to be attended by all participants (unless decided otherwise communaly)
 
 # Conflict resolution
-* Decisions made by Collective Consensus
-* If a solo decision is to be made, it must be communicated.
+* If a member fails to meet their responsibilities or our agreed-upon standards, we will first address the issue through group discussion. Should the problem persist despite our internal efforts, we will then seek further help from Anya.
+* Before a solo decision is to be made, it must be communicated.
+* Any conflit or disagreements will be resolved with a collective consensus after discussion. We strongly encourage and value communication with respect. 
