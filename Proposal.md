@@ -21,7 +21,7 @@ Clean water & sanitation
 * Person responsible: Paul
 * User story: As someone intersted in Japan's water usage, I want to compare Japan's average water use per capita in 2018, so that I can learn how much water an average person uses.
 * Acceptance Criteria: 
-    - User can input "Japan", "Per Capita", and 2018. 
+    - User can input "python3 command_line.py Japan perCapita 2018". 
     - If the year or country is not available, give an error message saying pick another country or pick years from 2000-2024.
     - The numbers pulled from dataset will corresspond to the user's input and be displayed. 
     - Output: Japan's Water Usage per Capita: 290.58 Liters per day
