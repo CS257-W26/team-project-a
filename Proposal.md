@@ -14,7 +14,7 @@ Clean water & sanitation
 
 * Person responsible: Lloyd
 * User story: I input Canada to see what percentage of it's water is going to Agricultutal usage, Industrial usage and Household usage and find that the cooresponding percentages for the most recent year are 57%, 26.7%, 26.4%
-* Acceptance Criteria: User can input "country usage_breakdown" and it responds with the dats (accurate for the current year) of "Agricultral: []%, Industrial: []%, Household: []%
+* Acceptance Criteria: User can input "country_usage_breakdown canada" and it responds with the dates (accurate for the current year) of "Agricultral: 57%, Industrial: 26.7%, Household: 26.4%
 
 ## Feature 2: Interactable Visual Graphss
 
