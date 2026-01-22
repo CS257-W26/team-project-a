@@ -19,17 +19,16 @@ Clean water & sanitation
 ## Feature 2: Interactable Visual Graphss
 
 * Person responsible: Paul
-* User story: As a water sustainability advocate, I want to compare total drinking water consumption to freshwater reserves in a selected location and year, so that I can gain insights into sustainable water management and personal contributions.
+* User story: As someone intersted in Japan's water usage, I want to compare Japan's total drinking water consumption to freshwater reserves in 2018, so that I can see how much of their reserve is being used for people's needs.
 * Acceptance Criteria: 
-    - Interactive inerface where users can select a location and year
-    - Users can compare different water consumption against different water sources. 
-    - Comparisons are diplayed through visual graphs/charts.
-    - The data sourced from datasets accrately reflects consumption vs. reserves.
+    - User can input a country, type of water usage, type of water reserve, and a year
+    - The numbers pulled from dataset will corresspond to the user's input and be displayed.
+    - With the inputs given in the specific command format, the output accurately reflects consumption vs. reserves.
 
-## Feature 3: Small Dictionary of Terminology
+## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: Click on the term "groundwater" and it tells you "Groundwater is the water present beneath Earth's surface in rock and soil pore spaces and in the fractures of rock formations" (taken from wikipedia, i assume wed write our own definitions)
-* Acceptance Criteria: A feature where you click on a specific term that is used in this project (such as "industrial usage", "agricultural usage", "surface water", "ground water", etc.) and gives you it's cooresponding definition
+* User story: I want to find out how the water usage in the US has changed over the last 3 years. I can give a country and 2 years to the CLI and it will return how water usage has changed.
+* Acceptance Criteria: User can input "python3 command_line.py US 2022 2025" and will recive the values of water usage for those two years, as well as how they've changed.
 
 # Datasets Metadata
 URL: https://data.apps.fao.org/aquastat/?lang=en
