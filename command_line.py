@@ -11,6 +11,8 @@ This will be the entry point for the project when run from the command line.
 
 '''Function for getting the data in the column "Household Water Use (%)"'''
 import csv
+
+
 #FUNCTION 2
 
 #FUNCTION 3
@@ -18,7 +20,20 @@ import csv
 #MAIN
 
 def main():
-    loadDataSparseCountry()
+    #loadDataSparseCountry()
+    print(loadCountryYear("Argentina", "2000"))
+
+def loadCountryYear(country, year):
+    arr = []
+    with open('Data/cleaned_global_water_consumption 2.csv',newline='') as csvfile:
+        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
+        for row in reader:
+            if row[0] == country and row[1] == year:
+                return(row)
+            
+        return("Error")
+
+
 def loadDataSparseCountry():
     arr = []
     with open('Data/AQUASTAT-Water Use.csv',newline='') as csvfile:
@@ -27,5 +42,8 @@ def loadDataSparseCountry():
             if row[4] == "United States of America":
                 print(str(row))
 
+
+
 if __name__=="__main__":
     main()
+
