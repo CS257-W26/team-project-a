@@ -20,18 +20,32 @@ import csv
 #MAIN
 
 def main():
-    #loadDataSparseCountry()
-    print(loadCountryYear("Argentina", "2000"))
+    '''Main.'''
+    print(loadCountryCGWC(openCGWC(),"Argentina"))
+    #print(stering)
 
-def loadCountryYear(country, year):
+def openCGWC():
+    '''Returns an array for cleaned_global_water_consumption 2.csv'''
     arr = []
     with open('Data/cleaned_global_water_consumption 2.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
+        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
         for row in reader:
-            if row[0] == country and row[1] == year:
-                return(row)
-            
-        return("Error")
+            arr.append(row)
+        return(arr)
+
+    
+def loadCountryCGWC(readera,country):
+    '''Gets all data for a specific country in an array'''
+
+    # NOTE: THIS ONLY WORKS IF THE COUNTRY IS IN COLUMN ZERO. I'M NOT SURE HOW TO FIX THIS ISSUE
+    arr = []
+    for row in readera:
+        if row[0] == country:
+            arr.append(row)
+    return(arr)
+
+
+
 
 
 def loadDataSparseCountry():
