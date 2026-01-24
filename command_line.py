@@ -42,6 +42,24 @@ def openCGWC():
         for row in reader:
             arr.append(row)
         return(arr)
+    
+def openAquastatResources():
+    '''Returns an array for AQUASTA-Water Resources.csv'''
+    arr = []
+    with open('Data/AQUASTA-Water Resources.csv',newline='') as csvfile:
+        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
+        for row in reader:
+            arr.append(row)
+        return(arr)
+
+def openAquastatUse():
+    '''Returns an array for AQUASTAT-Water Use.csv'''
+    arr = []
+    with open('Data/AQUASTA-Water Use.csv',newline='') as csvfile:
+        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
+        for row in reader:
+            arr.append(row)
+        return(arr)
 
     
 def loadCountry(readera,country):
