@@ -16,7 +16,7 @@ Clean water & sanitation
 * User story: I input Canada to see what percentage of it's water is going to Agricultutal usage, Industrial usage and Household usage and find that the cooresponding percentages for the most recent year are 57%, 26.7%, 26.4%
 * Acceptance Criteria: User can input "country_usage_breakdown canada" and it responds with the dates (accurate for the current year) of "Agricultral: 57%, Industrial: 26.7%, Household: 26.4%
 
-## Feature 2: Interactable Visual Graphss
+## Feature 2: Country per capita water usage
 
 * Person responsible: Paul
 * User story: As someone intersted in Japan's water usage, I want to compare Japan's average water use per capita in 2018, so that I can learn how much water an average person uses.
