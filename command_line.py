@@ -23,7 +23,7 @@ class DB(Enum):
     AQS_DS6 = "Data/AQUASTAT Dissemination System (6).csv"
     AQS_WR = "Data/AQUASTAT-Water Resources.csv"
     AQS_WU = "Data/AQUASTAT-Water Use.csv"
-    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
+    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv" 
 
 def main():
     if len(sys.argv) <= 1:
@@ -189,7 +189,7 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = openCGWC()
+    data = openDB(DB.CLEANED_GWC)
 
     # Skip header row
     for row in data[1:]:
