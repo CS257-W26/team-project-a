@@ -162,7 +162,7 @@ def alias(var: str) -> str:
 
 
 
-    
+
 def loadByTags(tags: []): 
     """"""
     arr = []
