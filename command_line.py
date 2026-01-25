@@ -31,8 +31,17 @@ def main():
             waterUseTimeCompare(sys.argv[2],sys.argv[3],sys.argv[4])
         case "-usageproportional":
             pass
-        case "-percapita":
-            pass
+        #FUNCTION 2
+        case "percapita":
+            if len(sys.argv) != 4:
+                print("Usage: python3 command_line.py perCapita <Country> <Year>")
+                return
+            try:
+                value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
+                print(f"{alias(sys.argv[2])}'s Water Usage per Capita: {round(value, 2)} Liters per day")
+            except ValueError as e:
+                print(e)
+
         case _:
             print("USAGE STATEMENT GOES HERE")
             pass
@@ -62,7 +71,28 @@ def openCGWC():
         for row in reader:
             arr.append(row)
         return(arr)
+
+def get_per_capita_water_use(country: str, year: str) -> float:
+    '''Returns per capita water use (liters per day) for a given country and year'''
+
+    '''Raises ValueError if country/year not found or year out of range'''
+    if not year.isdigit() or not (2000 <= int(year) <= 2024):
+        raise ValueError("Year must be between 2000 and 2024.")
+
+    country = alias(country)
+    data = openCGWC()
+
+    # Skip header row
+    for row in data[1:]:
+        if row[0] == country and row[1] == year: # match country and year
+            try:
+                return float(row[3])  # 4th column for per capita water use
+            except ValueError:
+                raise ValueError("Per capita value is missing or invalid.")
+
+    raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
     
+
 def openAquastatResources():
     '''Returns an array for AQUASTA-Water Resources.csv'''
     arr = []
@@ -150,6 +180,8 @@ def alias(var: str) -> str:
             return "United States of America"
         case "america":
             return "United States of America"
+        case "uk" | "UK" | "united kingdom":
+            return "United Kingdom:"
         case _:
             return var
 
