@@ -72,47 +72,6 @@ def openDB(database: DB):
         return(arr)    
 
 
-    
-def loadCountry(readera,country):
-    '''Gets all data for a specific country in an array'''
-
-    # NOTE: THIS ONLY WORKS IF THE COUNTRY IS IN COLUMN ZERO. I'M NOT SURE HOW TO FIX THIS ISSUE
-    arr = []
-    for row in readera:
-        if row[0] == country:
-            arr.append(row)
-    return(arr)
-
-def loadYear(readera,year):
-    '''Gets all data for a specific year in an array'''
-
-    # NOTE: THIS ONLY WORKS IF THE YEAR IS IN COLUMN ONE. I'M NOT SURE HOW TO FIX THIS ISSUE
-    arr = []
-    for row in readera:
-        if row[1] == year:
-            arr.append(row)
-    return(arr)
-
-
-
-def loadDataSparseCountry(country: str):
-    arr = []
-    with open('Data/AQUASTAT-Water Use.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
-        for row in reader:
-            if row[4] == country:
-                arr.append(row)
-    return arr
-
-def loadDataSparseCountryWaterResource(country: str):
-    arr = []
-    with open('Data/AQUASTAT-Water Resources.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
-        for row in reader:
-            if row[4] == country:
-                arr.append(row)
-    return arr
-
 def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress. Pulls from the wrong dataset right now.
     country = alias(country)
 
@@ -126,9 +85,6 @@ def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress.
     print(str(year1)+": "+water_use_y1+"x10^9 cubic meters/year")
     print(str(year2)+": "+water_use_y2+"x10^9 cubic meters/year")
 
-    # print(str(time1))
-    # print(str(time2))
-    
 
 def alias(var: str) -> str:
     """Used to make it so that country names don't have to be input perfectly."""
@@ -141,8 +97,6 @@ def alias(var: str) -> str:
             return var
 
 
-
-    
 def filterByTags(db:[],tags: []): 
     """"""
     arr = []
