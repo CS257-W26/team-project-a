@@ -50,6 +50,9 @@ def main():
         case "-usagepercentage":
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
+        case "usageproportion":
+            print(usageProportion(sys.argv[2],sys.argv[3]))
+            return
         case _:
             print("USAGE STATEMENT GOES HERE")
             pass
@@ -83,10 +86,23 @@ def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress.
     
     water_use_y1 = time1[6]
     water_use_y2 = time2[6]
-    print("Water usage in "+country+"\n")
-    print(str(year1)+": "+water_use_y1+"x10^9 cubic meters/year")
-    print(str(year2)+": "+water_use_y2+"x10^9 cubic meters/year")
+    print("Water usage in "+country,"\n")
+    print(str(year1),": ",water_use_y1,"x10^9 cubic meters/year")
+    print(str(year2),": ",water_use_y2,"x10^9 cubic meters/year")
 
+def usageProportion(country,year):
+    '''Returns the proportial usage of Agricultural, Industrial and Household water usage in terms of percentage'''
+
+    agc_percent = get_usage_percentage(country,year,"Agricultural")
+    ind_percent = get_usage_percentage(country,year,"Industrial")
+    hsh_percent = get_usage_percentage(country,year,"Household")
+
+    print("Water usage in "+country+" in"+year+"\n")
+    print("Agricultural: ", agc_percent)
+    print("Indsutrial: ", ind_percent)
+    print("Household: ", hsh_percent)
+
+    
 
 def alias(var: str) -> str:
     """Used to make it so that country names don't have to be input perfectly."""
@@ -169,6 +185,9 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
 
     raise ValueError("Country, year or usage type not found. " \
     "Pick another country or pick years from 2000-2024 and make sure you are inputting 'Agriculture', 'Industrial' or 'Household'.")
+
+
+
 
 if __name__=="__main__":
     main()
