@@ -68,28 +68,7 @@ def openCGWC():
         reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
         for row in reader:
             arr.append(row)
-        return(arr)
-
-def get_per_capita_water_use(country: str, year: str) -> float:
-    '''Returns per capita water use (liters per day) for a given country and year'''
-
-    '''Raises ValueError if country/year not found or year out of range'''
-    if not year.isdigit() or not (2000 <= int(year) <= 2024):
-        raise ValueError("Year must be between 2000 and 2024.")
-
-    country = alias(country)
-    data = openCGWC()
-
-    # Skip header row
-    for row in data[1:]:
-        if row[0] == country and row[1] == year: # match country and year
-            try:
-                return float(row[3])  # 4th column for per capita water use
-            except ValueError:
-                raise ValueError("Per capita value is missing or invalid.")
-
-    raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
-    
+        return(arr)    
 
 def openAquastatResources():
     '''Returns an array for AQUASTA-Water Resources.csv'''
@@ -197,7 +176,26 @@ def loadByTags(tags: []):
                 arr.append(row)
             
     return arr
-    
+
+def get_per_capita_water_use(country: str, year: str) -> float:
+    '''Returns per capita water use (liters per day) for a given country and year'''
+
+    '''Raises ValueError if country/year not found or year out of range'''
+    if not year.isdigit() or not (2000 <= int(year) <= 2024):
+        raise ValueError("Year must be between 2000 and 2024.")
+
+    country = alias(country)
+    data = openCGWC()
+
+    # Skip header row
+    for row in data[1:]:
+        if row[0] == country and row[1] == year: # match country and year
+            try:
+                return float(row[3])  # 4th column for per capita water use
+            except ValueError:
+                raise ValueError("Per capita value is missing or invalid.")
+
+    raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
 
     
 
