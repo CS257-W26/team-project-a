@@ -12,7 +12,7 @@ from command_line import * #note, specify this late
 
 class openDBTest(unittest.TestCase):
     def test_odb(self):
-        arr = openDB(DB.CLEANED_GWC.value)
+        arr = openDB(DB.CLEANED_GWC)
         self.assertEqual(arr[0][0],"Country")
     def test_invalid_db(self):
         self.assertRaises(KeyError,openDB,"AAAAAA")

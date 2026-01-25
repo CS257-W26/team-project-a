@@ -115,7 +115,7 @@ def filterByTags(db:[],tags: []):
 
 def filterTagsDB(database: DB, tags: []):
     """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
-    arr = openDB(database.value)
+    arr = openDB(database)
     return filterByTags(arr,tags)
 
 def get_per_capita_water_use(country: str, year: str) -> float:
