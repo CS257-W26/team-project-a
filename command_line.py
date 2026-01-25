@@ -75,8 +75,8 @@ def openDB(database: DB):
 def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress. Pulls from the wrong dataset right now.
     country = alias(country)
 
-    time1 = filterTagsDB(DB.AQS_WU,[str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
-    time2 = filterTagsDB(DB.AQS_WU,[str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+    time1 = filterTagsDB(DB.AQS_WR,[str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+    time2 = filterTagsDB(DB.AQS_WR,[str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
 
     
     water_use_y1 = time1[6]
@@ -113,7 +113,7 @@ def filterByTags(db:[],tags: []):
 
 def filterTagsDB(database: DB, tags: []):
     """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
-    arr = openDB(database)
+    arr = openDB(database.value)
     return filterByTags(arr,tags)
 
 def get_per_capita_water_use(country: str, year: str) -> float:
