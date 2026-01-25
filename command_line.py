@@ -23,7 +23,7 @@ class DB(Enum):
     AQS_DS6 = "Data/AQUASTAT Dissemination System (6).csv"
     AQS_WR = "Data/AQUASTAT-Water Resources.csv"
     AQS_WU = "Data/AQUASTAT-Water Use.csv"
-    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
+    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv" 
 
 def main():
     if len(sys.argv) <= 1:
@@ -67,6 +67,8 @@ def main():
     #print(doubledata)
    
 
+def openDB(database: DB):
+    '''Returns an array for the spesificed database. EG: openDB(DB.AQS_DS3)'''
 def openCGWC():
     '''Returns an array for cleaned_global_water_consumption 2.csv'''
     arr = []
@@ -146,9 +148,6 @@ def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress.
     print(str(year1)+": "+water_use_y1+"x10^9 cubic meters/year")
     print(str(year2)+": "+water_use_y2+"x10^9 cubic meters/year")
 
-    # print(str(time1))
-    # print(str(time2))
-    
 
 def alias(var: str) -> str:
     """Used to make it so that country names don't have to be input perfectly."""
@@ -160,6 +159,8 @@ def alias(var: str) -> str:
         case _:
             return var
 
+
+def filterByTags(db:[],tags: []): 
 
 
 
@@ -178,6 +179,11 @@ def loadByTags(tags: []):
                 arr.append(row)
             
     return arr
+
+def filterTagsDB(database: DB, tags: []):
+    """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
+    arr = openDB(database)
+    return filterByTags(arr,tags)
 
 def get_per_capita_water_use(country: str, year: str) -> float:
     '''Returns per capita water use (liters per day) for a given country and year'''
