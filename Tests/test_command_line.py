@@ -107,6 +107,7 @@ class usageProportionTest(unittest.TestCase):
             usageProportion("Argentina", "3023")
     
     def test_proportion_no_year(self):
+        sys.argv = ['command_line.py','-usageproportion', 'Argentina']
         with self.assertRaises(ValueError):
             usageProportion("Argentina", "")
 
