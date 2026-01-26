@@ -105,6 +105,10 @@ class usageProportionTest(unittest.TestCase):
     def test_proportion_invalid_year(self):
         with self.assertRaises(ValueError):
             usageProportion("Argentina", "3023")
+    
+    def test_proportion_no_year(self):
+        with self.assertRaises(ValueError):
+            usageProportion("Argentina", "")
 
 
 
