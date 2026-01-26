@@ -39,7 +39,7 @@ def main():
         case "-usageproportional":
             pass
         #FUNCTION 2
-        case "percapita":
+        case "-percapita":
             if len(sys.argv) != 4:
                 print("Usage: python3 command_line.py perCapita --country --year")
                 return
@@ -51,7 +51,7 @@ def main():
         case "-usagepercentage":
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
-        case "usageproportion":
+        case "-usageproportion":
             print(usageProportion(sys.argv[2],sys.argv[3]))
             return
         case _:
@@ -105,7 +105,7 @@ def usageProportion(country,year):
     ind_percent = get_usage_percentage(country,year,"Industrial")
     hsh_percent = get_usage_percentage(country,year,"Household")
 
-    print("Water usage in "+country+" in"+year+"\n")
+    print("Water usage in "+country+" in "+year+"\n")
     print("Agricultural: ", agc_percent)
     print("Indsutrial: ", ind_percent)
     print("Household: ", hsh_percent)
