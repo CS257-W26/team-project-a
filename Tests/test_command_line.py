@@ -108,8 +108,11 @@ class usageProportionTest(unittest.TestCase):
     
     def test_proportion_no_year(self):
         sys.argv = ['command_line.py','-usageproportion', 'Argentina']
-        with self.assertRaises(ValueError):
-            usageProportion("Argentina", "")
+        printed_out = self._run_and_return_output()
+        self.assertRaises(KeyError, printed_out)
+    
+    
+            
 
 
 
