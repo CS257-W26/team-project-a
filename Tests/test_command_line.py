@@ -85,5 +85,28 @@ class usagePercentageTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             get_usage_percentage("Argentina", "2023", "Extrajudicial")
 
+class usageProportionTest(unittest.TestCase):
+    def _run_and_return_output(self) -> str:
+        """Helper function thar runs the command line app and returns the output."""
+        sys.stdout = StringIO()
+        main()
+        return sys.stdout.getvalue().strip()
+    
+    def test_proportion_valid(self):
+        '''Test valid country/year/type input'''
+        sys.argv = ['command_line.py','-usageproportion', 'Argentina', '2024']
+        printed_out = self._run_and_return_output()
+        self.assertEqual(printed_out,"Water usage in Argentina in 2024\n\nAgricultural:  51.20142857\nIndsutrial:  34.14285714\nHousehold:  23.52285714\nNone")
+    
+    def test_proportion_invalid_country(self):
+        with self.assertRaises(ValueError):
+            usageProportion("Wakanda", "2023")
+
+    def test_proportion_invalid_year(self):
+        with self.assertRaises(ValueError):
+            usageProportion("Argentina", "3023")
+
+
+
 if __name__=="__main__":
     main()
