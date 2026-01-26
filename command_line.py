@@ -95,6 +95,8 @@ def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress.
     print("Water usage in "+country,"\n")
     print(str(year1)+": "+water_use_y1+"x10^9 cubic meters/year")
     print(str(year2)+": "+water_use_y2+"x10^9 cubic meters/year")
+    print("Difference:")
+    print(str(int(water_use_y2)-int(water_use_y1))+"x10^9 cubic meters/year")
 
 def usageProportion(country,year):
     '''Returns the proportial usage of Agricultural, Industrial and Household water usage in terms of percentage'''
@@ -104,9 +106,9 @@ def usageProportion(country,year):
     hsh_percent = get_usage_percentage(country,year,"Household")
 
     print("Water usage in "+country+" in "+year+"\n")
-    print("Agricultural: ", agc_percent)
-    print("Indsutrial: ", ind_percent)
-    print("Household: ", hsh_percent)
+    print("Agricultural:", round(agc_percent, 2), "%")
+    print("Industrial:", round(ind_percent, 2), "%")
+    print("Household:", round(hsh_percent, 2), "%")
 
     
 
