@@ -99,9 +99,9 @@ def usageProportion(country,year):
     hsh_percent = get_usage_percentage(country,year,"Household")
 
     print("Water usage in "+country+" in "+year+"\n")
-    print("Agricultural: ", agc_percent)
-    print("Indsutrial: ", ind_percent)
-    print("Household: ", hsh_percent)
+    print("Agricultural:", round(agc_percent, 2), "%")
+    print("Industrial:", round(ind_percent, 2), "%")
+    print("Household:", round(hsh_percent, 2), "%")
 
     
 
