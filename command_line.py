@@ -33,7 +33,8 @@ def main():
     match mode.lower(): #These are examples. Feel free to change them.
         case "-usageovertime":
             if len(sys.argv) <= 4:
-                return
+                print("Invalid arguments.")
+                return "Invalid arguments."
             waterUseTimeCompare(sys.argv[2],sys.argv[3],sys.argv[4])
         case "-usageproportional":
             pass
@@ -68,6 +69,9 @@ def main():
 
 
 def openDB(database: DB):
+    if database not in list(DB):
+        raise KeyError
+        
     '''Returns an array for the spesificed database. EG: openDB(DB.AQS_DS3)'''
     arr = []
     with open(database.value,newline='') as csvfile:
@@ -80,15 +84,19 @@ def openDB(database: DB):
 def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress. Pulls from the wrong dataset right now.
     country = alias(country)
 
-    time1 = filterTagsDB(DB.AQS_WR,[str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
-    time2 = filterTagsDB(DB.AQS_WR,[str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+    time1 = filterTagsDB(DB.AQS_WR,[str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])
+    time2 = filterTagsDB(DB.AQS_WR,[str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])
 
-    
-    water_use_y1 = time1[6]
-    water_use_y2 = time2[6]
+    if len(time1) == 0 or len(time2) == 0:
+        raise KeyError
+    time1 = time1[0]
+    time2 = time2[0]
+
+    water_use_y1 = time1[6].strip()
+    water_use_y2 = time2[6].strip()
     print("Water usage in "+country,"\n")
-    print(str(year1),": ",water_use_y1,"x10^9 cubic meters/year")
-    print(str(year2),": ",water_use_y2,"x10^9 cubic meters/year")
+    print(str(year1)+": "+water_use_y1+"x10^9 cubic meters/year")
+    print(str(year2)+": "+water_use_y2+"x10^9 cubic meters/year")
 
 def usageProportion(country,year):
     '''Returns the proportial usage of Agricultural, Industrial and Household water usage in terms of percentage'''
