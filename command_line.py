@@ -86,7 +86,7 @@ def water_use_time_compare(country: str, year1: int, year2: int):
             str(country),
             str(year1),
             "Exploitable water resources and dam capacity",
-            "Total exploitable water resources",
+            "Total exploitable water resources"
         ],
     )
     time2 = filter_tags_database(
@@ -95,11 +95,12 @@ def water_use_time_compare(country: str, year1: int, year2: int):
             str(country),
             str(year2),
             "Exploitable water resources and dam capacity",
-            "Total exploitable water resources",
+            "Total exploitable water resources"
         ],
     )
 
     if len(time1) == 0 or len(time2) == 0:
+        print("One of these years is not present in the database!")
         raise KeyError
     time1 = time1[0]
     time2 = time2[0]
@@ -205,20 +206,11 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
     for row in data[1:]:
         if row[0] == country and row[1] == year:  # match country and year
             if usagetype == "Agricultural":
-                try:
-                    return float(row[4])
-                except ValueError:
-                    raise ValueError("Value is missing or invalid.")
+                return float(row[4])
             if usagetype == "Industrial":
-                try:
-                    return float(row[5])
-                except ValueError:
-                    raise ValueError("Value is missing or invalid.")
+                return float(row[5])
             if usagetype == "Household":
-                try:
-                    return float(row[6])
-                except ValueError:
-                    raise ValueError("Value is missing or invalid.")
+                return float(row[6])
 
     raise ValueError(
         "Country, year or usage type not found. "

@@ -57,7 +57,7 @@ class CommandLineTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(printed_out, "Usage: python3 command_line.py -usageproportion --country --year")
 
-    def test_run_water_use_time_compare(self):
+    def test_run_water_use_time_compare(self): #THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
@@ -82,11 +82,20 @@ class CommandLineTest(unittest.TestCase):
             "243243125245324",
         ]
         self.assertRaises(KeyError, self._run_and_return_output)
+    def test_per_capita_command(self): #THIS IS AN ACCEPTANCE TEST FOR #1
+        """Test percapita command"""
+        sys.argv = ["command_line.py", "-percapita", "Argentina", "2024"]
+        printed_out = self._run_and_return_output()
+        self.assertEqual(
+            printed_out,
+            "Argentina's Water Usage per Capita:                     364.38 Liters per day",
+        )
 
 
 class PerCapitaWaterUseTest(unittest.TestCase):
+
     """Tests percapita water use"""
-    def test_per_capita_valid(self):
+    def test_per_capita_valid(self): #THIS IS AN ACCEPTANCE TEST FOR #2
         """Test valid country and year inputs"""
         result = get_per_capita_water_use("Japan", "2018")
         self.assertAlmostEqual(result, 290.58, places=2)
@@ -99,7 +108,8 @@ class PerCapitaWaterUseTest(unittest.TestCase):
     def test_per_capita_invalid_year(self):
         """Test invalid year input"""
         with self.assertRaises(ValueError):
-            get_per_capita_water_use("Japan", "1000")
+            get_per_capita_water_use("uk", "1000")
+
 
 
 class UsagePercentageTest(unittest.TestCase):
@@ -133,7 +143,7 @@ class UsageProportionTest(unittest.TestCase):
         main()
         return sys.stdout.getvalue().strip()
 
-    def test_proportion_valid(self):
+    def test_proportion_valid(self): #THIS IS AN ACCEPTANCE TEST FOR #1
         """Test valid country/year/type input"""
         sys.argv = ["command_line.py", "-usageproportion", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
