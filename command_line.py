@@ -6,17 +6,7 @@ This will be the entry point for the project when run from the command line.
 import csv
 import sys
 from enum import Enum
-
-
-"""Function for getting the data cooresponding to a specific country/date combination"""
-
-'''Function for getting the data in the column "Agricultural Water Use (%)"'''
-
-'''Function for getting the data in the column "Industrial Water Use (%)"'''
-
-'''Function for getting the data in the column "Household Water Use (%)"'''
-
-
+# pylint: disable=unspecified-encoding, raise-missing-from, line-too-long
 # FUNCTION 2
 
 # FUNCTION 3
@@ -36,15 +26,15 @@ class DB(Enum):
 def main():
     """Main func"""
     if len(sys.argv) <= 1:
-        print("USAGE STATEMENT GOES HERE")
+        print_usage_statement()
         return
     mode = sys.argv[1]
     match mode.lower():  # These are examples. Feel free to change them.
         case "-usageovertime":
             if len(sys.argv) <= 4:
                 print("Invalid arguments.")
-                return "Invalid arguments."
-            waterUseTimeCompare(sys.argv[2], sys.argv[3], sys.argv[4])
+                return
+            water_use_time_compare(sys.argv[2], sys.argv[3], sys.argv[4])
         case "-percapita":
             if len(sys.argv) != 4:
                 print("Usage: python3 command_line.py perCapita --country --year")
@@ -52,29 +42,30 @@ def main():
             try:
                 value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
                 print(
-                    f"{alias(sys.argv[2])}'s Water Usage per Capita: {round(value, 2)} Liters per day"
+                    f"{alias(sys.argv[2])}'s Water Usage per Capita: \
+                    {round(value, 2)} Liters per day"
                 )
             except ValueError as e:
                 print(e)
         case "-usageproportion":
             if len(sys.argv) != 4:
-                print(
-                    "Usage: python3 command_line.py -usageproportion --country --year"
-                )
+                print_usage_statement()
                 return
             try:
-                print(usageProportion(sys.argv[2], sys.argv[3]))
+                print(usage_proportion(sys.argv[2], sys.argv[3]))
             except ValueError as e:
                 print(e)
         case _:
-            print("USAGE STATEMENT GOES HERE")
-            pass
+            print_usage_statement()
 
     return
 
+def print_usage_statement():
+    """Prints le usage statement"""
+    print("Usage: python3 command_line.py -usageproportion --country --year")
 
-def openDB(database: DB):
-    """Returns an array for the spesificed database. EG: openDB(DB.AQS_DS3)"""
+def open_database(database: DB):
+    """Returns an array for the spesificed database. EG: open_database(DB.AQS_DS3)"""
     if database not in list(DB):
         raise KeyError
     arr = []
@@ -85,11 +76,11 @@ def openDB(database: DB):
         return arr
 
 
-def waterUseTimeCompare(country: str, year1: int, year2: int):
+def water_use_time_compare(country: str, year1: int, year2: int):
     """Compares the water use of a country between 2 years"""
     country = alias(country)
 
-    time1 = filterTagsDB(
+    time1 = filter_tags_database(
         DB.AQS_WR,
         [
             str(country),
@@ -98,7 +89,7 @@ def waterUseTimeCompare(country: str, year1: int, year2: int):
             "Total exploitable water resources",
         ],
     )
-    time2 = filterTagsDB(
+    time2 = filter_tags_database(
         DB.AQS_WR,
         [
             str(country),
@@ -122,8 +113,9 @@ def waterUseTimeCompare(country: str, year1: int, year2: int):
     print(str(int(water_use_y2) - int(water_use_y1)) + "x10^9 cubic meters/year")
 
 
-def usageProportion(country, year):
-    """Returns the proportial usage of Agricultural, Industrial and Household water usage in terms of percentage"""
+def usage_proportion(country, year):
+    """Returns the proportial usage of Agricultural, \
+    Industrial and Household water usage in terms of percentage"""
 
     agc_percent = get_usage_percentage(country, year, "Agricultural")
     ind_percent = get_usage_percentage(country, year, "Industrial")
@@ -146,14 +138,14 @@ def alias(var: str) -> str:
             return var
 
 
-def filterByTags(db: [], tags: []):
-    """"""
+def filter_by_tags(db: [], tags: []):
+    """Finds all instances in a DB with certain string args"""
     arr = []
     for (
         row
     ) in (
         db
-    ):  # How this works: For every row, assume it by default matches the requested tags. For all requested tags, check if it's in the row. If it's not, set matches to false, and break the loop. If it matches all, adds the row to the array.
+    ):
         matches = True
         for tag in tags:
             if tag not in row:
@@ -165,19 +157,21 @@ def filterByTags(db: [], tags: []):
     return arr
 
 
-def filterTagsDB(database: DB, tags: []):
-    """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
-    arr = openDB(database)
-    return filterByTags(arr, tags)
+def filter_tags_database(database: DB, tags: []):
+    """Takes a database (enum) and an array of string tags. Returns all matches from\
+    the spesified DB. EG: filter_by_tagsDB(DB.CLEANED_GWC,['USA','2001'])"""
+    arr = open_database(database)
+    return filter_by_tags(arr, tags)
 
 
 def get_per_capita_water_use(country: str, year: str) -> float:
-    """Returns per capita water use (liters per day) for a given country and year, Raises ValueError if country/year not found or year out of range"""
+    """Returns per capita water use (liters per day) for a given country and year,\
+    Raises ValueError if country/year not found or year out of range"""
     if not year.isdigit() or not 2000 <= int(year) <= 2024:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = openDB(DB.CLEANED_GWC)
+    data = open_database(DB.CLEANED_GWC)
 
     # Skip header row
     for row in data[1:]:
@@ -193,13 +187,14 @@ def get_per_capita_water_use(country: str, year: str) -> float:
 
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
-    """Returns percentage for usage for a given country and year. Raises ValueError if country/year not found or year out of range"""
+    """Returns percentage for usage for a given country and year.\
+    Raises ValueError if country/year not found or year out of range"""
 
     if not year.isdigit() or not 2000 <= int(year) <= 2024:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = openDB(DB.CLEANED_GWC)
+    data = open_database(DB.CLEANED_GWC)
 
     # Skip header row
     for row in data[1:]:
@@ -222,7 +217,8 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
 
     raise ValueError(
         "Country, year or usage type not found. "
-        "Pick another country or pick years from 2000-2024 and make sure you are inputting 'Agriculture', 'Industrial' or 'Household'."
+        "Pick another country or pick years from 2000-2024 and make sure you are inputting \
+        'Agriculture', 'Industrial' or 'Household'."
     )
 
 

@@ -6,40 +6,40 @@ import unittest
 import sys
 from io import StringIO
 
-from command_line import openDB  # note, specify this late
+from command_line import open_database  # note, specify this late
 from command_line import DB
-from command_line import filterTagsDB
+from command_line import filter_tags_database
 from command_line import get_per_capita_water_use
 from command_line import main
 from command_line import get_usage_percentage
-from command_line import usageProportion
+from command_line import usage_proportion
 
-
+# pylint: disable=unspecified-encoding, raise-missing-from, line-too-long
 # Running the line above is giving me an error.
 
 
 class OpenDataBaseTest(unittest.TestCase):
-    """Tests openDB func"""
+    """Tests open_database func"""
     def test_odb(self):
         """Tests the basic OpenDatabase function"""
-        arr = openDB(DB.CLEANED_GWC)
+        arr = open_database(DB.CLEANED_GWC)
         self.assertEqual(arr[0][0], "Country")
 
     def test_invalid_db(self):
         """Tests ODB with invalid DB"""
-        self.assertRaises(KeyError, openDB, "AAAAAA")
+        self.assertRaises(KeyError, open_database, "AAAAAA")
 
 
 class FilterTagsDataBaseTest(unittest.TestCase):
-    """Tests filtertagsdb"""
+    """Tests filter_tags_database"""
     def test_base(self):
         """Tests filter DB"""
-        arr = filterTagsDB(DB.AQS_DS3, ["United States of America"])
+        arr = filter_tags_database(DB.AQS_DS3, ["United States of America"])
         self.assertTrue(len(arr) > 0)
 
     def test_invalid_tag(self):
         """Tests filter DB with invalid args"""
-        arr = filterTagsDB(DB.AQS_DS3, ["THIS COUNTRY DOES NOT EXIST LOLOLOLOL"])
+        arr = filter_tags_database(DB.AQS_DS3, ["THIS COUNTRY DOES NOT EXIST LOLOLOLOL"])
         self.assertTrue(len(arr) == 0)
 
 
@@ -147,12 +147,12 @@ class UsageProportionTest(unittest.TestCase):
     def test_proportion_invalid_country(self):
         """Test invalid country input"""
         with self.assertRaises(ValueError):
-            usageProportion("Wakanda", "2023")
+            usage_proportion("Wakanda", "2023")
 
     def test_proportion_invalid_year(self):
         """Test invalid year input"""
         with self.assertRaises(ValueError):
-            usageProportion("Argentina", "3023")
+            usage_proportion("Argentina", "3023")
 
     def test_proportion_no_year(self):
         """Test missing year input"""
