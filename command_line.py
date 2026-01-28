@@ -52,7 +52,7 @@ def main():
                 print_usage_statement()
                 return
             try:
-                usage_proportion(sys.argv[2], sys.argv[3])
+                print(usage_proportion(sys.argv[2], sys.argv[3]))
             except ValueError as e:
                 print(e)
         case _:
@@ -127,11 +127,10 @@ def usage_proportion(country, year):
     ind_percent = get_usage_percentage(country, year, "Industrial")
     hsh_percent = get_usage_percentage(country, year, "Household")
 
-    print("Water usage in " + country + " in " + year + "\n")
-    print("Agricultural:", round(agc_percent, 2), "%")
-    print("Industrial:", round(ind_percent, 2), "%")
-    print("Household:", round(hsh_percent, 2), "%")
-
+    return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
+           "Agricultural:" + str(round(agc_percent, 2)) + "%\n" + \
+            "Industrial:" + str(round(ind_percent, 2)) + "%\n" + \
+                "Household:" + str(round(hsh_percent, 2)) + "%\n")
 
 def alias(var: str) -> str:
     """Used to make it so that country names don't have to be input perfectly."""

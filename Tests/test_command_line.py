@@ -149,7 +149,7 @@ class UsageProportionTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Water usage in Argentina in 2024\n\nAgricultural: 51.2 %\nIndustrial: 34.14 %\nHousehold: 23.52 %\nNone",
+            "Water usage in Argentina in 2024\nAgricultural:51.2%\nIndustrial:34.14%\nHousehold:23.52%",
         )
 
     def test_proportion_invalid_country(self):
