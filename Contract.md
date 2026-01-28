@@ -1,10 +1,3 @@
-
-
-python aquastat.py —timePointYears “1970”
-Would give all data for counties that was recorded in the year 1970
-
-I don’t think I’m currently familiar enough with CLIs to say I can confirmedly say what has been the most helpful aspect of the guidelines but just the listing of commands and what they do, as well as giving examples, if by far the most helpful thing for me in general.
-
 # Roles
 
 ## Sprint 1
