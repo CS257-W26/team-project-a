@@ -8,8 +8,8 @@ Template for long-term team projects for CS257 Software Design
 This feature allows users to see the breakdown of a country's water usage by sector (Agricultural, Industrial, and Household) for an inputted year.
 
 **Command:** `python3 command_line.py -usageProportion --country --year`  
-**Example:** `python3 command_line.py -usageProportion Canada`  
-**Output:** Agricultural: 57%, Industrial: 26.7%, Household: 26.4% 
+**Example:** `python3 command_line.py -usageProportion Argentina 2024`  
+**Output:** Agricultural: 51.2%, Industrial: 34.14%, Household: 23.52%
 
 ### Feature 2: Country Per Capita Water Usage
 This feature provides the average water usage per capita for a specified country and year.
