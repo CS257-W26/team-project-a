@@ -146,11 +146,7 @@ def alias(var: str) -> str:
 def filter_by_tags(db: [], tags: []):
     """Finds all instances in a DB with certain string args"""
     arr = []
-    for (
-        row
-    ) in (
-        db
-    ):
+    for row in db:
         matches = True
         for tag in tags:
             if tag not in row:
@@ -178,14 +174,11 @@ def get_per_capita_water_use(country: str, year: str) -> float:
     country = alias(country)
     data = open_database(DB.CLEANED_GWC)
 
-    # Skip header row
-    for row in data[1:]:
-        if row[0] == country and row[1] == year:  # match country and year
-            try:
-                return float(row[3])  # 4th column for per capita water use
-            except ValueError:
-                raise ValueError("Per capita value is missing or invalid.")
-
+    tags = [country, year]
+    
+    filtered_data = filter_by_tags(data, tags)
+    if len(filtered_data) > 0:
+        return float(filtered_data[0][3])
     raise ValueError(
         "Country or year not found. Pick another country or pick years from 2000-2024."
     )
