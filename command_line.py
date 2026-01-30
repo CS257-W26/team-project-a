@@ -37,7 +37,7 @@ def main():
             water_use_time_compare(sys.argv[2], sys.argv[3], sys.argv[4])
         case "-percapita":
             if len(sys.argv) != 4:
-                print("Usage: python3 command_line.py perCapita --country --year")
+                print_usage_statement()
                 return
             try:
                 value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
