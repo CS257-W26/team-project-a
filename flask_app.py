@@ -6,7 +6,7 @@ from flask import Flask, Blueprint
 from ProductionCode.database import DB, open_database, filter_tags_database
 from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
 from ProductionCode.usage_proportion import usage_proportion, get_usage_percentage
-from ProductionCode.per_capita import get_per_capita_water_use
+from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita_water_use
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
@@ -38,15 +38,15 @@ def usage_proportion_route(country, year):
 def per_capita_route(country, year):
     '''Per capita water use route'''
     try:
-        value = get_per_capita_water_use(country, year)
-        return f"{country}'s Water Usage per Capita: {round(value, 2)} Liters per day"
+        value = print_per_capita_water_use(country, year)
+        return value
     except ValueError as e:
         return str(e)
 
 @app.errorhandler(404)
 def page_not_found(e):
     '''Handle 404 errors'''
-    return "404 - Page Not Found", 404
+    return "Page not found", 404
 
 
 if __name__ == '__main__':

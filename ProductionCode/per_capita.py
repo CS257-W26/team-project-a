@@ -23,3 +23,10 @@ def get_per_capita_water_use(country: str, year: str) -> float:
     raise ValueError(
         "Country or year not found. Pick another country or pick years from 2000-2024."
     )
+
+def print_per_capita_water_use(country: str, year: str):
+    """Prints per capita water use for a given country and year"""
+    value = get_per_capita_water_use(country, year)
+    return(
+        f"{alias(country)}'s Water Usage per Capita: {round(value, 2)} Liters per day"
+    )

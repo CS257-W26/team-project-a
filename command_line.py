@@ -5,7 +5,7 @@ This will be the entry point for the project when run from the command line.
 
 import sys
 from ProductionCode.database import DB
-from ProductionCode.per_capita import get_per_capita_water_use
+from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.use_time_compare import water_use_time_compare
 
@@ -28,11 +28,8 @@ def main():
             print_usage_statement()
             return
         try:
-            value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
-            print(
-                f"{alias(sys.argv[2])}'s Water Usage per Capita: \
-                {round(value, 2)} Liters per day"
-            )
+            print(print_per_capita_water_use(sys.argv[2], sys.argv[3]))
+            return
         except ValueError as e:
             print(e)
     elif mode == "-usageproportion":
