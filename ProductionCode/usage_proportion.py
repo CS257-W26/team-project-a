@@ -2,7 +2,7 @@
 Feature analysis functions for water usage data.
 """
 
-from ProductionCode.database import DB, filter_tags_database, filter_by_tags, open_database
+from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
 def usage_proportion(country, year):
