@@ -1,8 +1,8 @@
 """
-Feature analysis functions for water usage data.
+Functions for the temporal comparison of water usage data
 """
 
-from ProductionCode.database import DB, filter_tags_database, filter_by_tags, open_database
+from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
 def water_use_time_compare(country: str, year1: int, year2: int):
