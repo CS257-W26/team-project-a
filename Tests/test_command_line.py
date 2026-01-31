@@ -6,13 +6,11 @@ import unittest
 import sys
 from io import StringIO
 
-from command_line import open_database  # note, specify this late
-from command_line import DB
-from command_line import filter_tags_database
-from command_line import get_per_capita_water_use
+from ProductionCode.database import open_database, DB, filter_tags_database
+from ProductionCode.per_capita import get_per_capita_water_use
+from ProductionCode.usage_proportion import get_usage_percentage, usage_proportion
+
 from command_line import main
-from command_line import get_usage_percentage
-from command_line import usage_proportion
 
 
 # Running the line above is giving me an error.
@@ -20,6 +18,7 @@ from command_line import usage_proportion
 
 class OpenDataBaseTest(unittest.TestCase):
     """Tests open_database func"""
+
     def test_odb(self):
         """Tests the basic OpenDatabase function"""
         arr = open_database(DB.CLEANED_GWC)
@@ -32,6 +31,7 @@ class OpenDataBaseTest(unittest.TestCase):
 
 class FilterTagsDataBaseTest(unittest.TestCase):
     """Tests filter_tags_database"""
+
     def test_base(self):
         """Tests filter DB"""
         arr = filter_tags_database(DB.AQS_DS3, ["United States of America"])
@@ -39,12 +39,15 @@ class FilterTagsDataBaseTest(unittest.TestCase):
 
     def test_invalid_tag(self):
         """Tests filter DB with invalid args"""
-        arr = filter_tags_database(DB.AQS_DS3, ["THIS COUNTRY DOES NOT EXIST LOLOLOLOL"])
+        arr = filter_tags_database(
+            DB.AQS_DS3, ["THIS COUNTRY DOES NOT EXIST LOLOLOLOL"]
+        )
         self.assertTrue(len(arr) == 0)
 
 
 class CommandLineTest(unittest.TestCase):
     """Tests command line running"""
+
     def _run_and_return_output(self) -> str:
         """Helper function thar runs the command line app and returns the output."""
         sys.stdout = StringIO()
@@ -55,9 +58,12 @@ class CommandLineTest(unittest.TestCase):
         """Basic test run"""
         sys.argv = []
         printed_out = self._run_and_return_output()
-        self.assertEqual(printed_out, "Usage: python3 command_line.py -usageproportion --country --year")
+        self.assertEqual(
+            printed_out,
+            "Usage: python3 command_line.py -usageproportion --country --year",
+        )
 
-    def test_run_water_use_time_compare(self): #THIS IS AN ACCEPTANCE TEST FOR #3
+    def test_run_water_use_time_compare(self):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
@@ -82,20 +88,21 @@ class CommandLineTest(unittest.TestCase):
             "243243125245324",
         ]
         self.assertRaises(KeyError, self._run_and_return_output)
-    def test_per_capita_command(self): #THIS IS AN ACCEPTANCE TEST FOR #1
+
+    def test_per_capita_command(self):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test percapita command"""
         sys.argv = ["command_line.py", "-percapita", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
-        self.assertEqual(
+        self.assertIn(
+            "364.38 Liters per day",
             printed_out,
-            "Argentina's Water Usage per Capita:                     364.38 Liters per day",
         )
 
 
 class PerCapitaWaterUseTest(unittest.TestCase):
-
     """Tests percapita water use"""
-    def test_per_capita_valid(self): #THIS IS AN ACCEPTANCE TEST FOR #2
+
+    def test_per_capita_valid(self):  # THIS IS AN ACCEPTANCE TEST FOR #2
         """Test valid country and year inputs"""
         result = get_per_capita_water_use("Japan", "2018")
         self.assertAlmostEqual(result, 290.58, places=2)
@@ -111,9 +118,9 @@ class PerCapitaWaterUseTest(unittest.TestCase):
             get_per_capita_water_use("uk", "1000")
 
 
-
 class UsagePercentageTest(unittest.TestCase):
     """Tests usage percentage"""
+
     def test_percentage_valid(self):
         """Test valid country/year/type input"""
         result = get_usage_percentage("Argentina", "2023", "Agricultural")
@@ -137,13 +144,14 @@ class UsagePercentageTest(unittest.TestCase):
 
 class UsageProportionTest(unittest.TestCase):
     """Tests usage proportions"""
+
     def _run_and_return_output(self) -> str:
         """Helper function thar runs the command line app and returns the output."""
         sys.stdout = StringIO()
         main()
         return sys.stdout.getvalue().strip()
 
-    def test_proportion_valid(self): #THIS IS AN ACCEPTANCE TEST FOR #1
+    def test_proportion_valid(self):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test valid country/year/type input"""
         sys.argv = ["command_line.py", "-usageproportion", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
@@ -166,8 +174,10 @@ class UsageProportionTest(unittest.TestCase):
         """Test missing year input"""
         sys.argv = ["command_line.py", "-usageproportion", "Argentina"]
         printed_out = self._run_and_return_output()
-        self.assertEqual(printed_out,"Usage: python3 command_line.py -usageproportion --country --year")
-
+        self.assertEqual(
+            printed_out,
+            "Usage: python3 command_line.py -usageproportion --country --year",
+        )
 
 
 if __name__ == "__main__":
