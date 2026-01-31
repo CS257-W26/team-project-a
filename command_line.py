@@ -5,11 +5,10 @@ This will be the entry point for the project when run from the command line.
 
 import sys
 from ProductionCode.database import DB
-from ProductionCode.features import (
-    water_use_time_compare,
-    usage_proportion,
-    get_per_capita_water_use,
-)
+from ProductionCode.per_capita import get_per_capita_water_use
+from ProductionCode.usage_proportion import usage_proportion
+from ProductionCode.use_time_compare import water_use_time_compare
+
 from ProductionCode.utils import alias, print_usage_statement
 
 
