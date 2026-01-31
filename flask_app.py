@@ -12,26 +12,40 @@ app = Flask(__name__)
 api = Blueprint('api', __name__)
 
 @app.route('/')
-"""Home route"""
 def home():
+    '''Home route'''
     return "Welcome to the Global Water Sources v Spending website!"
 
-
 @app.route('/water_use/<country>/<year1>/<year2>')
-"""Water use comparison route"""
+def water_use_route(country, year1, year2):
+    try:
+        result = water_use_time_compare(country, year1, year2)
+        return result
+    except ValueError as e:
+        return str(e)
 
 
 @app.route('/usage_proportion/<country>/<year>')
-"""Usage proportion route"""
-
+def usage_proportion_route(country, year):
+    '''Usage proportion route'''
+    try:
+        result = usage_proportion(country, year)
+        return result
+    except ValueError as e:
+        return str(e)
 
 @app.route('/per_capita/<country>/<year>')
-"""Per capita water use route"""
-
+def per_capita_route(country, year):
+    '''Per capita water use route'''
+    try:
+        value = get_per_capita_water_use(country, year)
+        return f"{country}'s Water Usage per Capita: {round(value, 2)} Liters per day"
+    except ValueError as e:
+        return str(e)
 
 @app.errorhandler(404)
-"""404 error handler"""
 def page_not_found(e):
+    '''Handle 404 errors'''
     return "404 - Page Not Found", 404
 
 
