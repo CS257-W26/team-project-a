@@ -85,20 +85,25 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = open_database(DB.CLEANED_GWC)
 
-    # Skip header row
-    for row in data[1:]:
-        if row[0] == country and row[1] == year:  # match country and year
-            if usagetype == "Agricultural":
-                return float(row[4])
-            if usagetype == "Industrial":
-                return float(row[5])
-            if usagetype == "Household":
-                return float(row[6])
-
+    filtered_data = filter_tags_database(
+        DB.CLEANED_GWC,
+        [
+            str(country),
+            str(year)
+        ],
+    )
+    if len(filtered_data) > 0:
+        if usagetype == "Agricultural":
+            return float(filtered_data[0][4])
+        if usagetype == "Industrial":
+            return float(filtered_data[0][5])
+        if usagetype == "Household":
+            return float(filtered_data[0][6])
     raise ValueError(
         "Country, year or usage type not found. "
         "Pick another country or pick years from 2000-2024 and make sure you are inputting \
         'Agriculture', 'Industrial' or 'Household'."
     )
+    
+    
