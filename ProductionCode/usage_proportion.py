@@ -1,5 +1,5 @@
 """
-Feature analysis functions for water usage data.
+Functions for the use-type proportions analysis of water usage data
 """
 
 from ProductionCode.database import DB, filter_tags_database
