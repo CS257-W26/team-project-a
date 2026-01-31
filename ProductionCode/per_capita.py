@@ -1,0 +1,25 @@
+"""
+Feature analysis functions for water usage data.
+"""
+
+from ProductionCode.database import DB, filter_tags_database, filter_by_tags, open_database
+from ProductionCode.utils import alias
+
+
+def get_per_capita_water_use(country: str, year: str) -> float:
+    """Returns per capita water use (liters per day) for a given country and year,\
+    Raises ValueError if country/year not found or year out of range"""
+    if not year.isdigit() or not 2000 <= int(year) <= 2024:
+        raise ValueError("Year must be between 2000 and 2024.")
+
+    country = alias(country)
+    data = open_database(DB.CLEANED_GWC)
+
+    tags = [country, year]
+    
+    filtered_data = filter_by_tags(data, tags)
+    if len(filtered_data) > 0:
+        return float(filtered_data[0][3])
+    raise ValueError(
+        "Country or year not found. Pick another country or pick years from 2000-2024."
+    )
