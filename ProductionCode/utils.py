@@ -12,13 +12,23 @@ def alias(var: str) -> str:
         case "usa" | "us" | "united states" | "united states of america" | "america":
             return "United States of America"
         case "uk" | "UK" | "united kingdom":
-            return "United Kingdom:"
+            return "United Kingdom"
         case _:
             return var
 
-def print_usage_statement():
-    """Prints le usage statement"""
-    print("Usage: python3 command_line.py -usageproportion --country --year")
+
+def check_arg_count(actual_count: int, expected_count: int) -> bool:
+    """
+    Check if the number of arguments matches the expected count.
+
+    @param actual_count: Number of arguments passed in
+    @param expected_count: Number of arguments expected
+    @return: True if counts match, False otherwise
+    """
+    if actual_count != expected_count:
+        print_help_statement()
+        return False
+    return True
 
 def print_help_statement():
     """Prints help information for the command line interface"""
