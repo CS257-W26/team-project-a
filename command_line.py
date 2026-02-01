@@ -4,12 +4,11 @@ This will be the entry point for the project when run from the command line.
 """
 
 import sys
-from ProductionCode.database import DB
-from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita_water_use
+from ProductionCode.per_capita import print_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
 
-from ProductionCode.utils import alias, print_help_statement, check_arg_count
+from ProductionCode.utils import print_help_statement, check_arg_count
 
 
 def main():
