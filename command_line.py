@@ -9,7 +9,7 @@ from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
 
-from ProductionCode.utils import alias, print_usage_statement
+from ProductionCode.utils import alias, print_usage_statement, print_help_statement
 
 
 def main():
@@ -41,6 +41,8 @@ def main():
             print(usage_proportion(sys.argv[2], sys.argv[3]))
         except ValueError as e:
             print(e)
+    elif mode == "-help":
+        print_help_statement()
     else:
         print_usage_statement()
 
