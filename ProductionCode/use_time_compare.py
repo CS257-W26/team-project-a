@@ -5,7 +5,7 @@ Functions for the temporal comparison of water usage data
 from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
-def water_use_time_compare(country: str, year1: int, year2: int):
+def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """Compares the water use of a country between 2 years"""
     country = alias(country)
 
@@ -36,12 +36,20 @@ def water_use_time_compare(country: str, year1: int, year2: int):
 
     water_use_y1 = time1[6].strip()
     water_use_y2 = time2[6].strip()
-    water_use_time_compare_print(country,year1,year2,water_use_y1,water_use_y2)
+    out = water_use_time_compare_format(country,year1,year2,water_use_y1,water_use_y2)
+    return out
+    
 
-def water_use_time_compare_print(country,year1,year2,wu1,wu2):
+def water_use_time_compare_print(out):
     """Prints the water use time compare"""
-    print("Water usage in " + country, "\n")
-    print(str(year1) + ": " + wu1 + "x10^9 cubic meters/year")
-    print(str(year2) + ": " + wu2 + "x10^9 cubic meters/year")
-    print("Difference:")
-    print(str(int(wu2) - int(wu1)) + "x10^9 cubic meters/year")
+    print(out)
+
+
+def water_use_time_compare_format(country,year1,year2,wu1,wu2):
+    """Formats the water use compare data into a printable format."""
+    out = "Water usage in " + country
+    out += "\n" + str(year1) + ": " + wu1 + "x10^9 cubic meters/year"
+    out += "\n" + str(year2) + ": " + wu2 + "x10^9 cubic meters/year"
+    out += "\n" + "Difference:"
+    out += "\n" + str(int(wu2) - int(wu1)) + "x10^9 cubic meters/year"
+    return out

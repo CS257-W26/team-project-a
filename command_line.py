@@ -7,7 +7,7 @@ import sys
 from ProductionCode.database import DB
 from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
-from ProductionCode.use_time_compare import water_use_time_compare
+from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
 
 from ProductionCode.utils import alias, print_usage_statement
 
@@ -22,7 +22,8 @@ def main():
         if len(sys.argv) <= 4:
             print("Invalid arguments.")
             return
-        water_use_time_compare(sys.argv[2], sys.argv[3], sys.argv[4])
+        out = water_use_time_compare(sys.argv[2], sys.argv[3], sys.argv[4])
+        water_use_time_compare_print(out)
     elif mode == "-percapita":
         if len(sys.argv) != 4:
             print_usage_statement()

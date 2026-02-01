@@ -69,7 +69,7 @@ class CommandLineTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Water usage in United States of America \n\n2001: 1829x10^9 cubic meters/year\n2003: 1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year",
+            "Water usage in United States of America\n2001: 1829x10^9 cubic meters/year\n2003: 1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year",
         )
 
     def test_run_water_use_time_compare_fail(self):
