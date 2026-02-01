@@ -6,8 +6,11 @@ from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
 def usage_proportion(country, year):
-    """Returns the proportial usage of Agricultural, \
-    Industrial and Household water usage in terms of percentage"""
+    """
+    @param country: The country to get usage proportions for
+    @param year: The year to get usage proportions for
+    @return: The water usage proportions for the given country and year
+    """
 
     agc_percent = get_usage_percentage(country, year, "Agricultural")
     ind_percent = get_usage_percentage(country, year, "Industrial")
@@ -19,8 +22,12 @@ def usage_proportion(country, year):
                 "Household:" + str(round(hsh_percent, 2)) + "%\n")
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
-    """Returns percentage for usage for a given country and year.\
-    Raises ValueError if country/year not found or year out of range"""
+    """
+    @param country: The country to get usage proportions for
+    @param year: The year to get usage proportions for
+    @param usagetype: The type of usage to get percentage for
+    @return: The percentage of water usage for the given usage type in the specified country and year
+    """
 
     if not year.isdigit() or not 2000 <= int(year) <= 2024:
         raise ValueError("Year must be between 2000 and 2024.")

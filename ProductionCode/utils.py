@@ -3,7 +3,11 @@ Utility functions for string formatting and aliases.
 """
 
 def alias(var: str) -> str:
-    """Used to make it so that country names don't have to be input perfectly."""
+    """Used to make it so that country names don't have to be input perfectly.
+    
+    @param var: The country name input by the user
+    @return: The standardized country name
+    """
     match var.lower():
         case "usa" | "us" | "united states" | "united states of america" | "america":
             return "United States of America"

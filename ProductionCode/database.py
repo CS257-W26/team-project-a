@@ -16,7 +16,12 @@ class DB(Enum):
     CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
 
 def open_database(database: DB):
-    """Returns an array for the spesificed database. EG: open_database(DB.AQS_DS3)"""
+    """
+    Returns an array for the spesificed database. EG: open_database(DB.AQS_DS3)
+    
+    @param database: The database to open
+    @return: List of the database contents
+    """
     if database not in list(DB):
         raise KeyError
     arr = []
@@ -27,7 +32,12 @@ def open_database(database: DB):
         return arr
 
 def filter_by_tags(db: [], tags: []):
-    """Finds all instances in a DB with certain string args"""
+    """Finds all instances in a DB with certain string args
+    
+    @param db: The database to filter
+    @param tags: The tags to filter by
+    @return: List of rows matching the tags
+    """
     arr = []
     for row in db:
         matches = True
@@ -41,7 +51,12 @@ def filter_by_tags(db: [], tags: []):
     return arr
 
 def filter_tags_database(database: DB, tags: []):
-    """Takes a database (enum) and an array of string tags. Returns all matches from\
-    the spesified DB. EG: filter_by_tagsDB(DB.CLEANED_GWC,['USA','2001'])"""
+    """
+    Takes a database (enum) and an array of string tags. Returns all matches from\
+    the spesified DB. EG: filter_by_tagsDB(DB.CLEANED_GWC,['USA','2001'])
+    
+    @param database: The database to filter
+    @param tags: The tags to filter by
+    @return: List of rows matching the tags"""
     arr = open_database(database)
     return filter_by_tags(arr, tags)
