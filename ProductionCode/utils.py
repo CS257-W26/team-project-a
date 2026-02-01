@@ -31,9 +31,8 @@ def check_arg_count(actual_count: int, expected_count: int) -> bool:
     return True
 
 def print_help_statement():
-    """Prints help information for the command line interface"""
-    help_text = """
-    COMMANDS:
+    """Returns help information for the command line interface"""
+    help_text = """COMMANDS:
     -usageproportion <country> <year>
         Shows water usage breakdown by sector (Agricultural, Industrial, Household)
         Example: python3 command_line.py -usageproportion Argentina 2024
@@ -48,6 +47,6 @@ def print_help_statement():
 
     NOTES:
     • Available years: 2000-2024
-    • Country names support aliases (USA, UK, etc.)
-    """
+    • Country names support aliases (USA, UK, etc.)"""
     print(help_text)
+    return help_text

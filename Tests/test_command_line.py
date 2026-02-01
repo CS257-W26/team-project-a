@@ -9,7 +9,7 @@ from io import StringIO
 from ProductionCode.database import open_database, DB, filter_tags_database
 from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import get_usage_percentage, usage_proportion
-
+from ProductionCode.utils import print_help_statement
 from command_line import main
 
 
@@ -60,7 +60,7 @@ class CommandLineTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Usage: python3 command_line.py -usageproportion --country --year",
+            print_help_statement().strip(),
         )
 
     def test_run_water_use_time_compare(self):  # THIS IS AN ACCEPTANCE TEST FOR #3
@@ -76,7 +76,7 @@ class CommandLineTest(unittest.TestCase):
         """Tests invalid water use compare"""
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001"]
         printed_out = self._run_and_return_output()
-        self.assertEqual(printed_out, "Invalid arguments.")
+        self.assertEqual(printed_out, print_help_statement().strip())
 
     def test_run_water_use_time_compare_invalid_year(self):
         """Tests invalid water use compare with bad year"""
@@ -176,7 +176,7 @@ class UsageProportionTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Usage: python3 command_line.py -usageproportion --country --year",
+            print_help_statement().strip(),
         )
 
 
