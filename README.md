@@ -9,7 +9,12 @@ This feature allows users to see the breakdown of a country's water usage by sec
 
 **Command:** `python3 command_line.py -usageProportion --country --year`  
 **Example:** `python3 command_line.py -usageProportion Argentina 2024`  
-**Output:** Agricultural: 51.2%, Industrial: 34.14%, Household: 23.52%
+**Output:** Water usage in Argentina in 2024 Agricultural:51.2% Industrial:34.14% Household:23.52%
+
+Alternatively, one can use Flask. By running the Flask program and updating the url one can obtain the same result
+**URL Addition:** `/usage_proportion/<country>/<year>`
+**Example:** `/usage_proportion/Argentina/2024`
+**Output:** Water usage in Argentina in 2024 Agricultural:51.2% Industrial:34.14% Household:23.52%
 
 ### Feature 2: Country Per Capita Water Usage
 This feature provides the average water usage per capita for a specified country and year.
@@ -20,12 +25,23 @@ This feature provides the average water usage per capita for a specified country
 
 If the year or country is not available, an error message will suggest selecting another country or years from 2000-2024.
 
+Alternatively, one can use Flask. By running the Flask program and updating the url one can obtain the same result
+**URL Addition:** `/per_capita/<country>/<year>`
+**Example:** `/per_capita/Japan/2018`
+**Output:** Japan's Water Usage per Capita: 290.58 Liters per day
+
 ### Feature 3: Water Usage Over Time
 This feature compares a country's water usage between two specified years, showing the values for each year and the change over time.
 
 **Command:** `python3 command_line.py -usageovertime --country --year1 --year2`  
 **Example:** `python3 command_line.py -usageovertime US 2003 2004`  
-**Output:** Water usage for 2022: , Water usage for 2025:, Change:
+**Output:** Water usage in United States of America 2003: 1829x10^9 cubic meters/year 2004: 1829x10^9 cubic meters/year Difference: 0x10^9 cubic meters/year
+
+Alternatively, one can use Flask. By running the Flask program and updating the url one can obtain the same result
+**URL Addition:** `/water_use/<country>/<year1>/<year2>`
+**Example:** `/water_use/US/2003/2004`
+**Output:** Water usage in United States of America 2003: 1829x10^9 cubic meters/year 2004: 1829x10^9 cubic meters/year Difference: 0x10^9 cubic meters/year
+
 
 ## How to Use the Commands
 Type in `python3 command_line.py` followed by the appropriate arguments for the feature you want to use, separated by spaces.  
