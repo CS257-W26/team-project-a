@@ -1,8 +1,6 @@
 '''Tests flask app file'''
 
 import unittest
-import sys
-from io import StringIO
 from flask_app import home, water_use_route, usage_proportion_route, per_capita_route, page_not_found
 
 
