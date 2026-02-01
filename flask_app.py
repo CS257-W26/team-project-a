@@ -1,12 +1,11 @@
 '''
-The eventual location for the Flask app interface for the project.
+The location for the Flask app interface for the project.
 '''
 
 from flask import Flask, Blueprint 
-from ProductionCode.database import DB, open_database, filter_tags_database
-from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
-from ProductionCode.usage_proportion import usage_proportion, get_usage_percentage
-from ProductionCode.per_capita import get_per_capita_water_use, print_per_capita_water_use
+from ProductionCode.use_time_compare import water_use_time_compare
+from ProductionCode.usage_proportion import usage_proportion
+from ProductionCode.per_capita import print_per_capita_water_use
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
