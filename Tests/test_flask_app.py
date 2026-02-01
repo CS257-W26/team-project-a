@@ -31,7 +31,7 @@ class FlaskTest(unittest.TestCase):
             "Argentina's Water Usage per Capita: 265.32 Liters per day")
     
     def test_water_usage_right(self):
-        """Tests the intended Flask outcome """
+        """Tests the intended Flask outcome for water usage difference"""
         result = water_use_route("usa", "2018", "2020")
         self.assertEqual(result,
             "Water usage in United States of America\n2018: 1829x10^9 cubic meters/year\n2020: 1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year")
