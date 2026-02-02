@@ -6,7 +6,7 @@ import unittest
 import sys
 from io import StringIO
 
-from ProductionCode.database import open_database, DB, filter_tags_database
+from ProductionCode.database import open_database, DB, filter_tags_database, id_to_db
 from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import get_usage_percentage, usage_proportion
 from ProductionCode.utils import print_help_statement
@@ -27,6 +27,14 @@ class OpenDataBaseTest(unittest.TestCase):
     def test_invalid_db(self):
         """Tests ODB with invalid DB"""
         self.assertRaises(KeyError, open_database, "AAAAAA")
+
+    def test_id_convert(self):
+        """Tests ID to db converter"""
+        self.assertEqual(id_to_db(0),DB.AQS_DS3)
+        self.assertEqual(id_to_db(1),DB.AQS_DS6)
+        self.assertEqual(id_to_db(2),DB.AQS_WR)
+        self.assertEqual(id_to_db(3),DB.AQS_WU)
+        self.assertEqual(id_to_db(4),DB.CLEANED_GWC)
 
 
 class FilterTagsDataBaseTest(unittest.TestCase):
