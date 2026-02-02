@@ -19,7 +19,6 @@ def get_per_capita_water_use(country: str, year: str) -> float:
     data = open_database(DB.CLEANED_GWC)
 
     tags = [country, year]
-    
     filtered_data = filter_by_tags(data, tags)
     if len(filtered_data) > 0:
         return float(filtered_data[0][3])

@@ -18,6 +18,7 @@ def home():
 
 @app.route('/water_use/<country>/<year1>/<year2>/')
 def water_use_route(country, year1, year2):
+    """Route for water use."""
     try:
         result = water_use_time_compare(country, year1, year2)
         return result
@@ -55,7 +56,7 @@ def get_database_row(database_id,row):
 @app.errorhandler(404)
 def page_not_found(e):
     '''Handle 404 errors'''
-    return "Page not found. Try re-entering the link."
+    return "Page not found. Try re-entering the link. Error: " + str(e)
 
 
 if __name__ == '__main__':

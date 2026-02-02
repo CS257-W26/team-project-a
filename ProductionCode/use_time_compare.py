@@ -45,7 +45,6 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     water_use_y2 = time2[6].strip()
     out = water_use_time_compare_format(country, year1, year2, water_use_y1, water_use_y2)
     return out
-    
 
 def water_use_time_compare_print(out):
     """Prints the water use time compare

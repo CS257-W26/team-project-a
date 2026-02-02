@@ -42,7 +42,7 @@ def open_database(database: DB):
     if database not in list(DB):
         raise KeyError
     arr = []
-    with open(database.value, newline="") as csvfile:
+    with open(database.value, newline="",encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile, delimiter=",", quotechar="|")
         for row in reader:
             arr.append(row)

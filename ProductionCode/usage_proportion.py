@@ -26,7 +26,8 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
     @param country: The country to get usage proportions for
     @param year: The year to get usage proportions for
     @param usagetype: The type of usage to get percentage for
-    @return: The percentage of water usage for the given usage type in the specified country and year
+    @return: The percentage of water usage for the given usage type 
+    in the specified country and year
     """
 
     if not year.isdigit() or not 2000 <= int(year) <= 2024:
