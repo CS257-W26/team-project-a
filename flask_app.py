@@ -2,10 +2,11 @@
 The location for the Flask app interface for the project.
 '''
 
-from flask import Flask, Blueprint 
+from flask import Flask, Blueprint
 from ProductionCode.use_time_compare import water_use_time_compare
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.per_capita import print_per_capita_water_use
+from ProductionCode.database import open_database, id_to_db
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
@@ -42,10 +43,19 @@ def per_capita_route(country, year):
     except ValueError as e:
         return str(e)
 
+@api.route('/<int:database_id>/<int:row>')
+def get_database_row(database_id,row):
+    """API route for directly accessing the database."""
+    try:
+        value = open_database(id_to_db(database_id))[row]
+        return value
+    except IndexError:
+        return "Could not find the requested row or database. Valid database ids are 0-4 inclusive."
+
 @app.errorhandler(404)
 def page_not_found(e):
     '''Handle 404 errors'''
-    return "Page not found", 404
+    return "Page not found. Try re-entering the link."
 
 
 if __name__ == '__main__':

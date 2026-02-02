@@ -14,6 +14,23 @@ class DB(Enum):
     AQS_WR = "Data/AQUASTAT-Water Resources.csv"
     AQS_WU = "Data/AQUASTAT-Water Use.csv"
     CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
+    DATABASES = [AQS_DS3,AQS_DS6,AQS_WR,AQS_WU,CLEANED_GWC]
+
+def id_to_db(iden:int) -> DB:
+    """Maps integer IDs to enum values."""
+    if iden == 0:
+        return DB.AQS_DS3
+    if iden == 1:
+        return DB.AQS_DS6
+    if iden == 2:
+        return DB.AQS_WR
+    if iden == 3:
+        return DB.AQS_WU
+    if iden == 4:
+        return DB.CLEANED_GWC
+
+    raise IndexError
+
 
 def open_database(database: DB):
     """
