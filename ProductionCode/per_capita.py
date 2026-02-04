@@ -2,7 +2,7 @@
 Functions for the per capita analysis of water usage data
 """
 
-from ProductionCode.database import DB, filter_by_tags, open_database
+from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
 
@@ -15,11 +15,7 @@ def get_per_capita_water_use(country: str, year: str) -> float:
     if not year.isdigit() or not 2000 <= int(year) <= 2024:
         raise ValueError("Year must be between 2000 and 2024.")
 
-    country = alias(country)
-    data = open_database(DB.CLEANED_GWC)
-
-    tags = [country, year]
-    filtered_data = filter_by_tags(data, tags)
+    filtered_data = filter_tags_database(DB.CLEANED_GWC, [country, year])
     if len(filtered_data) > 0:
         return float(filtered_data[0][3])
     raise ValueError(
