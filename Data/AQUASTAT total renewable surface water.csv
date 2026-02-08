@@ -1,0 +1,849 @@
+Area,Year,Exploitable: total renewable surface water
+Albania,2000,3
+Albania,2001,3
+Albania,2002,3
+Albania,2003,3
+Albania,2004,3
+Albania,2005,3
+Albania,2006,3
+Albania,2007,3
+Albania,2008,3
+Albania,2009,3
+Albania,2010,3
+Albania,2011,3
+Albania,2012,3
+Albania,2013,3
+Albania,2014,3
+Albania,2015,3
+Albania,2016,3
+Albania,2017,3
+Albania,2018,3
+Albania,2019,3
+Albania,2020,3
+Albania,2021,3
+Albania,2022,3
+Algeria,2000,6
+Algeria,2001,6
+Algeria,2002,6
+Algeria,2003,6
+Algeria,2004,6
+Algeria,2005,6
+Algeria,2006,6
+Algeria,2007,6
+Algeria,2008,6
+Algeria,2009,6
+Algeria,2010,6
+Algeria,2011,6
+Algeria,2012,6
+Algeria,2013,6
+Algeria,2014,6
+Algeria,2015,6
+Algeria,2016,6
+Algeria,2017,6
+Algeria,2018,6
+Algeria,2019,6
+Algeria,2020,6
+Algeria,2021,6
+Algeria,2022,6
+Australia,2000,118
+Australia,2001,118
+Australia,2002,118
+Australia,2003,118
+Australia,2004,118
+Australia,2005,118
+Australia,2006,118
+Australia,2007,118
+Australia,2008,118
+Australia,2009,118
+Australia,2010,118
+Australia,2011,118
+Australia,2012,118
+Australia,2013,118
+Australia,2014,118
+Australia,2015,118
+Australia,2016,118
+Australia,2017,118
+Australia,2018,118
+Australia,2019,118
+Australia,2020,118
+Australia,2021,118
+Australia,2022,118
+Austria,2000,62
+Austria,2001,62
+Austria,2002,62
+Austria,2003,62
+Austria,2004,62
+Austria,2005,62
+Austria,2006,62
+Austria,2007,62
+Austria,2008,62
+Austria,2009,62
+Austria,2010,62
+Austria,2011,62
+Austria,2012,62
+Austria,2013,62
+Austria,2014,62
+Austria,2015,62
+Austria,2016,62
+Austria,2017,62
+Austria,2018,62
+Austria,2019,62
+Austria,2020,62
+Austria,2021,62
+Austria,2022,62
+Burkina Faso,2011,4.75
+Burkina Faso,2012,4.75
+Burkina Faso,2013,4.75
+Burkina Faso,2014,4.75
+Burkina Faso,2015,4.75
+Burkina Faso,2016,4.75
+Burkina Faso,2017,4.75
+Burkina Faso,2018,4.75
+Burkina Faso,2019,4.75
+Burkina Faso,2020,4.75
+Burkina Faso,2021,4.75
+Burkina Faso,2022,4.75
+Cuba,2000,18
+Cuba,2001,18
+Cuba,2002,18
+Cuba,2003,18
+Cuba,2004,18
+Cuba,2005,18
+Cuba,2006,18
+Cuba,2007,18
+Cuba,2008,18
+Cuba,2009,18
+Cuba,2010,18
+Cuba,2011,18
+Cuba,2012,18
+Cuba,2013,18
+Cuba,2014,18
+Cuba,2015,18
+Cuba,2016,18
+Cuba,2017,18
+Cuba,2018,18
+Cuba,2019,18
+Cuba,2020,18
+Cuba,2021,18
+Cuba,2022,18
+Cyprus,2000,0.34
+Cyprus,2001,0.34
+Cyprus,2002,0.34
+Cyprus,2003,0.34
+Cyprus,2004,0.34
+Cyprus,2005,0.34
+Cyprus,2006,0.34
+Cyprus,2007,0.34
+Cyprus,2008,0.34
+Cyprus,2009,0.34
+Cyprus,2010,0.34
+Cyprus,2011,0.34
+Cyprus,2012,0.34
+Cyprus,2013,0.34
+Cyprus,2014,0.34
+Cyprus,2015,0.34
+Cyprus,2016,0.34
+Cyprus,2017,0.34
+Cyprus,2018,0.34
+Cyprus,2019,0.34
+Cyprus,2020,0.34
+Cyprus,2021,0.34
+Cyprus,2022,0.34
+Côte d'Ivoire,2000,39
+Côte d'Ivoire,2001,39
+Côte d'Ivoire,2002,39
+Côte d'Ivoire,2003,39
+Côte d'Ivoire,2004,39
+Côte d'Ivoire,2005,39
+Côte d'Ivoire,2006,39
+Côte d'Ivoire,2007,39
+Côte d'Ivoire,2008,39
+Côte d'Ivoire,2009,39
+Côte d'Ivoire,2010,39
+Côte d'Ivoire,2011,39
+Côte d'Ivoire,2012,39
+Côte d'Ivoire,2013,39
+Côte d'Ivoire,2014,39
+Côte d'Ivoire,2015,39
+Côte d'Ivoire,2016,39
+Côte d'Ivoire,2017,39
+Côte d'Ivoire,2018,39
+Côte d'Ivoire,2019,39
+Côte d'Ivoire,2020,39
+Côte d'Ivoire,2021,39
+Côte d'Ivoire,2022,39
+Egypt,2000,49
+Egypt,2001,49
+Egypt,2002,49
+Egypt,2003,49
+Egypt,2004,49
+Egypt,2005,49
+Egypt,2006,49
+Egypt,2007,49
+Egypt,2008,49
+Egypt,2009,49
+Egypt,2010,49
+Egypt,2011,49
+Egypt,2012,49
+Egypt,2013,49
+Egypt,2014,49
+Egypt,2015,49
+Egypt,2016,49
+Egypt,2017,49
+Egypt,2018,49
+Egypt,2019,49
+Egypt,2020,49
+Egypt,2021,49
+Egypt,2022,49
+France,2000,70
+France,2001,70
+France,2002,70
+France,2003,70
+France,2004,70
+France,2005,70
+France,2006,70
+France,2007,70
+France,2008,70
+France,2009,70
+France,2010,70
+France,2011,70
+France,2012,70
+France,2013,70
+France,2014,70
+France,2015,70
+France,2016,70
+France,2017,70
+France,2018,70
+France,2019,70
+France,2020,70
+France,2021,70
+France,2022,70
+Greece,2000,26
+Greece,2001,26
+Greece,2002,26
+Greece,2003,26
+Greece,2004,26
+Greece,2005,26
+Greece,2006,26
+Greece,2007,26
+Greece,2008,26
+Greece,2009,26
+Greece,2010,26
+Greece,2011,26
+Greece,2012,26
+Greece,2013,26
+Greece,2014,26
+Greece,2015,26
+Greece,2016,26
+Greece,2017,26
+Greece,2018,26
+Greece,2019,26
+Greece,2020,26
+Greece,2021,26
+Greece,2022,26
+Guinea,2000,166
+Guinea,2001,166
+Guinea,2002,166
+Guinea,2003,166
+Guinea,2004,166
+Guinea,2005,166
+Guinea,2006,166
+Guinea,2007,166
+Guinea,2008,166
+Guinea,2009,166
+Guinea,2010,166
+Guinea,2011,166
+Guinea,2012,166
+Guinea,2013,166
+Guinea,2014,166
+Guinea,2015,166
+Guinea,2016,166
+Guinea,2017,166
+Guinea,2018,166
+Guinea,2019,166
+Guinea,2020,166
+Guinea,2021,166
+Guinea,2022,166
+India,2003,690
+India,2004,690
+India,2005,690
+India,2006,690
+India,2007,690
+India,2008,690
+India,2009,690
+India,2010,690
+India,2011,690
+India,2012,690
+India,2013,690
+India,2014,690
+India,2015,690
+India,2016,690
+India,2017,690
+India,2018,690
+India,2019,690
+India,2020,690
+India,2021,690
+India,2022,690
+Indonesia,2000,1973
+Indonesia,2001,1973
+Indonesia,2002,1973
+Indonesia,2003,1973
+Indonesia,2004,1973
+Indonesia,2005,1973
+Indonesia,2006,1973
+Indonesia,2007,1973
+Indonesia,2008,1973
+Indonesia,2009,1973
+Indonesia,2010,1973
+Indonesia,2011,1973
+Indonesia,2012,1973
+Indonesia,2013,1973
+Indonesia,2014,1973
+Indonesia,2015,1973
+Indonesia,2016,1973
+Indonesia,2017,1973
+Indonesia,2018,1973
+Indonesia,2019,1973
+Indonesia,2020,1973
+Indonesia,2021,1973
+Indonesia,2022,1973
+Ireland,2000,40
+Ireland,2001,40
+Ireland,2002,40
+Ireland,2003,40
+Ireland,2004,40
+Ireland,2005,40
+Ireland,2006,40
+Ireland,2007,40
+Ireland,2008,40
+Ireland,2009,40
+Ireland,2010,40
+Ireland,2011,40
+Ireland,2012,40
+Ireland,2013,40
+Ireland,2014,40
+Ireland,2015,40
+Ireland,2016,40
+Ireland,2017,40
+Ireland,2018,40
+Ireland,2019,40
+Ireland,2020,40
+Ireland,2021,40
+Ireland,2022,40
+Israel,2000,0.636
+Israel,2001,0.636
+Israel,2002,0.636
+Israel,2003,0.636
+Israel,2004,0.636
+Israel,2005,0.636
+Israel,2006,0.636
+Israel,2007,0.636
+Israel,2008,0.636
+Israel,2009,0.636
+Israel,2010,0.636
+Israel,2011,0.636
+Israel,2012,0.636
+Israel,2013,0.636
+Israel,2014,0.636
+Israel,2015,0.636
+Israel,2016,0.636
+Israel,2017,0.636
+Israel,2018,0.636
+Israel,2019,0.636
+Israel,2020,0.636
+Israel,2021,0.636
+Israel,2022,0.636
+Italy,2000,110
+Italy,2001,110
+Italy,2002,110
+Italy,2003,110
+Italy,2004,110
+Italy,2005,110
+Italy,2006,110
+Italy,2007,110
+Italy,2008,110
+Italy,2009,110
+Italy,2010,110
+Italy,2011,110
+Italy,2012,110
+Italy,2013,110
+Italy,2014,110
+Italy,2015,110
+Italy,2016,110
+Italy,2017,110
+Italy,2018,110
+Italy,2019,110
+Italy,2020,110
+Italy,2021,110
+Italy,2022,110
+Jamaica,2000,1.926
+Jamaica,2001,1.926
+Jamaica,2002,1.926
+Jamaica,2003,1.926
+Jamaica,2004,1.926
+Jamaica,2005,1.926
+Jamaica,2006,1.926
+Jamaica,2007,1.926
+Jamaica,2008,1.926
+Jamaica,2009,1.926
+Jamaica,2010,1.926
+Jamaica,2011,1.926
+Jamaica,2012,1.926
+Jamaica,2013,1.926
+Jamaica,2014,1.926
+Jamaica,2015,1.926
+Jamaica,2016,1.926
+Jamaica,2017,1.926
+Jamaica,2018,1.926
+Jamaica,2019,1.926
+Jamaica,2020,1.926
+Jamaica,2021,1.926
+Jamaica,2022,1.926
+Lebanon,2000,1.58
+Lebanon,2001,1.58
+Lebanon,2002,1.58
+Lebanon,2003,1.58
+Lebanon,2004,1.58
+Lebanon,2005,1.58
+Lebanon,2006,1.58
+Lebanon,2007,1.58
+Lebanon,2008,1.58
+Lebanon,2009,1.58
+Lebanon,2010,1.58
+Lebanon,2011,1.58
+Lebanon,2012,1.58
+Lebanon,2013,1.58
+Lebanon,2014,1.58
+Lebanon,2015,1.58
+Lebanon,2016,1.58
+Lebanon,2017,1.58
+Lebanon,2018,1.58
+Lebanon,2019,1.58
+Lebanon,2020,1.58
+Lebanon,2021,1.58
+Lebanon,2022,1.58
+Libya,2000,0.135
+Libya,2001,0.135
+Libya,2002,0.135
+Libya,2003,0.135
+Libya,2004,0.135
+Libya,2005,0.135
+Libya,2006,0.135
+Libya,2007,0.135
+Libya,2008,0.135
+Libya,2009,0.135
+Libya,2010,0.135
+Libya,2011,0.135
+Libya,2012,0.135
+Libya,2013,0.135
+Libya,2014,0.135
+Libya,2015,0.135
+Libya,2016,0.135
+Libya,2017,0.135
+Libya,2018,0.135
+Libya,2019,0.135
+Libya,2020,0.135
+Libya,2021,0.135
+Libya,2022,0.135
+Luxembourg,2000,2
+Luxembourg,2001,2
+Luxembourg,2002,2
+Luxembourg,2003,2
+Luxembourg,2004,2
+Luxembourg,2005,2
+Luxembourg,2006,2
+Luxembourg,2007,2
+Luxembourg,2008,2
+Luxembourg,2009,2
+Luxembourg,2010,2
+Luxembourg,2011,2
+Luxembourg,2012,2
+Luxembourg,2013,2
+Luxembourg,2014,2
+Luxembourg,2015,2
+Luxembourg,2016,2
+Luxembourg,2017,2
+Luxembourg,2018,2
+Luxembourg,2019,2
+Luxembourg,2020,2
+Luxembourg,2021,2
+Luxembourg,2022,2
+Malta,2000,0.0004
+Malta,2001,0.0004
+Malta,2002,0.0004
+Malta,2003,0.0004
+Malta,2004,0.0004
+Malta,2005,0.0004
+Malta,2006,0.0004
+Malta,2007,0.0004
+Malta,2008,0.0004
+Malta,2009,0.0004
+Malta,2010,0.0004
+Malta,2011,0.0004
+Malta,2012,0.0004
+Malta,2013,0.0004
+Malta,2014,0.0004
+Malta,2015,0.0004
+Malta,2016,0.0004
+Malta,2017,0.0004
+Malta,2018,0.0004
+Malta,2019,0.0004
+Malta,2020,0.0004
+Malta,2021,0.0004
+Malta,2022,0.0004
+Mauritius,2000,0.915
+Mauritius,2001,0.915
+Mauritius,2002,0.915
+Mauritius,2003,0.915
+Mauritius,2004,0.915
+Mauritius,2005,0.915
+Mauritius,2006,0.915
+Mauritius,2007,0.915
+Mauritius,2008,0.915
+Mauritius,2009,0.915
+Mauritius,2010,0.915
+Mauritius,2011,0.915
+Mauritius,2012,0.915
+Mauritius,2013,0.915
+Mauritius,2014,0.915
+Mauritius,2015,0.915
+Mauritius,2016,0.915
+Mauritius,2017,0.915
+Mauritius,2018,0.915
+Mauritius,2019,0.915
+Mauritius,2020,0.915
+Mauritius,2021,0.915
+Mauritius,2022,0.915
+Morocco,2000,16
+Morocco,2001,16
+Morocco,2002,16
+Morocco,2003,16
+Morocco,2004,16
+Morocco,2005,16
+Morocco,2006,16
+Morocco,2007,16
+Morocco,2008,16
+Morocco,2009,16
+Morocco,2010,16
+Morocco,2011,16
+Morocco,2012,16
+Morocco,2013,16
+Morocco,2014,16
+Morocco,2015,16
+Morocco,2016,16
+Morocco,2017,16
+Morocco,2018,16
+Morocco,2019,16
+Morocco,2020,16
+Morocco,2021,16
+Morocco,2022,16
+Namibia,2000,0.35
+Namibia,2001,0.35
+Namibia,2002,0.35
+Namibia,2003,0.35
+Namibia,2004,0.35
+Namibia,2005,0.35
+Namibia,2006,0.35
+Namibia,2007,0.35
+Namibia,2008,0.35
+Namibia,2009,0.35
+Namibia,2010,0.35
+Namibia,2011,0.35
+Namibia,2012,0.35
+Namibia,2013,0.35
+Namibia,2014,0.35
+Namibia,2015,0.35
+Namibia,2016,0.35
+Namibia,2017,0.35
+Namibia,2018,0.35
+Namibia,2019,0.35
+Namibia,2020,0.35
+Namibia,2021,0.35
+Namibia,2022,0.35
+Norway,2000,275
+Norway,2001,275
+Norway,2002,275
+Norway,2003,275
+Norway,2004,275
+Norway,2005,275
+Norway,2006,275
+Norway,2007,275
+Norway,2008,275
+Norway,2009,275
+Norway,2010,275
+Norway,2011,275
+Norway,2012,275
+Norway,2013,275
+Norway,2014,275
+Norway,2015,275
+Norway,2016,275
+Norway,2017,275
+Norway,2018,275
+Norway,2019,275
+Norway,2020,275
+Norway,2021,275
+Norway,2022,275
+Oman,2000,0
+Oman,2001,0
+Oman,2002,0
+Oman,2003,0
+Oman,2004,0
+Oman,2005,0
+Oman,2006,0
+Oman,2007,0
+Oman,2008,0
+Oman,2009,0
+Oman,2010,0
+Oman,2011,0
+Oman,2012,0
+Oman,2013,0
+Oman,2014,0
+Oman,2015,0
+Oman,2016,0
+Oman,2017,0
+Oman,2018,0
+Oman,2019,0
+Oman,2020,0
+Oman,2021,0
+Oman,2022,0
+Palestine,2000,0.175
+Palestine,2001,0.175
+Palestine,2002,0.175
+Palestine,2003,0.175
+Palestine,2004,0.175
+Palestine,2005,0.175
+Palestine,2006,0.175
+Palestine,2007,0.175
+Palestine,2008,0.175
+Palestine,2009,0.175
+Palestine,2010,0.175
+Palestine,2011,0.175
+Palestine,2012,0.175
+Palestine,2013,0.175
+Palestine,2014,0.175
+Palestine,2015,0.175
+Palestine,2016,0.175
+Palestine,2017,0.175
+Palestine,2018,0.175
+Palestine,2019,0.175
+Palestine,2020,0.175
+Palestine,2021,0.175
+Palestine,2022,0.175
+Philippines,2000,125.8
+Philippines,2001,125.8
+Philippines,2002,125.8
+Philippines,2003,125.8
+Philippines,2004,125.8
+Philippines,2005,125.8
+Philippines,2006,125.8
+Philippines,2007,125.8
+Philippines,2008,125.8
+Philippines,2009,125.8
+Philippines,2010,125.8
+Philippines,2011,125.8
+Philippines,2012,125.8
+Philippines,2013,125.8
+Philippines,2014,125.8
+Philippines,2015,125.8
+Philippines,2016,125.8
+Philippines,2017,125.8
+Philippines,2018,125.8
+Philippines,2019,125.8
+Philippines,2020,125.8
+Philippines,2021,125.8
+Philippines,2022,125.8
+Portugal,2000,9
+Portugal,2001,9
+Portugal,2002,9
+Portugal,2003,9
+Portugal,2004,9
+Portugal,2005,9
+Portugal,2006,9
+Portugal,2007,9
+Portugal,2008,9
+Portugal,2009,9
+Portugal,2010,9
+Portugal,2011,9
+Portugal,2012,9
+Portugal,2013,9
+Portugal,2014,9
+Portugal,2015,9
+Portugal,2016,9
+Portugal,2017,9
+Portugal,2018,9
+Portugal,2019,9
+Portugal,2020,9
+Portugal,2021,9
+Portugal,2022,9
+South Africa,2000,10.93
+South Africa,2001,10.93
+South Africa,2002,10.93
+South Africa,2003,10.93
+South Africa,2004,10.93
+South Africa,2005,10.93
+South Africa,2006,10.93
+South Africa,2007,10.93
+South Africa,2008,10.93
+South Africa,2009,10.93
+South Africa,2010,10.93
+South Africa,2011,10.93
+South Africa,2012,10.93
+South Africa,2013,10.93
+South Africa,2014,10.93
+South Africa,2015,10.93
+South Africa,2016,10.93
+South Africa,2017,10.93
+South Africa,2018,10.93
+South Africa,2019,10.93
+South Africa,2020,10.93
+South Africa,2021,10.93
+South Africa,2022,10.93
+Spain,2000,41.8
+Spain,2001,41.8
+Spain,2002,41.8
+Spain,2003,41.8
+Spain,2004,41.8
+Spain,2005,41.8
+Spain,2006,41.8
+Spain,2007,41.8
+Spain,2008,41.8
+Spain,2009,41.8
+Spain,2010,41.8
+Spain,2011,41.8
+Spain,2012,41.8
+Spain,2013,41.8
+Spain,2014,41.8
+Spain,2015,41.8
+Spain,2016,41.8
+Spain,2017,41.8
+Spain,2018,41.8
+Spain,2019,41.8
+Spain,2020,41.8
+Spain,2021,41.8
+Spain,2022,41.8
+Switzerland,2000,0
+Switzerland,2001,0
+Switzerland,2002,0
+Switzerland,2003,0
+Switzerland,2004,0
+Switzerland,2005,0
+Switzerland,2006,0
+Switzerland,2007,0
+Switzerland,2008,0
+Switzerland,2009,0
+Switzerland,2010,0
+Switzerland,2011,0
+Switzerland,2012,0
+Switzerland,2013,0
+Switzerland,2014,0
+Switzerland,2015,0
+Switzerland,2016,0
+Switzerland,2017,0
+Switzerland,2018,0
+Switzerland,2019,0
+Switzerland,2020,0
+Switzerland,2021,0
+Switzerland,2022,0
+Syrian Arab Republic,2000,16.8
+Syrian Arab Republic,2001,16.8
+Syrian Arab Republic,2002,16.8
+Syrian Arab Republic,2003,16.8
+Syrian Arab Republic,2004,16.8
+Syrian Arab Republic,2005,16.8
+Syrian Arab Republic,2006,16.8
+Syrian Arab Republic,2007,16.8
+Syrian Arab Republic,2008,16.8
+Syrian Arab Republic,2009,16.8
+Syrian Arab Republic,2010,16.8
+Syrian Arab Republic,2011,16.8
+Syrian Arab Republic,2012,16.8
+Syrian Arab Republic,2013,16.8
+Syrian Arab Republic,2014,16.8
+Syrian Arab Republic,2015,16.8
+Syrian Arab Republic,2016,16.8
+Syrian Arab Republic,2017,16.8
+Syrian Arab Republic,2018,16.8
+Syrian Arab Republic,2019,16.8
+Syrian Arab Republic,2020,16.8
+Syrian Arab Republic,2021,16.8
+Syrian Arab Republic,2022,16.8
+Thailand,2007,102.98
+Thailand,2008,102.98
+Thailand,2009,102.98
+Thailand,2010,102.98
+Thailand,2011,102.98
+Thailand,2012,102.98
+Thailand,2013,102.98
+Thailand,2014,102.98
+Thailand,2015,102.98
+Thailand,2016,102.98
+Thailand,2017,102.98
+Thailand,2018,102.98
+Thailand,2019,102.98
+Thailand,2020,102.98
+Thailand,2021,102.98
+Thailand,2022,102.98
+Tunisia,2000,2.475
+Tunisia,2001,2.475
+Tunisia,2002,2.475
+Tunisia,2003,2.475
+Tunisia,2004,2.475
+Tunisia,2005,2.475
+Tunisia,2006,2.475
+Tunisia,2007,2.475
+Tunisia,2008,2.475
+Tunisia,2009,2.475
+Tunisia,2010,2.475
+Tunisia,2011,2.475
+Tunisia,2012,2.475
+Tunisia,2013,2.475
+Tunisia,2014,2.475
+Tunisia,2015,2.475
+Tunisia,2016,2.475
+Tunisia,2017,2.475
+Tunisia,2018,2.475
+Tunisia,2019,2.475
+Tunisia,2020,2.475
+Tunisia,2021,2.475
+Tunisia,2022,2.475
+Türkiye,2000,98
+Türkiye,2001,98
+Türkiye,2002,98
+Türkiye,2003,98
+Türkiye,2004,98
+Türkiye,2005,98
+Türkiye,2006,98
+Türkiye,2007,98
+Türkiye,2008,98
+Türkiye,2009,98
+Türkiye,2010,98
+Türkiye,2011,98
+Türkiye,2012,98
+Türkiye,2013,98
+Türkiye,2014,98
+Türkiye,2015,98
+Türkiye,2016,98
+Türkiye,2017,98
+Türkiye,2018,98
+Türkiye,2019,98
+Türkiye,2020,98
+Türkiye,2021,98
+Türkiye,2022,98
+Viet Nam,2005,367.2
+Viet Nam,2006,367.2
+Viet Nam,2007,367.2
+Viet Nam,2008,367.2
+Viet Nam,2009,367.2
+Viet Nam,2010,367.2
+Viet Nam,2011,367.2
+Viet Nam,2012,367.2
+Viet Nam,2013,367.2
+Viet Nam,2014,367.2
+Viet Nam,2015,367.2
+Viet Nam,2016,367.2
+Viet Nam,2017,367.2
+Viet Nam,2018,367.2
+Viet Nam,2019,367.2
+Viet Nam,2020,367.2
+Viet Nam,2021,367.2
+Viet Nam,2022,367.2
