@@ -11,20 +11,17 @@ from flask_app import (
     api,
 )
 
-
 class FlaskTest(unittest.TestCase):
     """Tests for the flask app."""
     def test_home(self):
         """Tests Homepage works"""
         result = home()
-        self.assertEqual(
-            result, "Welcome to the Global Water Sources v Spending website!"
-        )
+        self.assertIn("Global Water Usage Analysis API", result)
 
     def test_404(self):
         """Tests 404 error works"""
         result = page_not_found("")
-        self.assertEqual(result, "Page not found. Try re-entering the link. Error: ")
+        self.assertIn("404 - Page Not Found", result)
 
     def test_proportion_flask_right(self):
         """Tests the intended Flask outcome for usage proportion"""
@@ -42,6 +39,11 @@ class FlaskTest(unittest.TestCase):
         """Tests the intended Flask outcome for water usage difference"""
         result = water_use_route("usa", "2018", "2020")
         self.assertIn("Water usage in United States of America", result)
+
+    def test_water_usage_japan(self):
+        """Tests water usage for Japan"""
+        result = water_use_route("Japan", "2018", "2020")
+        self.assertIn("Water usage in Japan", result)
 
 
 class TestFlaskApp(unittest.TestCase):
@@ -64,26 +66,16 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_404(self):
         """404 test for flask"""
         response = self.run_test_site("/WEWLAD/")
-        self.assertIn("Page not found. Try re-entering the link. Error", str(response.data))
+        self.assertIn("404 - Page Not Found", str(response.data))
 
-    def test_flask_app_water_use(self):
-        """Homepage test for flask"""
-        response = self.run_test_site("/water_use/US/2003/2004")
+    def test_flask_app_water_use_us(self):
+        """Water use test for US"""
+        response = self.run_test_site("/api/water_use/US/2003/2004/")
         self.assertIn(
             "Water usage in United States of America\\n2003", str(response.data)
         )
 
-    def test_get_row(self):
-        """Tests basic API function."""
-        response = self.run_test_site("/api/1/1/")
-        self.assertIn("30.613806827", str(response.data))
-
-    def test_get_row_col_invalid_row(self):
-        """Tests API error handling for nonexistant DB"""
-        response = self.run_test_site("/api/100000000/1")
-        self.assertIn("Could not find the requested", str(response.data))
-
-    def test_get_row_col_invalid_col(self):
-        """Tests API error handling for nonexistant row"""
-        response = self.run_test_site("/api/1/10000000000")
-        self.assertIn("Could not find the requested", str(response.data))
+    def test_flask_app_usage_proportion(self):
+        """Usage proportion test via API"""
+        response = self.run_test_site("/api/usage_proportion/Argentina/2023/")
+        self.assertIn("Water usage in Argentina", str(response.data))

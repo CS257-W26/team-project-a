@@ -104,7 +104,7 @@ class CommandLineTest(unittest.TestCase):
             "2001",
             "243243125245324",
         ]
-        self.assertRaises(KeyError, self._run_and_return_output)
+        self.assertRaises(ValueError, self._run_and_return_output)
 
     def test_per_capita_command(self):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test percapita command"""

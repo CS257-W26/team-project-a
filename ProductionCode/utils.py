@@ -14,7 +14,7 @@ def alias(var: str) -> str:
         case "uk" | "UK" | "united kingdom":
             return "United Kingdom"
         case _:
-            return var
+            return var.title()
 
 
 def check_arg_count(actual_count: int, expected_count: int) -> bool:

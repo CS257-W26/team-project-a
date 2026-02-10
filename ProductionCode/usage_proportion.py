@@ -5,8 +5,50 @@ Functions for the use-type proportions analysis of water usage data
 from ProductionCode.database import DB, filter_tags_database
 from ProductionCode.utils import alias
 
+def validate_year(year: str) -> None:
+    """
+    Validate year input.
+    """
+    if not year.isdigit() or not 2000 <= int(year) <= 2024:
+        raise ValueError("Year must be between 2000 and 2024.")
+
+def fetch_usage_row(country: str, year: str) -> list:
+    """
+    Fetch a single usage row for the given country and year.
+
+    @param country: The country to get usage proportions for
+    @param year: The year to get usage proportions for
+    @return: The row of data for the specified country and year
+    """
+    filtered_data = filter_tags_database(DB.CLEANED_GWC, [str(country), str(year)])
+    if len(filtered_data) == 0:
+        raise ValueError(
+            "Country or year not found. Pick another country or pick years from 2000-2024."
+        )
+    return filtered_data[0]
+
+def select_usage_percentage(row: list, usagetype: str) -> float:
+    """
+    Select a usage percentage from a row by type.
+
+    @param row: The row of data to select from
+    @param usagetype: The type of usage to get percentage for
+    @return: The percentage of water usage for the given usage type
+    """
+    if usagetype == "Agricultural":
+        return float(row[4])
+    if usagetype == "Industrial":
+        return float(row[5])
+    if usagetype == "Household":
+        return float(row[6])
+    raise ValueError(
+        "Usage type not found. Use 'Agricultural', 'Industrial', or 'Household'."
+    )
+
 def usage_proportion(country, year):
     """
+    Determines water usage proportions by sector for a given country and year.
+
     @param country: The country to get usage proportions for
     @param year: The year to get usage proportions for
     @return: The water usage proportions for the given country and year
@@ -23,6 +65,8 @@ def usage_proportion(country, year):
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
     """
+    Gets the percentage of water usage for a given usage type in a specified country and year.
+    
     @param country: The country to get usage proportions for
     @param year: The year to get usage proportions for
     @param usagetype: The type of usage to get percentage for
@@ -30,27 +74,7 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
     in the specified country and year
     """
 
-    if not year.isdigit() or not 2000 <= int(year) <= 2024:
-        raise ValueError("Year must be between 2000 and 2024.")
-
+    validate_year(year)
     country = alias(country)
-
-    filtered_data = filter_tags_database(
-        DB.CLEANED_GWC,
-        [
-            str(country),
-            str(year)
-        ],
-    )
-    if len(filtered_data) > 0:
-        if usagetype == "Agricultural":
-            return float(filtered_data[0][4])
-        if usagetype == "Industrial":
-            return float(filtered_data[0][5])
-        if usagetype == "Household":
-            return float(filtered_data[0][6])
-    raise ValueError(
-        "Country, year or usage type not found. "
-        "Pick another country or pick years from 2000-2024 and make sure you are inputting \
-        'Agriculture', 'Industrial' or 'Household'."
-    )
+    row = fetch_usage_row(country, year)
+    return select_usage_percentage(row, usagetype)

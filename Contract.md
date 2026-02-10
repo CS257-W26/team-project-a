@@ -28,11 +28,7 @@ Lloyed can attend Monday and Wednesday's drop in hours.
 Paul and Jay can attend Thursday's drop in hours.
 
 # Communication
-* Mostly via group text
-Jay - 703 887 6450
-Lloyd Stohler - 314 327 6698
-Paul - 213 603 0914
-
+* Mostly via groupchat text
 * Email is also to be used.
 * Meetings need to be attended by all participants (unless decided otherwise communaly)
 
