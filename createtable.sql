@@ -1,4 +1,22 @@
 -- Create the sample table
+DROP TABLE IF EXISTS GLOBALDATA_S;
+CREATE TABLE GLOBALDATA_S(
+    country TEXT,
+    yr INTEGER,
+    total_consumption FLOAT,
+    per_capita FLOAT,
+    agr_total FLOAT,
+    ind_total FLOAT,
+    hou_total FLOAT
+);
+
+DROP TABLE IF EXISTS AQTE;
+CREATE TABLE AQTE(
+    country TEXT,
+    yr INTEGER,
+    total_resources FLOAT,
+);
+
 
 CREATE TABLE AQUA1 (
     VariableGroup TEXT,
