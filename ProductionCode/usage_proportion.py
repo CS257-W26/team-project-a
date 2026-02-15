@@ -2,7 +2,7 @@
 Functions for the use-type proportions analysis of water usage data
 """
 
-from ProductionCode.database import DB, filter_tags_database
+from ProductionCode.database import DB, filter_tags_database, DataSource
 from ProductionCode.utils import alias
 
 def validate_year(year: str) -> None:
@@ -54,14 +54,20 @@ def usage_proportion(country, year):
     @return: The water usage proportions for the given country and year
     """
 
+    """
     agc_percent = get_usage_percentage(country, year, "Agricultural")
     ind_percent = get_usage_percentage(country, year, "Industrial")
     hsh_percent = get_usage_percentage(country, year, "Household")
+    """
+    agc_percent = DataSource.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = ’"+country+"’;")
+    ind_percent = DataSource.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = ’"+country+"’;")
+    hsh_percent = DataSource.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = ’"+country+"’;")
 
     return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
            "Agricultural:" + str(round(agc_percent, 2)) + "%\n" + \
             "Industrial:" + str(round(ind_percent, 2)) + "%\n" + \
                 "Household:" + str(round(hsh_percent, 2)) + "%\n")
+
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
     """
