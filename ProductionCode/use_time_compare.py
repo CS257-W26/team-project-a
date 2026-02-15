@@ -21,7 +21,7 @@ def fetch_water_use(country: str, year: int) -> float:
     @param year: The year to get water use for
     @return: Water use in billion cubic meters/year"""
     source = DataSource()
-    source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = "+country+" AND yr = "+str(year)+";")
+    source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
     filtered_data = filter_tags_database(DB.CLEANED_GWC, [str(country), str(year)])
     return filtered_data
     # if len(filtered_data) == 0:
