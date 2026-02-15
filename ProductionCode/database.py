@@ -23,7 +23,7 @@ class DataSource:
         '''
         result = self.db.query(str_command)
         print(str(result))
-        print(result[0].export('csv'))
+        print(result.export('csv'))
         
 
 class DB(Enum):
