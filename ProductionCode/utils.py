@@ -8,14 +8,15 @@ def alias(var: str) -> str:
     @param var: The country name input by the user
     @return: The standardized country name
     """
-    match var.lower():
-        case "usa" | "us" | "united states" | "united states of america" | "america":
-            return "United States of America"
-        case "uk" | "UK" | "united kingdom":
-            return "United Kingdom"
-        case _:
-            return var.title()
+    country = var.lower()
 
+    if country in {"usa", "us", "united states", "united states of america", "america"}:
+        return "United States of America"
+    elif country in {"uk", "UK", "united kingdom"}:
+        return "United Kingdom"
+    else:
+        return var.title()
+        
 
 def check_arg_count(actual_count: int, expected_count: int) -> bool:
     """
