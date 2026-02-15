@@ -6,6 +6,15 @@ Handles CSV file management and data filtering.
 import csv
 from enum import Enum
 
+import records
+
+class DataSource:
+    '''Main datsource class, connecting to databse & running/printing the example'''
+    def __init__(self):
+        '''Constructor that initiates connection to database'''
+        connect = f"postgresql://{config.USER}:{config.PASSWORD}@localhost:5432/{config.DATABASE}"
+        self.db = records.Database(connect)
+
 class DB(Enum):
     """Enum for databases"""
 
