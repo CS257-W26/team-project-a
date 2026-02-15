@@ -22,11 +22,7 @@ def fetch_water_use(country: str, year: int) -> float:
     @return: Water use in billion cubic meters/year"""
     source = DataSource()
     source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
-    # filtered_data = filter_tags_database(DB.CLEANED_GWC, [str(country), str(year)])
     return source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
-    # if len(filtered_data) == 0:
-    #     raise ValueError("Country or year not found. Pick another country or years from 2000-2024.")
-    # return float(filtered_data[0][2])
 
 def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
@@ -41,7 +37,7 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     country = alias(country)
     water_use_y1 = fetch_water_use(country, year1)
     water_use_y2 = fetch_water_use(country, year2)
-    out = water_use_time_compare_format(country, year1, year2, water_use_y1, water_use_y2)
+    out = water_use_time_compare_format(country, year1, year2, float(water_use_y1), float(water_use_y2))
     return out
 
 def water_use_time_compare_print(out):
