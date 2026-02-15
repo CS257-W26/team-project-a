@@ -15,6 +15,16 @@ class DataSource:
         connect = f"postgresql://{config.USER}:{config.PASSWORD}@localhost:5432/{config.DATABASE}"
         self.db = records.Database(connect)
 
+    def run_string_psql(self, str_command):
+        '''
+        Takes in self and a string equating to a psql command
+        (for example "SELECT * FROM dataset")
+        Prints the result of that command being run
+        '''
+        result = self.db.query(str_command)
+        print(result[0].export('csv'))
+        
+
 class DB(Enum):
     """Enum for databases"""
 
