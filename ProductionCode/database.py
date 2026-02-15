@@ -22,7 +22,8 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        print(str(result))
+        print("Query: "+str_command)
+        print(str(result.export('csv')))
         return(result.export('csv'))
         
 

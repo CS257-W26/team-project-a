@@ -23,7 +23,7 @@ def fetch_water_use(country: str, year: int) -> float:
     source = DataSource()
     source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
     # filtered_data = filter_tags_database(DB.CLEANED_GWC, [str(country), str(year)])
-    return source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";").export_csv()
+    return source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
     # if len(filtered_data) == 0:
     #     raise ValueError("Country or year not found. Pick another country or years from 2000-2024.")
     # return float(filtered_data[0][2])
