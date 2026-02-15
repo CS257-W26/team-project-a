@@ -22,9 +22,16 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        print("Query: "+str_command)
-        print(str(result.export('csv')))
-        return(result.export('csv'))
+        return(result[0])
+
+    def run_string_psql_multiple(self, str_command):
+        '''
+        Takes in self and a string equating to a psql command
+        (for example "SELECT * FROM AQTE;")
+        Prints the result of that command being run
+        '''
+        result = self.db.query(str_command)
+        return(result)
         
 
 class DB(Enum):
