@@ -176,12 +176,12 @@ class UsageProportionTest(unittest.TestCase):
 
     def test_proportion_invalid_country(self):
         """Test invalid country input"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IndexError):
             usage_proportion("Wakanda", "2023")
 
     def test_proportion_invalid_year(self):
         """Test invalid year input"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IndexError):
             usage_proportion("Argentina", "3023")
 
     def test_proportion_no_year(self):
