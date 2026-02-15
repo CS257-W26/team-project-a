@@ -18,12 +18,12 @@ class DataSource:
     def run_string_psql(self, str_command):
         '''
         Takes in self and a string equating to a psql command
-        (for example "SELECT * FROM dataset;")
+        (for example "SELECT * FROM AQTE;")
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
         print(str(result))
-        print(result.export('csv'))
+        return(result.export('csv'))
         
 
 class DB(Enum):
