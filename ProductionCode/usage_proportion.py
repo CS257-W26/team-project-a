@@ -60,9 +60,12 @@ def usage_proportion(country, year):
     hsh_percent = get_usage_percentage(country, year, "Household")
     """
     source = DataSource()
-    agc_percent = source.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = '"+country+"';")
-    ind_percent = source.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = '"+country+"';")
-    hsh_percent = source.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE yr = " + year + " AND country = '"+country+"';")
+    agc_percent = source.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
+                                          yr = " + year + " AND country = '"+country+"';")
+    ind_percent = source.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
+                                          yr = " + year + " AND country = '"+country+"';")
+    hsh_percent = source.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
+                                          yr = " + year + " AND country = '"+country+"';")
 
     return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
            "Agricultural:" + str(round(agc_percent.agr_total, 2)) + "%\n" + \
