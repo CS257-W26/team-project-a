@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 psql_config.py
+usage_proportionBACKUP.py
