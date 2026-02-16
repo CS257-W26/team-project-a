@@ -19,7 +19,8 @@ def fetch_water_use(country: str, year: int) -> float:
     @param country: The country to get water use for
     @param year: The year to get water use for
     @return: Water use in billion cubic meters/year"""
-    return DataSource().run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
+    return DataSource().run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
+        country+"' AND yr = "+str(year)+";")
 
 def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
@@ -34,7 +35,8 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     country = alias(country)
     water_use_y1 = fetch_water_use(country, year1).total_resources
     water_use_y2 = fetch_water_use(country, year2).total_resources
-    out = water_use_time_compare_format(country, year1, year2, float(water_use_y1), float(water_use_y2))
+    out = water_use_time_compare_format(country, year1, year2, \
+        float(water_use_y1), float(water_use_y2))
     return out
 
 def water_use_time_compare_print(out):

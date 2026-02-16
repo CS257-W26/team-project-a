@@ -80,7 +80,7 @@ def page_not_found(e):
     """
     Handle 404 errors with helpful information.
     """
-    text = """error: 404 - Page Not Found
+    text = e+"""error: 404 - Page Not Found
 
     The page you're looking for doesn't exist. Please check the URL and try again.
 

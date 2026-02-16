@@ -5,8 +5,8 @@ Handles CSV file management and data filtering.
 
 import csv
 from enum import Enum
-import ProductionCode.psql_config as config
 import records
+import ProductionCode.psql_config as config
 
 class DataSource:
     '''Main datsource class, connecting to databse & running/printing the example'''
@@ -22,7 +22,7 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        return(result[0])
+        return result[0]
 
     def run_string_psql_multiple(self, str_command):
         '''
@@ -31,8 +31,7 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        return(result)
-        
+        return result
 
 class DB(Enum):
     """Enum for databases"""

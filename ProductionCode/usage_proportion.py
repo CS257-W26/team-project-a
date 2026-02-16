@@ -33,4 +33,3 @@ def usage_proportion(country, year):
            "Agricultural:" + str(round(agc_percent.agr_total, 2)) + "%\n" + \
             "Industrial:" + str(round(ind_percent.ind_total, 2)) + "%\n" + \
                 "Household:" + str(round(hsh_percent.hou_total, 2)) + "%\n")
-   
