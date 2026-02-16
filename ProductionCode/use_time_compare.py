@@ -2,7 +2,7 @@
 Functions for the temporal comparison of water usage data
 """
 
-from ProductionCode.database import DB, filter_tags_database, DataSource
+from ProductionCode.database import DataSource
 from ProductionCode.utils import alias
 
 def validate_years(year1: int, year2: int) -> None:
@@ -19,9 +19,7 @@ def fetch_water_use(country: str, year: int) -> float:
     @param country: The country to get water use for
     @param year: The year to get water use for
     @return: Water use in billion cubic meters/year"""
-    source = DataSource()
-    source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
-    return source.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
+    return DataSource().run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
 
 def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
