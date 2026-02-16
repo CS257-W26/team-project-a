@@ -2,7 +2,7 @@
 Functions for the temporal comparison of water usage data
 """
 
-from ProductionCode.database import DB, filter_tags_database
+from ProductionCode.database import DataSource
 from ProductionCode.utils import alias
 
 def validate_years(year1: int, year2: int) -> None:
@@ -13,17 +13,13 @@ def validate_years(year1: int, year2: int) -> None:
     """
     if not 2000 <= int(year1) <= 2024 or not 2000 <= int(year2) <= 2024:
         raise ValueError("Years must be between 2000 and 2024.")
-
 def fetch_water_use(country: str, year: int) -> float:
     """
     Fetch water use for a country and year from the cleaned dataset.
     @param country: The country to get water use for
     @param year: The year to get water use for
     @return: Water use in billion cubic meters/year"""
-    filtered_data = filter_tags_database(DB.CLEANED_GWC, [str(country), str(year)])
-    if len(filtered_data) == 0:
-        raise ValueError("Country or year not found. Pick another country or years from 2000-2024.")
-    return float(filtered_data[0][2])
+    return DataSource().run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+country+"' AND yr = "+str(year)+";")
 
 def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
@@ -36,9 +32,9 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
     validate_years(year1, year2)
     country = alias(country)
-    water_use_y1 = fetch_water_use(country, year1)
-    water_use_y2 = fetch_water_use(country, year2)
-    out = water_use_time_compare_format(country, year1, year2, water_use_y1, water_use_y2)
+    water_use_y1 = fetch_water_use(country, year1).total_resources
+    water_use_y2 = fetch_water_use(country, year2).total_resources
+    out = water_use_time_compare_format(country, year1, year2, float(water_use_y1), float(water_use_y2))
     return out
 
 def water_use_time_compare_print(out):

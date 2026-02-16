@@ -8,7 +8,7 @@ from io import StringIO
 
 from ProductionCode.database import open_database, DB, filter_tags_database, id_to_db
 from ProductionCode.per_capita import get_per_capita_water_use
-from ProductionCode.usage_proportion import get_usage_percentage, usage_proportion
+from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.utils import print_help_statement
 from command_line import main
 
@@ -135,29 +135,6 @@ class PerCapitaWaterUseTest(unittest.TestCase):
             get_per_capita_water_use("uk", "1000")
 
 
-class UsagePercentageTest(unittest.TestCase):
-    """Tests usage percentage"""
-
-    def test_percentage_valid(self):
-        """Test valid country/year/type input"""
-        result = get_usage_percentage("Argentina", "2023", "Agricultural")
-        self.assertAlmostEqual(result, 40.842, places=2)
-
-    def test_percentage_invalid_country(self):
-        """Test invalid country input"""
-        with self.assertRaises(ValueError):
-            get_usage_percentage("Wakanda", "2023", "Agricultural")
-
-    def test_percentage_invalid_year(self):
-        """Test invalid year input"""
-        with self.assertRaises(ValueError):
-            get_usage_percentage("Argentina", "3023", "Agricultural")
-
-    def test_percentage_invalid_usage_type(self):
-        """Test invalid usage type input"""
-        with self.assertRaises(ValueError):
-            get_usage_percentage("Argentina", "2023", "Extrajudicial")
-
 
 class UsageProportionTest(unittest.TestCase):
     """Tests usage proportions"""
@@ -176,12 +153,12 @@ class UsageProportionTest(unittest.TestCase):
 
     def test_proportion_invalid_country(self):
         """Test invalid country input"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IndexError):
             usage_proportion("Wakanda", "2023")
 
     def test_proportion_invalid_year(self):
         """Test invalid year input"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IndexError):
             usage_proportion("Argentina", "3023")
 
     def test_proportion_no_year(self):

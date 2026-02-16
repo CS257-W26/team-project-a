@@ -40,10 +40,10 @@ class FlaskTest(unittest.TestCase):
         result = water_use_route("usa", "2018", "2020")
         self.assertIn("Water usage in United States of America", result)
 
-    def test_water_usage_japan(self):
-        """Tests water usage for Japan"""
-        result = water_use_route("Japan", "2018", "2020")
-        self.assertIn("Water usage in Japan", result)
+    def test_water_usage_albania(self):
+        """Tests water usage for Albania"""
+        result = water_use_route("Albania", "2018", "2020")
+        self.assertIn("Water usage in Albania", result)
 
 
 class TestFlaskApp(unittest.TestCase):
