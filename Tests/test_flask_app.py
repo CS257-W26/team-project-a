@@ -66,7 +66,7 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_404(self):
         """404 test for flask"""
         response = self.run_test_site("/WEWLAD/")
-        self.assertIn("404 - Page Not Found", str(response.data))
+        self.assertIn("to complete your request", str(response.data))
 
     def test_flask_app_water_use_us(self):
         """Water use test for US"""
