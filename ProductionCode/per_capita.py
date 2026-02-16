@@ -2,7 +2,8 @@
 Functions for the per capita analysis of water usage data
 """
 
-from ProductionCode.database import DataSourcefrom ProductionCode.utils import alias
+from ProductionCode.database import DataSource
+from ProductionCode.utils import alias
 
 
 def get_per_capita_water_use(country: str, year: str) -> float:
