@@ -12,7 +12,7 @@ class DataSource:
     '''Main datsource class, connecting to databse & running/printing the example'''
     def __init__(self):
         '''Constructor that initiates connection to database'''
-        connect = f"postgresql://{config.USER}:{config.PASSWORD}@localhost:5207/{config.DATABASE}"
+        connect = f"postgresql://{config.USER}:{config.PASSWORD}@localhost:5432/{config.DATABASE}"
         self.db = records.Database(connect)
 
     def run_string_psql(self, str_command):
