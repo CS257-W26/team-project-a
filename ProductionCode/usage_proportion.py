@@ -30,6 +30,6 @@ def usage_proportion(country, year):
                                           yr = " + year + " AND country = '"+country+"';")
 
     return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
-           "Agricultural:" + str(round(agc_percent.agr_total, 2)) + "%\n" + \
-            "Industrial:" + str(round(ind_percent.ind_total, 2)) + "%\n" + \
-                "Household:" + str(round(hsh_percent.hou_total, 2)) + "%\n")
+           "Agricultural:" + str(round(agc_percent, 2)) + "%\n" + \
+            "Industrial:" + str(round(ind_percent, 2)) + "%\n" + \
+                "Household:" + str(round(hsh_percent, 2)) + "%\n")
