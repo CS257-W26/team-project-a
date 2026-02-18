@@ -8,7 +8,7 @@ from enum import Enum
 import records
 import ProductionCode.psql_config as config
 
-class DataSource:
+class DataSource: #TODO: Replace this so that ONLY datasource manages SQL (ie it returns raw values)
     '''Main datsource class, connecting to databse & running/printing the example'''
     def __init__(self):
         '''Constructor that initiates connection to database'''

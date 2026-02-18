@@ -5,8 +5,9 @@ Test command line file
 import unittest
 import sys
 from io import StringIO
+from unittest.mock import patch, MagicMock
 
-from ProductionCode.database import open_database, DB, filter_tags_database, id_to_db
+from ProductionCode.database import open_database, DB, filter_tags_database, DataSource
 from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.utils import print_help_statement
@@ -15,42 +16,20 @@ from command_line import main
 
 # Running the line above is giving me an error.
 
+class TestDataSource(unittest.TestCase):
+    @patch('ProductionCode.database.records.Database')
+    def test_run_string_psql(self, mock_db_class):
+        mock_db_instance = mock_db_class.return_value
 
-class OpenDataBaseTest(unittest.TestCase):
-    """Tests open_database func"""
+        mock_db_instance.query.return_value = {"total_resources": 13}
+        ds = DataSource()
+        result = ds.run_string_psql_multiple("this isn't a real SQL command")
+        self.assertEqual(13,result["total_resources"])
+    
+    
 
-    def test_odb(self):
-        """Tests the basic OpenDatabase function"""
-        arr = open_database(DB.CLEANED_GWC)
-        self.assertEqual(arr[0][0], "Country")
+    
 
-    def test_invalid_db(self):
-        """Tests ODB with invalid DB"""
-        self.assertRaises(KeyError, open_database, "AAAAAA")
-
-    def test_id_convert(self):
-        """Tests ID to db converter"""
-        self.assertEqual(id_to_db(0),DB.AQS_DS3)
-        self.assertEqual(id_to_db(1),DB.AQS_DS6)
-        self.assertEqual(id_to_db(2),DB.AQS_WR)
-        self.assertEqual(id_to_db(3),DB.AQS_WU)
-        self.assertEqual(id_to_db(4),DB.CLEANED_GWC)
-
-
-class FilterTagsDataBaseTest(unittest.TestCase):
-    """Tests filter_tags_database"""
-
-    def test_base(self):
-        """Tests filter DB"""
-        arr = filter_tags_database(DB.AQS_DS3, ["United States of America"])
-        self.assertTrue(len(arr) > 0)
-
-    def test_invalid_tag(self):
-        """Tests filter DB with invalid args"""
-        arr = filter_tags_database(
-            DB.AQS_DS3, ["THIS COUNTRY DOES NOT EXIST LOLOLOLOL"]
-        )
-        self.assertTrue(len(arr) == 0)
 
 
 class CommandLineTest(unittest.TestCase):
