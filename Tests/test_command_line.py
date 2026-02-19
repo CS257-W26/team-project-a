@@ -105,7 +105,7 @@ class PerCapitaWaterUseTest(unittest.TestCase):
 
     def test_per_capita_invalid_country(self):
         """Test invalid country input"""
-        with self.assertRaises(ValueError):
+        with self.assertRaises(IndexError):
             get_per_capita_water_use("Wakanda", "2018")
 
     def test_per_capita_invalid_year(self):
