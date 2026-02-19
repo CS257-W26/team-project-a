@@ -7,7 +7,7 @@ import sys
 from io import StringIO
 from unittest.mock import patch, MagicMock
 
-from ProductionCode.database import open_database, DB, filter_tags_database, DataSource
+from ProductionCode.database import DataSource
 from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.utils import print_help_statement
@@ -16,20 +16,16 @@ from command_line import main
 
 # Running the line above is giving me an error.
 
+
 class TestDataSource(unittest.TestCase):
-    @patch('ProductionCode.database.records.Database')
+    @patch("ProductionCode.database.records.Database")
     def test_run_string_psql(self, mock_db_class):
         mock_db_instance = mock_db_class.return_value
 
         mock_db_instance.query.return_value = {"total_resources": 13}
         ds = DataSource()
         result = ds.run_string_psql_multiple("this isn't a real SQL command")
-        self.assertEqual(13,result["total_resources"])
-    
-    
-
-    
-
+        self.assertEqual(13, result["total_resources"])
 
 
 class CommandLineTest(unittest.TestCase):
@@ -54,13 +50,13 @@ class CommandLineTest(unittest.TestCase):
         """Tests for output with no input."""
         sys.argv = ["command_line.py"]
         printed_out = self._run_and_return_output()
-        self.assertIn("COMMANDS",printed_out)
+        self.assertIn("COMMANDS", printed_out)
 
     def test_run_help(self):
         """Tests for output with help input."""
-        sys.argv = ["command_line.py","-help"]
+        sys.argv = ["command_line.py", "-help"]
         printed_out = self._run_and_return_output()
-        self.assertIn("COMMANDS",printed_out)
+        self.assertIn("COMMANDS", printed_out)
 
     def test_run_water_use_time_compare(self):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
@@ -112,7 +108,6 @@ class PerCapitaWaterUseTest(unittest.TestCase):
         """Test invalid year input"""
         with self.assertRaises(ValueError):
             get_per_capita_water_use("uk", "1000")
-
 
 
 class UsageProportionTest(unittest.TestCase):
