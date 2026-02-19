@@ -17,7 +17,7 @@ def get_per_capita_water_use(country: str, year: str) -> float:
 
     country = alias(country)
     filtered_data = DataSource().select_per_capita(country,year)
-    if filtered_data["per_capita"]:
+    if len(filtered_data.keys()) > 0:
         return float(filtered_data.per_capita)
     raise ValueError(
         "Country or year not found. Pick another country or pick years from 2000-2024."
