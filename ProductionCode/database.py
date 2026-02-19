@@ -53,13 +53,13 @@ class DataSource: #TODO: Replace this so that ONLY datasource manages SQL (ie it
         '''
         if mode == 0:
             return self.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
-                yr = " + str(year) + " AND country = '"+country+"';")
+                yr = " + str(year) + " AND country = '"+country+"';").agr_total
         if mode == 1:
             return self.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
-                yr = " + str(year) + " AND country = '"+country+"';")
+                yr = " + str(year) + " AND country = '"+country+"';").ind_total
         if mode == 2:
             return self.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
-                yr = " + str(year) + " AND country = '"+country+"';")
+                yr = " + str(year) + " AND country = '"+country+"';").hou_total
         raise ValueError()
 
     def select_total_resources(self,country: str,year:int):
