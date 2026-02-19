@@ -58,10 +58,16 @@ class CommandLineTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertIn("COMMANDS", printed_out)
 
-    def test_run_water_use_time_compare(self):  # THIS IS AN ACCEPTANCE TEST FOR #3
+    @patch("ProductionCode.use_time_compare.DataSource")
+    def test_run_water_use_time_compare(self,mock_select_total_resources):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
+        mock_select_total_resources = MagicMock()
+        mock_select_total_resources.select_total_resources.return_value = 20
+
+
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
+        
         self.assertIn("Water usage in United States of America", printed_out)
 
     def test_run_water_use_time_compare_fail(self):
