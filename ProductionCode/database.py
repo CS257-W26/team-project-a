@@ -33,6 +33,45 @@ class DataSource: #TODO: Replace this so that ONLY datasource manages SQL (ie it
         result = self.db.query(str_command)
         return result
 
+    def select_per_capita(self,country: str, year: int):
+        '''
+        Takes a country and year and returns it's per capita water use.
+        (eg: select_per_capita("USA",2001))
+        '''
+        return self.run_string_psql\
+        ("SELECT per_capita FROM GLOBALDATA_S WHERE country = '"+country+"' AND yr = "+str(year)\
+            +";")
+
+    def select_usage_percentage(self,country: str,year:int,mode:int):
+        '''
+        Takes a country, year, and mode and returns that industries
+        percentage use.
+        (eg: select_usage_percentage("USA",2001,1))
+        0 = agricultural
+        1 = industrial
+        2 = household/domestic
+        '''
+        if mode == 0:
+            return self.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';")
+        if mode == 1:
+            return self.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';")
+        if mode == 2:
+            return self.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';")
+        raise ValueError()
+
+    def select_total_resources(self,country: str,year:int):
+        '''
+        Takes a country and year and returns it's total exploitable water
+        resoruces.
+        (eg: select_total_resources("USA",2001))
+        '''
+        return self.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
+        country+"' AND yr = "+str(year)+";")
+
+
 class DB(Enum):
     """Enum for databases"""
 
