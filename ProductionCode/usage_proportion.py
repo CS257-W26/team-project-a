@@ -25,7 +25,7 @@ def usage_proportion(country, year):
     agc_percent = source.select_usage_percentage(country,year,0)
     ind_percent = source.select_usage_percentage(country,year,1)
     hsh_percent = source.select_usage_percentage(country,year,2)
-
+    print(agc_percent)
     return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
            "Agricultural:" + str(round(agc_percent, 2)) + "%\n" + \
             "Industrial:" + str(round(ind_percent, 2)) + "%\n" + \
