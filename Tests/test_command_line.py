@@ -5,7 +5,7 @@ Test command line file
 import unittest
 import sys
 from io import StringIO
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, Mock
 
 from ProductionCode.database import DataSource
 from ProductionCode.per_capita import get_per_capita_water_use
@@ -59,19 +59,19 @@ class CommandLineTest(unittest.TestCase):
         self.assertIn("COMMANDS", printed_out)
 
     @patch("ProductionCode.use_time_compare.DataSource")
-    def test_run_water_use_time_compare(self,mock_select_total_resources):  # THIS IS AN ACCEPTANCE TEST FOR #3
+    def test_run_water_use_time_compare(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
-        mock_select_total_resources = MagicMock()
-        mock_select_total_resources.select_total_resources.return_value = 20
-
-
+        mock_datasource = MagicMock()
+        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
-        
         self.assertIn("Water usage in United States of America", printed_out)
-
-    def test_run_water_use_time_compare_fail(self):
+    
+    @patch("ProductionCode.use_time_compare.DataSource")
+    def test_run_water_use_time_compare_fail(self,mock_datasource):
         """Tests invalid water use compare"""
+        mock_datasource = MagicMock()
+        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001"]
         printed_out = self._run_and_return_output()
         self.assertEqual(printed_out, print_help_statement().strip())
@@ -87,8 +87,13 @@ class CommandLineTest(unittest.TestCase):
         ]
         self.assertRaises(ValueError, self._run_and_return_output)
 
-    def test_per_capita_command(self):  # THIS IS AN ACCEPTANCE TEST FOR #1
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_per_capita_command(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test percapita command"""
+
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_per_capita.return_value = 364.38
+        # Do not ask me why this works. I have NO idea.
         sys.argv = ["command_line.py", "-percapita", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
         self.assertIn(
@@ -100,13 +105,19 @@ class CommandLineTest(unittest.TestCase):
 class PerCapitaWaterUseTest(unittest.TestCase):
     """Tests percapita water use"""
 
-    def test_per_capita_valid(self):  # THIS IS AN ACCEPTANCE TEST FOR #2
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_per_capita_valid(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #2
         """Test valid country and year inputs"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_per_capita.return_value = 290.58
         result = get_per_capita_water_use("Japan", "2018")
         self.assertAlmostEqual(result, 290.58, places=2)
 
-    def test_per_capita_invalid_country(self):
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_per_capita_invalid_country(self,mock_datasource):
         """Test invalid country input"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_per_capita.return_value = None
         with self.assertRaises(IndexError):
             get_per_capita_water_use("Wakanda", "2018")
 
@@ -125,19 +136,27 @@ class UsageProportionTest(unittest.TestCase):
         main()
         return sys.stdout.getvalue().strip()
 
-    def test_proportion_valid(self):  # THIS IS AN ACCEPTANCE TEST FOR #1
+    @patch("ProductionCode.usage_proportion.DataSource")
+    def test_proportion_valid(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test valid country/year/type input"""
+        mock_datasource = MagicMock()
         sys.argv = ["command_line.py", "-usageproportion", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
         self.assertIn("Water usage in Argentina in 2024", printed_out)
 
-    def test_proportion_invalid_country(self):
+    @patch("ProductionCode.usage_proportion.DataSource")
+    def test_proportion_invalid_country(self,mock_datasource):
         """Test invalid country input"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_usage_percentage.return_value = None
         with self.assertRaises(IndexError):
             usage_proportion("Wakanda", "2023")
 
-    def test_proportion_invalid_year(self):
+    @patch("ProductionCode.usage_proportion.DataSource")
+    def test_proportion_invalid_year(self,mock_datasource):
         """Test invalid year input"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_usage_percentage.return_value = None
         with self.assertRaises(IndexError):
             usage_proportion("Argentina", "3023")
 

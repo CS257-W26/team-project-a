@@ -41,7 +41,7 @@ class DataSource: #TODO: Replace this so that ONLY datasource manages SQL (ie it
         '''
         return self.run_string_psql\
         ("SELECT per_capita FROM GLOBALDATA_S WHERE country = '"+country+"' AND yr = "+str(year)\
-            +";")
+            +";").per_capita
 
     def select_usage_percentage(self,country: str,year:int,mode:int):
         '''
