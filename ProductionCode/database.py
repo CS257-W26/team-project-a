@@ -21,7 +21,7 @@ class DataSource: #TODO: Replace this so that ONLY datasource manages SQL (ie it
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        if len(result) > 0:
+        if len(result.all()) > 0:
             return result[0]
         raise IndexError
 
