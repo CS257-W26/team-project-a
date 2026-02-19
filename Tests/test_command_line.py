@@ -5,7 +5,7 @@ Test command line file
 import unittest
 import sys
 from io import StringIO
-from unittest.mock import patch, MagicMock, Mock
+from unittest.mock import patch, MagicMock
 
 from ProductionCode.database import DataSource
 from ProductionCode.per_capita import get_per_capita_water_use
@@ -18,8 +18,10 @@ from command_line import main
 
 
 class TestDataSource(unittest.TestCase):
+    """Tests basic datasource functions"""
     @patch("ProductionCode.database.records.Database")
-    def test_run_string_psql(self, mock_db_class):
+    def test_run_string_psql(self, mock_db_class): #DEPRECATED!
+        """Tests runstring PSQL - DEPRECATED!"""
         mock_db_instance = mock_db_class.return_value
 
         mock_db_instance.query.return_value = {"total_resources": 13}
@@ -66,7 +68,7 @@ class CommandLineTest(unittest.TestCase):
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
         self.assertIn("Water usage in United States of America", printed_out)
-    
+
     @patch("ProductionCode.use_time_compare.DataSource")
     def test_run_water_use_time_compare_fail(self,mock_datasource):
         """Tests invalid water use compare"""
@@ -139,10 +141,11 @@ class UsageProportionTest(unittest.TestCase):
     @patch("ProductionCode.usage_proportion.DataSource")
     def test_proportion_valid(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test valid country/year/type input"""
-        mock_datasource = MagicMock()
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_usage_percentage.return_value = 1337
         sys.argv = ["command_line.py", "-usageproportion", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
-        self.assertIn("Water usage in Argentina in 2024", printed_out)
+        self.assertIn("1337", printed_out)
 
     @patch("ProductionCode.usage_proportion.DataSource")
     def test_proportion_invalid_country(self,mock_datasource):
