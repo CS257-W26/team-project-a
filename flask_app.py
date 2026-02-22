@@ -2,7 +2,7 @@
 Flask application for global water usage analysis.
 """
 
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, request, render_template
 from ProductionCode.use_time_compare import water_use_time_compare
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.per_capita import print_per_capita_water_use
@@ -24,27 +24,36 @@ def home():
     data_source = DataSource()
     names = data_source.get_countries()
     selected_name = ""
-    country = None
     error = ""
     year = None
+    agc_percent = None
+    ind_percent = None
+    hsh_percent = None
+    country_per_capita = None
 
     if request.method == "POST":
         selected_name = request.form.get("country", "")
-        if selected_name is None:
+        year_value = request.form.get("year", "")
+        if not selected_name:
             error = "Select a country to view its water usage data."
+        elif not year_value:
+            error = "Select a year to view its water usage data."
         else:
-            year = request.form.get("year", "")
-            
-    agc_percent = source.select_usage_percentage(selected_name,year,0)
-    ind_percent = source.select_usage_percentage(selected_name,year,1)
-    hsh_percent = source.select_usage_percentage(selected_name,year,2)
+            try:
+                year = int(year_value)
+                agc_percent = data_source.select_usage_percentage(selected_name, year, 0)
+                ind_percent = data_source.select_usage_percentage(selected_name, year, 1)
+                hsh_percent = data_source.select_usage_percentage(selected_name, year, 2)
+                country_per_capita = print_per_capita_water_use(selected_name, year)
+            except (ValueError, IndexError):
+                error = "Invalid country or year selection."
 
 
     return render_template(
         "index.html",
         names=names,
         selected_name=selected_name,
-        country_perCapita=get_per_capita_water_use(selected_name, year) if selected_name else None,
+        country_perCapita=country_per_capita,
         agricultural=agc_percent,
         industrial=ind_percent,
         household=hsh_percent,
