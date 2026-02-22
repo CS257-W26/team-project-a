@@ -3,11 +3,8 @@ Database operations for water usage data.
 Handles CSV file management and data filtering.
 """
 
-import csv
-from enum import Enum
-import ProductionCode.psql_config as config
 import records
-
+import ProductionCode.psql_config as config
 class DataSource:
     '''Main datsource class, connecting to databse & running/printing the example'''
     def __init__(self):
@@ -22,7 +19,9 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        return(result[0])
+        if len(result.all()) > 0:
+            return result[0]
+        raise IndexError
 
     def run_string_psql_multiple(self, str_command):
         '''
@@ -31,77 +30,49 @@ class DataSource:
         Prints the result of that command being run
         '''
         result = self.db.query(str_command)
-        return(result)
-        
+        return result
 
-class DB(Enum):
-    """Enum for databases"""
+    def select_per_capita(self,country: str, year: int):
+        '''
+        Takes a country and year and returns it's per capita water use.
+        (eg: select_per_capita("USA",2001))
+        '''
+        return self.run_string_psql\
+        ("SELECT per_capita FROM GLOBALDATA_S WHERE country = '"+country+"' AND yr = "+str(year)\
+            +";").per_capita
 
-    AQS_DS3 = "Data/AQUASTAT Dissemination System (3).csv"
-    AQS_DS6 = "Data/AQUASTAT Dissemination System (6).csv"
-    AQS_WR = "Data/AQUASTAT-Water Resources.csv"
-    AQS_WU = "Data/AQUASTAT-Water Use.csv"
-    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
-    DATABASES = [AQS_DS3,AQS_DS6,AQS_WR,AQS_WU,CLEANED_GWC]
+    def select_usage_percentage(self,country: str,year:int,mode:int):
+        '''
+        Takes a country, year, and mode and returns that industries
+        percentage use.
+        (eg: select_usage_percentage("USA",2001,1))
+        0 = agricultural
+        1 = industrial
+        2 = household/domestic
+        '''
+        if mode == 0:
+            return self.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';").agr_total
+        if mode == 1:
+            return self.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';").ind_total
+        if mode == 2:
+            return self.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
+                yr = " + str(year) + " AND country = '"+country+"';").hou_total
+        raise ValueError()
 
-def id_to_db(iden:int) -> DB:
-    """Maps integer IDs to enum values."""
-    if iden == 0:
-        return DB.AQS_DS3
-    if iden == 1:
-        return DB.AQS_DS6
-    if iden == 2:
-        return DB.AQS_WR
-    if iden == 3:
-        return DB.AQS_WU
-    if iden == 4:
-        return DB.CLEANED_GWC
+    def select_total_resources(self,country: str,year:int):
+        '''
+        Takes a country and year and returns it's total exploitable water
+        resoruces.
+        (eg: select_total_resources("USA",2001))
+        '''
+        return self.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
+        country+"' AND yr = "+str(year)+";")
 
-    raise IndexError
-
-
-def open_database(database: DB):
-    """
-    Returns an array for the spesificed database. EG: open_database(DB.AQS_DS3)
-    
-    @param database: The database to open
-    @return: List of the database contents
-    """
-    if database not in list(DB):
-        raise KeyError
-    arr = []
-    with open(database.value, newline="",encoding="utf-8") as csvfile:
-        reader = csv.reader(csvfile, delimiter=",", quotechar="|")
-        for row in reader:
-            arr.append(row)
-        return arr
-
-def filter_by_tags(db: [], tags: []):
-    """Finds all instances in a DB with certain string args
-    
-    @param db: The database to filter
-    @param tags: The tags to filter by
-    @return: List of rows matching the tags
-    """
-    arr = []
-    for row in db:
-        matches = True
-        for tag in tags:
-            if tag not in row:
-                matches = False
-                break
-        if matches:
-            arr.append(row)
-
-    return arr
-
-def filter_tags_database(database: DB, tags: []):
-    """
-    Takes a database (enum) and an array of string tags. Returns all matches from\
-    the spesified DB. EG: filter_by_tagsDB(DB.CLEANED_GWC,['USA','2001'])
-    
-    @param database: The database to filter
-    @param tags: The tags to filter by
-    @return: List of rows matching the tags"""
-    arr = open_database(database)
-    return filter_by_tags(arr, tags)
+    def get_countries(self):
+        '''
+        Returns a list of all the countries in the database.
+        '''
+        result = self.run_string_psql_multiple("SELECT DISTINCT country FROM GLOBALDATA_S;")
+        return [row.country for row in result]

@@ -12,11 +12,9 @@ def alias(var: str) -> str:
 
     if country in {"usa", "us", "united states", "united states of america", "america"}:
         return "United States of America"
-    elif country in {"uk", "UK", "united kingdom"}:
+    if country in {"uk", "UK", "united kingdom"}:
         return "United Kingdom"
-    else:
-        return var.title()
-        
+    return var.title()
 
 def check_arg_count(actual_count: int, expected_count: int) -> bool:
     """

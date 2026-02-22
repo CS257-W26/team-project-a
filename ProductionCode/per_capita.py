@@ -16,10 +16,10 @@ def get_per_capita_water_use(country: str, year: str) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    filtered_data = DataSource().run_string_psql_multiple("SELECT per_capita FROM GLOBALDATA_S WHERE country = '"+country+"' AND yr = "+str(year)+";")
-    if len(filtered_data.all()) > 0:
-        return float(filtered_data[0].per_capita)
-    raise ValueError(
+    filtered_data = DataSource().select_per_capita(country,year)
+    if filtered_data:
+        return float(filtered_data)
+    raise IndexError(
         "Country or year not found. Pick another country or pick years from 2000-2024."
     )
 
