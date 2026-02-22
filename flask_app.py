@@ -6,40 +6,51 @@ from flask import Flask, Blueprint
 from ProductionCode.use_time_compare import water_use_time_compare
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.per_capita import print_per_capita_water_use
+from ProductionCode.database import DataSource
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
     """
-    Returns instructions with available API endpoints
+    Display homepage with country selection form.
+
+    On GET: renders form with all available countries.
+    On POST: renders selected country's water usage data.
+    Returns:
+        Rendered template with country list and selected data.
     """
-    welcome_message = """Welcome to the Global Water Usage Analysis API!
+    data_source = DataSource()
+    names = data_source.get_countries()
+    selected_name = ""
+    country = None
+    error = ""
+    year = None
 
-    Use the following routes:
+    if request.method == "POST":
+        selected_name = request.form.get("country", "")
+        if selected_name is None:
+            error = "Select a country to view its water usage data."
+        else:
+            year = request.form.get("year", "")
+            
+    agc_percent = source.select_usage_percentage(selected_name,year,0)
+    ind_percent = source.select_usage_percentage(selected_name,year,1)
+    hsh_percent = source.select_usage_percentage(selected_name,year,2)
 
-        1. Water Usage Over Time
-        Format: /api/water_use/country/year_1/year_2/
-        Description: Compare water usage between two years
-        Example: /api/water_use/USA/2018/2020/
 
-        2. Usage Proportion by Sector
-        Format: /api/usage_proportion/country/year/
-        Description: Water usage breakdown (Agricultural, Industrial, Household)
-        Example: /api/usage_proportion/Argentina/2023/
-
-        3. Per Capita Water Usage
-        Format: /api/per_capita/country/year/
-        Description: Average water usage per capita (liters per day)
-        Example: /api/per_capita/Argentina/2023/
-
-        Notes:
-        • Available years: 2000-2024 (depends on data availability)
-        • Country names support aliases (USA, US, UK, etc.)
-        • Country names are case-insensitive
-        """
-    return f'<pre>{welcome_message}</pre>'
+    return render_template(
+        "index.html",
+        names=names,
+        selected_name=selected_name,
+        country_perCapita=get_per_capita_water_use(selected_name, year) if selected_name else None,
+        agricultural=agc_percent,
+        industrial=ind_percent,
+        household=hsh_percent,
+        error=error,
+        year=year
+    )
 
 @api.route('/water_use/<country>/<year1>/<year2>/')
 def water_use_route(country, year1, year2):
@@ -95,7 +106,7 @@ def page_not_found(e):
 def main():
     """Main function to run the Flask app."""
     app.register_blueprint(api, url_prefix='/api')
-    app.run(port=5107)
+    app.run(port=5100)
 
 if __name__ == '__main__':
     main()

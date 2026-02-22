@@ -69,3 +69,10 @@ class DataSource:
         '''
         return self.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
         country+"' AND yr = "+str(year)+";")
+
+    def get_countries(self):
+        '''
+        Returns a list of all the countries in the database.
+        '''
+        result = self.run_string_psql_multiple("SELECT DISTINCTcountry FROM GLOBALDATA_S;")
+        return [row.country for row in result]
