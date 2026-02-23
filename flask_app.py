@@ -22,7 +22,7 @@ def home():
         Rendered template with country list and selected data.
     """
     data_source = DataSource()
-    names = data_source.get_countries()
+    names = data_source.get_countries("GLOBALDATA_S")
     selected_name = ""
     error = ""
     year = None
@@ -59,6 +59,46 @@ def home():
         household=hsh_percent,
         error=error,
         year=year
+    )
+
+@app.route('/compare', methods=['GET', 'POST'])
+def compare():
+    """
+    Display the way of comparing a country over the span of two inputted years.
+
+    On GET: renders form with all available countries.
+    On POST: renders selected country/years' water data.
+    Returns:
+        Rendered template with country list and selected data.
+    """
+    data_source = DataSource()
+    names = data_source.get_countries("AQTE")
+    selected_name = ""
+    error = ""
+    year1 = None
+
+    if request.method == "POST":
+        selected_name = request.form.get("country", "")
+        year1_value = request.form.get("year1", "")
+        year2_value = request.form.get("year2", "")
+        if not selected_name:
+            error = "Select a country to view its water usage data."
+        elif not year1_value or year2_value:
+            error = "Select years to view its water usage data."
+        else:
+            try:
+                year1 = int(year1_value)
+                year2 = int(year2_value)
+            except (ValueError, IndexError):
+                error = "Invalid country or year selection."
+
+
+    return render_template(
+        "compare.html",
+        names=names,
+        selected_name=selected_name,
+        error=error,
+        year1=year1
     )
 
 @api.route('/water_use/<country>/<year1>/<year2>/')
