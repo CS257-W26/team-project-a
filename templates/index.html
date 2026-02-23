@@ -26,7 +26,7 @@
                 <select id="country" name="country">
                     <option value="">Select</option>
                     {% for name in names %}
-                    <option value="{{ name }}" {% if name == selected_name %}selected{% endif %}>
+                    <option value="{{ name }}" {% if name = selected_name %}selected{% endif %}>
                         {{ name }}
                     </option>
                     {% endfor %}
@@ -36,7 +36,7 @@
                 <select id="year" name="year">
                     <option value="">Select</option>
                     {% for y in range(2000,2024) %}
-                    <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
+                    <option value="{{ y }}" {% if year = y %}selected{% endif %}>{{ y }}</option>
                     {% endfor %}
                 </select>
 
