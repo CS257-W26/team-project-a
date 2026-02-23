@@ -32,5 +32,5 @@ def print_per_capita_water_use(country: str, year: str):
     """
     value = get_per_capita_water_use(country, year)
     return(
-        f"{alias(country)}'s Water Usage per Capita: {round(value, 2)} Liters per day"
+        f"{round(value, 2)} Liters per day"
     )

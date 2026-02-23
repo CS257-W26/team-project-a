@@ -36,7 +36,7 @@ class FlaskTest(unittest.TestCase):
         mock_datasource_inst.select_per_capita.return_value = 265.32
         result = per_capita_route("Argentina", "2023")
         self.assertEqual(
-            result, "Argentina's Water Usage per Capita: 265.32 Liters per day"
+            result, "265.32 Liters per day"
         )
 
     @patch("ProductionCode.use_time_compare.DataSource")
