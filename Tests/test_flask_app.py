@@ -16,11 +16,6 @@ from flask_app import (
 
 class FlaskTest(unittest.TestCase):
     """Tests for the flask app."""
-    def test_home(self):
-        """Tests Homepage works"""
-        result = home()
-        self.assertIn("Global Water Usage Analysis API", result)
-
     def test_404(self):
         """Tests 404 error works"""
         result = page_not_found("")
@@ -72,10 +67,13 @@ class TestFlaskApp(unittest.TestCase):
         cur_app = app.test_client()
         return cur_app.get(url, follow_redirects=True)
 
-    def test_flask_app_homepage(self):
+    @patch("flask_app.DataSource")
+    def test_flask_app_homepage(self,mock_datasource):
         """Homepage test for flask"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.select_per_capita.return_value = None
         response = self.run_test_site("/")
-        self.assertIn("Welcome to the Global Water", str(response.data))
+        self.assertIn("Water Usage Statistics", str(response.data))
 
     def test_flask_app_404(self):
         """404 test for flask"""
