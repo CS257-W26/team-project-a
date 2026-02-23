@@ -76,6 +76,7 @@ def compare():
     selected_name = ""
     error = ""
     year1 = None
+    year2 = None
 
     if request.method == "POST":
         selected_name = request.form.get("country", "")
@@ -98,7 +99,8 @@ def compare():
         names=names,
         selected_name=selected_name,
         error=error,
-        year1=year1
+        year1=year1,
+        year2=year2
     )
 
 @api.route('/water_use/<country>/<year1>/<year2>/')
