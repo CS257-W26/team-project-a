@@ -48,6 +48,15 @@
         <div class="card">
             <h2>Comparison</h2>
             <p class="subtitle">Years: {{ year1 }} and {{ year2 }}</p>
+            {% if comparison_lines %}
+            <div class="stats-grid">
+                {% for line in comparison_lines %}
+                <div class="stat">
+                    <div class="stat-value">{{ line }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
         {% endif %}
     </main>
