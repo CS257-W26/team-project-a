@@ -142,17 +142,7 @@ def page_not_found(e):
     """
     Handle 404 errors with helpful information.
     """
-    text = str(e)+"""error: 404 - Page Not Found
-
-    The page you're looking for doesn't exist. Please check the URL and try again.
-
-    - /api/water_use/country/year_1/year_2/
-    - /api/usage_proportion/country/year/
-    - /api/per_capita/country/year/
-
-    Visit the homepage (/) for detailed instructions and examples.
-    """
-    return f'<pre>{text}</pre>'
+    return render_template("404.html"), 404
 
 def main():
     """Main function to run the Flask app."""
