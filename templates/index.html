@@ -6,15 +6,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-brand">Water Stats</a>
-            <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/about" class="nav-link">About</a></li>
-            </ul>
-        </div>
-    </nav>
+    {% include "nav.html" %}    
+
 
     <main class="page">
         <div class="card">
