@@ -61,6 +61,13 @@ def home():
         year=year
     )
 
+@app.route('/about')
+def about():
+    """
+    Display the project overview page.
+    """
+    return render_template("about.html")
+
 @app.route('/compare', methods=['GET', 'POST'])
 def compare():
     """

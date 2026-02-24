@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>About - Water Usage Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='datastyle.css') }}">
+</head>
+<body>
+    {% include "nav.html" %}
+    <main class="page">
+        <div class="card">
+            <h1>About This Project</h1>
+            <p class="subtitle">Global Water Sources v Spending</p>
+            <p>
+                This project explores how countries use and obtain water resources by
+                combining global datasets on water sources and water consumption.
+                The goal is to support sustainable consumption and clean water access
+                through clear, interactive comparisons.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>What You Can Do</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-label">Usage Breakdown</div>
+                    <div class="stat-value">See agricultural, industrial, and household shares.</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Usage Over Time</div>
+                    <div class="stat-value">Compare a country across two years.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Data Sources</h2>
+            <p>
+                The data comes from the FAO AQUASTAT Dissemination System and the
+                Global Water Consumption Dataset (2000-2024). Together they provide
+                country-level context on water availability and use.
+            </p>
+        </div>
+    </main>
+</body>
+</html>
