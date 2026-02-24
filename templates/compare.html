@@ -23,7 +23,6 @@
                     </option>
                     {% endfor %}
                 </select>
-
                 <label for="year1">Choose year 1:</label>
                 <select id="year1" name="year1">
                     <option value="">Select</option>
@@ -31,7 +30,6 @@
                     <option value="{{ y }}" {% if year1 == y %}selected{% endif %}>{{ y }}</option>
                     {% endfor %}
                 </select>
-
                 <label for="year2">Choose year 2:</label>
                 <select id="year2" name="year2">
                     <option value="">Select</option>
@@ -39,21 +37,17 @@
                     <option value="{{ y }}" {% if year2 == y %}selected{% endif %}>{{ y }}</option>
                     {% endfor %}
                 </select>
-
                 <button type="submit">Search</button>
             </form>
-
             {% if error %}
             <p class="error">{{ error }}</p>
             {% endif %}
         </div>
 
-        {% if selected_name and year and not error %}
+        {% if selected_name and year1 and year2 and not error %}
         <div class="card">
             <h2>Comparison</h2>
-            <p class="subtitle">Year: {{ year }}</p>
-
-
+            <p class="subtitle">Years: {{ year1 }} and {{ year2 }}</p>
         </div>
         {% endif %}
     </main>

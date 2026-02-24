@@ -84,7 +84,7 @@ def compare():
         year2_value = request.form.get("year2", "")
         if not selected_name:
             error = "Select a country to view its water usage data."
-        elif not year1_value or year2_value:
+        elif not year1_value or not year2_value:
             error = "Select years to view its water usage data."
         else:
             try:
