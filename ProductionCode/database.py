@@ -32,20 +32,20 @@ class DataSource:
         result = self.db.query(str_command)
         return result
 
-    def select_per_capita(self,country: str, year: int):
+    def get_per_capita(self,country: str, year: int):
         '''
         Takes a country and year and returns it's per capita water use.
-        (eg: select_per_capita("USA",2001))
+        (eg: get_per_capita("USA",2001))
         '''
         return self.run_string_psql\
         ("SELECT per_capita FROM GLOBALDATA_S WHERE country = '"+country+"' AND yr = "+str(year)\
             +";").per_capita
 
-    def select_usage_percentage(self,country: str,year:int,mode:int):
+    def get_usage_percentage(self,country: str,year:int,mode:int):
         '''
         Takes a country, year, and mode and returns that industries
         percentage use.
-        (eg: select_usage_percentage("USA",2001,1))
+        (eg: get_usage_percentage("USA",2001,1))
         0 = agricultural
         1 = industrial
         2 = household/domestic
@@ -61,11 +61,11 @@ class DataSource:
                 yr = " + str(year) + " AND country = '"+country+"';").hou_total
         raise ValueError()
 
-    def select_total_resources(self,country: str,year:int):
+    def get_total_resources(self,country: str,year:int):
         '''
         Takes a country and year and returns it's total exploitable water
         resoruces.
-        (eg: select_total_resources("USA",2001))
+        (eg: get_total_resources("USA",2001))
         '''
         return self.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
         country+"' AND yr = "+str(year)+";")

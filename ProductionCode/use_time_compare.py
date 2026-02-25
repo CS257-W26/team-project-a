@@ -13,7 +13,7 @@ def validate_years(year1: int, year2: int) -> None:
     """
     if not 2000 <= int(year1) <= 2024 or not 2000 <= int(year2) <= 2024:
         raise ValueError("Years must be between 2000 and 2024.")
-def fetch_water_use(country: str, year: int) -> float:
+def get_water_use(country: str, year: int) -> float:
     """
     Fetch water use for a country and year from the cleaned dataset.
     @param country: The country to get water use for
@@ -38,14 +38,14 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
         float(water_use_y1), float(water_use_y2))
     return out
 
-def water_use_time_compare_print(out):
+def print_water_use_time_compare(out):
     """Prints the water use time compare
     @param out: The output string from water_use_time_compare
     """
     print(out)
 
 
-def water_use_time_compare_format(country, year1, year2, wu1, wu2):
+def format_water_use_time_compare(country, year1, year2, wu1, wu2):
     """
     @param country: The country to compare water use for
     @param year1: The first year to compare
