@@ -32,8 +32,8 @@ def water_use_time_compare(country: str, year1: int, year2: int) -> str:
     """
     validate_years(year1, year2)
     country = alias(country)
-    water_use_y1 = fetch_water_use(country, year1).total_resources
-    water_use_y2 = fetch_water_use(country, year2).total_resources
+    water_use_y1 = get_water_use(country, year1).total_resources
+    water_use_y2 = get_water_use(country, year2).total_resources
     out = water_use_time_compare_format(country, year1, year2, \
         float(water_use_y1), float(water_use_y2))
     return out
