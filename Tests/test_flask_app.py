@@ -16,10 +16,6 @@ from flask_app import (
 
 class FlaskTest(unittest.TestCase):
     """Tests for the flask app."""
-    def test_404(self):
-        """Tests 404 error works"""
-        result = page_not_found("")
-        self.assertIn("404 - Page Not Found", result)
 
     @patch("ProductionCode.usage_proportion.DataSource")
     def test_proportion_flask_right(self,mock_datasource):
@@ -78,7 +74,7 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_404(self):
         """404 test for flask"""
         response = self.run_test_site("/WEWLAD/")
-        self.assertIn("The requested URL was not found on the server", str(response.data))
+        self.assertIn("Page Not Found", str(response.data))
 
     @patch("ProductionCode.use_time_compare.DataSource")
     def test_flask_app_water_use_us(self,mock_datasource):
