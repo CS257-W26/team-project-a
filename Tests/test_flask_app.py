@@ -4,11 +4,9 @@ import unittest
 from unittest.mock import patch, MagicMock
 
 from flask_app import (
-    home,
     water_use_route,
     usage_proportion_route,
     per_capita_route,
-    page_not_found,
     app,
     api,
 )
@@ -92,3 +90,91 @@ class TestFlaskApp(unittest.TestCase):
         mock_datasource.get_usage_percentage.return_value = 20 #number does not matter.
         response = self.run_test_site("/api/usage_proportion/Argentina/2023/")
         self.assertIn("Water usage in Argentina", str(response.data))
+
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_flask_app_per_capita(self,mock_datasource):
+        """Per captia test via API"""
+        mock_datasource = MagicMock()
+        mock_datasource.get_usage_percentage.return_value = 20 #number does not matter.
+        response = self.run_test_site("/api/per_capita/Argentina/2023/")
+        self.assertIn("1.0 Liters per day", str(response.data))
+
+    @patch("ProductionCode.use_time_compare.DataSource")
+    def test_flask_app_compare(self,mock_datasource):
+        """Compare test via API"""
+        mock_datasource = MagicMock()
+        mock_datasource.get_usage_percentage.return_value = 20 #number does not matter.
+        response = self.run_test_site("/api/water_use/Argentina/2023/2021")
+        self.assertIn("Difference", str(response.data))
+
+
+class TestHtmlApp(unittest.TestCase):
+    """Integration tests for frontend"""
+    def setUp(self):
+        if "api" not in app.blueprints:
+            app.register_blueprint(api, url_prefix="/api")
+
+    def run_test_site(self,url,post_data):
+        """Helper function to quickly run the test flask site."""
+        cur_app = app.test_client()
+        return cur_app.post(url,data=post_data)
+
+    @patch("flask_app.DataSource")
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_flask_app_per_capita(self,mock_datasource,mock_datasource_2):
+        """Per captia test. Very scuffed. IDK how to do this better."""
+        mock_datasource_2 = MagicMock()
+        mock_datasource_2.get_per_capita.return_value = 1337
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_per_capita.return_value = 42069#number does not matter.
+        mock_datasource_inst.get_countries.return_value = ["Australia"]
+        response = self.run_test_site("/",{
+            "country": "Australia",
+            "year": "2005",
+        })
+        self.assertIn("42069.0 Liters per day", str(response.data))
+
+    @patch("flask_app.DataSource")
+    @patch("ProductionCode.usage_proportion.DataSource")
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_flask_app_proportion(self,mock_datasource,mock_datasource_2,mock_datasource_3):
+        """This test does not work properly?? I'm not sure how to fix it. Lol.
+        Should test weather the proportions work.
+        """
+        mock_datasource_2_inst = mock_datasource_2.return_value
+        mock_datasource_2_inst.get_usage_percentage.return_value = 20 #number does not matter.
+
+        mock_datasource3_inst = mock_datasource_3.return_value
+        mock_datasource3_inst.get_per_capita.return_value = 42069#number does not matter.
+
+
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource.get_usage_percentage.return_value = 20
+        mock_datasource_inst.get_countries.return_value = ["Australia"]
+        response = self.run_test_site("/",{
+            "country": "Australia",
+            "year": "2005",
+        })
+        self.assertIn("Australia", str(response.data))
+
+
+    @patch("flask_app.DataSource")
+    @patch("ProductionCode.use_time_compare.DataSource")
+    @patch("ProductionCode.use_time_compare")
+    def test_flask_app_compare(self,mock_datasource,mock_datasource_2,mock_use_time):
+        """Usage compare. Very scuffed. IDK how to do this better.
+        HELP ME
+        """
+        mock_datasource_2_inst = mock_datasource_2.return_value
+        mock_datasource_2_inst.get_usage_percentage.return_value = 20 #number does not matter.
+        mock_use = mock_use_time.return_value
+        mock_use.water_use_time_compare.return_value = 32904932
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_usage_percentage.return_value = 42069#number does not matter.
+        mock_datasource_inst.get_countries.return_value = ["Australia"]
+        response = self.run_test_site("/compare",{
+            "country": "Australia",
+            "year1": "2004",
+            "year2": "2005",
+        })
+        self.assertIn("2005: 1.0 billion cubic meters", str(response.data))

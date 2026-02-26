@@ -98,7 +98,9 @@ def compare():
             try:
                 year1 = int(year1_value)
                 year2 = int(year2_value)
-                comparison_text = water_use_time_compare(selected_name, year1, year2)
+                comparison_text = water_use_time_compare(selected_name, year1, year2) #TO DO
+                #DON'T DO THIS!!! PLEASE!!!
+                # MUCH BETTER TO GET THE VARS AND HANDLE THE FORMATTING IN HTML
                 comparison_lines = comparison_text.splitlines()
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
@@ -153,12 +155,12 @@ def page_not_found(e):
     """
     Handle 404 errors with helpful information.
     """
+    print(e)
     return render_template("404.html"), 404
 
 def main():
     """Main function to run the Flask app."""
     app.register_blueprint(api, url_prefix='/api')
     app.run(host="0.0.0.0", port=5310)
-    
 if __name__ == '__main__':
     main()
