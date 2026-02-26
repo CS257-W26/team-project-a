@@ -41,9 +41,9 @@ def home():
         else:
             try:
                 year = int(year_value)
-                agc_percent = data_source.select_usage_percentage(selected_name, year, 0)
-                ind_percent = data_source.select_usage_percentage(selected_name, year, 1)
-                hsh_percent = data_source.select_usage_percentage(selected_name, year, 2)
+                agc_percent = data_source.get_usage_percentage(selected_name, year, 0)
+                ind_percent = data_source.get_usage_percentage(selected_name, year, 1)
+                hsh_percent = data_source.get_usage_percentage(selected_name, year, 2)
                 country_per_capita = print_per_capita_water_use(selected_name, year)
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."

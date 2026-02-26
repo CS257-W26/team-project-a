@@ -25,7 +25,7 @@ class FlaskTest(unittest.TestCase):
     def test_proportion_flask_right(self,mock_datasource):
         """Tests the intended Flask outcome for usage proportion"""
         mock_datasource = MagicMock()
-        mock_datasource.select_usage_percentage.return_value = 20 #number does not matter.
+        mock_datasource.get_usage_percentage.return_value = 20 #number does not matter.
         result = usage_proportion_route("Argentina", "2023")
         self.assertIn("Water usage in Argentina in 2023",result)
 
@@ -33,7 +33,7 @@ class FlaskTest(unittest.TestCase):
     def test_per_capita_right(self,mock_datasource):
         """Tests the intended Flask outcome for per capita function"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_per_capita.return_value = 265.32
+        mock_datasource_inst.get_per_capita.return_value = 265.32
         result = per_capita_route("Argentina", "2023")
         self.assertEqual(
             result, "265.32 Liters per day"
@@ -43,14 +43,14 @@ class FlaskTest(unittest.TestCase):
     def test_water_usage_right(self,mock_datasource):
         """Tests the intended Flask outcome for water usage difference"""
         mock_datasource = MagicMock()
-        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
+        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
         result = water_use_route("usa", "2018", "2020")
         self.assertIn("Water usage in United States of America", result)
     @patch("ProductionCode.use_time_compare.DataSource")
     def test_water_usage_albania(self,mock_datasource):
         """Tests water usage for Albania"""
         mock_datasource = MagicMock()
-        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
+        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
         result = water_use_route("Albania", "2018", "2020")
         self.assertIn("Water usage in Albania", result)
 
@@ -71,7 +71,7 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_homepage(self,mock_datasource):
         """Homepage test for flask"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_per_capita.return_value = None
+        mock_datasource_inst.get_per_capita.return_value = None
         response = self.run_test_site("/")
         self.assertIn("Water Usage Statistics", str(response.data))
 
@@ -84,7 +84,7 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_water_use_us(self,mock_datasource):
         """Water use test for US"""
         mock_datasource = MagicMock()
-        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
+        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
         response = self.run_test_site("/api/water_use/US/2003/2004/")
         self.assertIn(
             "Water usage in United States of America\\n2003", str(response.data)
@@ -93,6 +93,6 @@ class TestFlaskApp(unittest.TestCase):
     def test_flask_app_usage_proportion(self,mock_datasource):
         """Usage proportion test via API"""
         mock_datasource = MagicMock()
-        mock_datasource.select_usage_percentage.return_value = 20 #number does not matter.
+        mock_datasource.get_usage_percentage.return_value = 20 #number does not matter.
         response = self.run_test_site("/api/usage_proportion/Argentina/2023/")
         self.assertIn("Water usage in Argentina", str(response.data))

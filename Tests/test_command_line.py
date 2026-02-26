@@ -64,7 +64,7 @@ class CommandLineTest(unittest.TestCase):
     def test_run_water_use_time_compare(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
         mock_datasource = MagicMock()
-        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
+        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
         self.assertIn("Water usage in United States of America", printed_out)
@@ -73,7 +73,7 @@ class CommandLineTest(unittest.TestCase):
     def test_run_water_use_time_compare_fail(self,mock_datasource):
         """Tests invalid water use compare"""
         mock_datasource = MagicMock()
-        mock_datasource.select_total_resources.return_value = 20 #number does not matter.
+        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001"]
         printed_out = self._run_and_return_output()
         self.assertEqual(printed_out, print_help_statement().strip())
@@ -94,7 +94,7 @@ class CommandLineTest(unittest.TestCase):
         """Test percapita command"""
 
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_per_capita.return_value = 364.38
+        mock_datasource_inst.get_per_capita.return_value = 364.38
         # Do not ask me why this works. I have NO idea.
         sys.argv = ["command_line.py", "-percapita", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
@@ -111,7 +111,7 @@ class PerCapitaWaterUseTest(unittest.TestCase):
     def test_per_capita_valid(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #2
         """Test valid country and year inputs"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_per_capita.return_value = 290.58
+        mock_datasource_inst.get_per_capita.return_value = 290.58
         result = get_per_capita_water_use("Japan", "2018")
         self.assertAlmostEqual(result, 290.58, places=2)
 
@@ -119,7 +119,7 @@ class PerCapitaWaterUseTest(unittest.TestCase):
     def test_per_capita_invalid_country(self,mock_datasource):
         """Test invalid country input"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_per_capita.return_value = None
+        mock_datasource_inst.get_per_capita.return_value = None
         with self.assertRaises(IndexError):
             get_per_capita_water_use("Wakanda", "2018")
 
@@ -142,7 +142,7 @@ class UsageProportionTest(unittest.TestCase):
     def test_proportion_valid(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #1
         """Test valid country/year/type input"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_usage_percentage.return_value = 1337
+        mock_datasource_inst.get_usage_percentage.return_value = 1337
         sys.argv = ["command_line.py", "-usageproportion", "Argentina", "2024"]
         printed_out = self._run_and_return_output()
         self.assertIn("1337", printed_out)
@@ -151,7 +151,7 @@ class UsageProportionTest(unittest.TestCase):
     def test_proportion_invalid_country(self,mock_datasource):
         """Test invalid country input"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_usage_percentage.return_value = None
+        mock_datasource_inst.get_usage_percentage.return_value = None
         with self.assertRaises(IndexError):
             usage_proportion("Wakanda", "2023")
 
@@ -159,7 +159,7 @@ class UsageProportionTest(unittest.TestCase):
     def test_proportion_invalid_year(self,mock_datasource):
         """Test invalid year input"""
         mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.select_usage_percentage.return_value = None
+        mock_datasource_inst.get_usage_percentage.return_value = None
         with self.assertRaises(IndexError):
             usage_proportion("Argentina", "3023")
 
