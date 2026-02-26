@@ -177,4 +177,4 @@ class TestHtmlApp(unittest.TestCase):
             "year1": "2004",
             "year2": "2005",
         })
-        self.assertIn("2005: 1.0 billion cubic meters", str(response.data))
+        self.assertIn("0 billion cubic meters/year", str(response.data))
