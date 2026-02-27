@@ -54,3 +54,11 @@ For example: `python3 command_line.py -perCapita Brazil 2020`
 - Testing -
 * unittest - Standard python test framework
 * StringIO - Used to read stdout for testing
+
+## Website Organization/Design
+The website has a very clear design which enables easy reading for someone who's quickly looking at the website
+* Title of site in the top left in the header. Header is distinct, words are clickable 
+* Header also contains links to the home page (Water Usage Search), compare page and about. (Headers consistent throughout pages)
+* Specific pages have a large well-defined form in the middle (promotes Scanning)
+* Buttons on the form and ability to search are clearly clickable (promotes Scanning)
+* Due to how few things there are on the website, it's hard to miss what is being shown (this promotes Satisficing/Muddling Through)
