@@ -6,7 +6,7 @@ This will be the entry point for the project when run from the command line.
 import sys
 from ProductionCode.per_capita import print_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
-from ProductionCode.use_time_compare import water_use_time_compare, water_use_time_compare_print
+from ProductionCode.use_time_compare import water_use_time_compare, print_water_use_time_compare
 
 from ProductionCode.utils import print_help_statement, check_arg_count
 
@@ -21,7 +21,7 @@ def main():
         if not check_arg_count(len(sys.argv), 5):
             return
         out = water_use_time_compare(sys.argv[2], sys.argv[3], sys.argv[4])
-        water_use_time_compare_print(out)
+        print_water_use_time_compare(out)
     elif mode == "-percapita":
         if not check_arg_count(len(sys.argv), 4):
             return

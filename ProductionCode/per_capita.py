@@ -16,7 +16,7 @@ def get_per_capita_water_use(country: str, year: str) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    filtered_data = DataSource().select_per_capita(country,year)
+    filtered_data = DataSource().get_per_capita(country,year)
     if filtered_data:
         return float(filtered_data)
     raise IndexError(
