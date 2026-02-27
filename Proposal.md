@@ -20,8 +20,8 @@ Clean water & sanitation
 
 ## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: I want to find out how the water usage in the US has changed over the last 3 years. I can give a country and 2 years to the CLI and it will return how water usage has changed.
-* Acceptance Criteria: User can input "python3 command_line.py US 2022 2025" and will recive the values of water usage for those two years, as well as how they've changed.
+* User story: I want to find out how the water usage in the US has changed between 2017 and 2025. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "US, 2017, 2021" and the code responds w/ a change of "0.0 billion cubic meters/year"
+* Acceptance Criteria: User can input "python3 command_line.py US 2017 2021" and will recive the values of water usage for those two years, as well as how they've changed.
 
 # Datasets Metadata
 * Name: FAO AQUASTAT Dissemination System
