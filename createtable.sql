@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS AQTE;
 CREATE TABLE AQTE(
     country TEXT,
     yr INTEGER,
-    total_resources FLOAT
+    total_efficiency FLOAT
 );
 
 DROP TABLE IF EXISTS AQUA1;
