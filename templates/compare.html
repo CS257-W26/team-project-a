@@ -48,7 +48,6 @@
         <div class="card">
             <h2>Comparison</h2>
             <p class="subtitle">Years: {{ year1 }} and {{ year2 }}</p>
-            {% if water_use_year1 && water_use_year2 %}
             <div class="stats-grid">
                 <div class="stat">
                     <div class="stat-label">Country:</div>
@@ -63,7 +62,6 @@
                     <div class="stat-value">{{ water_use_year2 }}</div>
                 </div>
             </div>
-            {% endif %}
         </div>
         {% endif %}
     </main>
