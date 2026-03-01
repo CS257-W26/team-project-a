@@ -67,7 +67,7 @@ class DataSource:
         resoruces.
         (eg: get_total_resources("USA",2001))
         '''
-        return self.run_string_psql("SELECT total_resources FROM AQTE WHERE country = '"+\
+        return self.run_string_psql("SELECT total_efficiency FROM AQTE WHERE country = '"+\
         country+"' AND year = "+str(year)+";")
 
     def get_countries(self, dataset1:str):
