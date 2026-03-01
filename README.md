@@ -62,3 +62,7 @@ The website has a very clear design which enables easy reading for someone who's
 * Specific pages have a large well-defined form in the middle (promotes Scanning)
 * Buttons on the form and ability to search are clearly clickable, buttons are well defined. (promotes Scanning)
 * Due to how few things there are on the website, it's hard to miss what is being shown. Simplistic & polished. (this promotes Satisficing/Muddling Through)
+
+
+# Reworks
+- J: Reworked the method for obtaining use time compare
