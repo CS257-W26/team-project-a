@@ -84,7 +84,6 @@ def compare():
     error = ""
     year1 = None
     year2 = None
-    comparison_lines = None
     wu1 =  None
     wu2 =  None
     diff = None
