@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS GLOBALDATA_S;
 CREATE TABLE GLOBALDATA_S(
     country TEXT,
-    year INTEGER,
+    yr INTEGER,
     total_consumption FLOAT,
     per_capita FLOAT,
     agr_total FLOAT,
@@ -12,7 +12,7 @@ CREATE TABLE GLOBALDATA_S(
 DROP TABLE IF EXISTS AQTE;
 CREATE TABLE AQTE(
     country TEXT,
-    year INTEGER,
+    yr INTEGER,
     total_efficiency FLOAT
 );
 

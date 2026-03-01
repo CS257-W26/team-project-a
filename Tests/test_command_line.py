@@ -63,8 +63,8 @@ class CommandLineTest(unittest.TestCase):
     @patch("ProductionCode.use_time_compare.DataSource")
     def test_run_water_use_time_compare(self,mock_datasource):  # THIS IS AN ACCEPTANCE TEST FOR #3
         """Tests water use compare"""
-        mock_datasource = MagicMock()
-        mock_datasource.get_total_resources.return_value = 20 #number does not matter.
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_total_resources.return_value = 20 #number does not matter.
         sys.argv = ["command_line.py", "-usageovertime", "USA", "2001", "2003"]
         printed_out = self._run_and_return_output()
         self.assertIn("Water usage in United States of America", printed_out)
