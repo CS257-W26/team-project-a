@@ -10,26 +10,18 @@ Clean water & sanitation
 * Interactable Global Map w/ data
 * Small dictionary (not the coding kind, the kind where you ask about the meanings of terms)
 
-## Feature 1: Identify proportonality of country's water usage
+## Feature 1/2: Identify proportonality of country's water usage & Country per capita water usage
 
-* Person responsible: Lloyd
-* User story: I input Canada to see what percentage of it's water is going to Agricultutal usage, Industrial usage and Household usage and find that the cooresponding percentages for the most recent year are 57%, 26.7%, 26.4%
-* Acceptance Criteria: User can input "country_usage_breakdown canada" and it responds with the dates (accurate for the current year) of "Agricultral: 57%, Industrial: 26.7%, Household: 26.4%
-
-## Feature 2: Country per capita water usage
-
-* Person responsible: Paul
-* User story: As someone intersted in Japan's water usage, I want to compare Japan's average water use per capita in 2018, so that I can learn how much water an average person uses.
+* Person responsible: Lloyd, Paul
+* User story: As someone intersted in the USA's water usage, I want to see what percentage of it's water is going to Agricultutal usage, Industrial usage and Household usage, as well as it's water usage per capita in the year 2020 . Upon inputting USA find that the cooresponding percentages for the most recent year are 47.45%, 25.27%, 27.54%. It also responds that the usage per capita is 292.97 litres per day.
 * Acceptance Criteria: 
-    - User can input "python3 command_line.py Japan perCapita 2018". 
-    - If the year or country is not available, give an error message saying pick another country or pick years from 2000-2024.
-    - The numbers pulled from dataset will corresspond to the user's input and be displayed. 
-    - Output: Japan's Water Usage per Capita: 290.58 Liters per day
+    * User can input "country_usage_breakdown canada" and it responds with the dates (accurate for 2020) of "Agricultral: 57%, Industrial: 26.7%, Household: 26.4%". 
+    * User can also input "python3 command_line.py Japan perCapita 2018" and it will respond with "Japan's Water Usage per Capita: 290.58 Liters per day"
 
 ## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: I want to find out how the water usage in the US has changed over the last 3 years. I can give a country and 2 years to the CLI and it will return how water usage has changed.
-* Acceptance Criteria: User can input "python3 command_line.py US 2022 2025" and will recive the values of water usage for those two years, as well as how they've changed.
+* User story: I want to find out how the water usage in the US has changed between 2017 and 2025. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "US, 2017, 2021" and the code responds w/ a change of "0.0 billion cubic meters/year"
+* Acceptance Criteria: User can input "python3 command_line.py US 2017 2021" and will recive the values of water usage for those two years, as well as how they've changed.
 
 # Datasets Metadata
 * Name: FAO AQUASTAT Dissemination System
