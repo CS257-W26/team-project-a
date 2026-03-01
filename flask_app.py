@@ -87,6 +87,7 @@ def compare():
     comparison_lines = None
     wu1 =  None
     wu2 =  None
+    diff = None
     if request.method == "POST":
         selected_name = request.form.get("country", "")
         year1_value = request.form.get("year1", "")
@@ -102,6 +103,7 @@ def compare():
                 compare_out = water_use_time_compare(selected_name, year1, year2)
                 wu1 = compare_out[3]
                 wu2 = compare_out[4]
+                diff = str(round(float(wu2) - float(wu1),2))
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
 
@@ -114,7 +116,8 @@ def compare():
         year1=year1,
         year2=year2,
         water_use_year1 = wu1,
-        water_use_year2 = wu2
+        water_use_year2 = wu2,
+        difference = diff
     )
 
 @api.route('/water_use/<country>/<year1>/<year2>/')
