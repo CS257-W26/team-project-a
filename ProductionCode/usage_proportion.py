@@ -24,10 +24,10 @@ def usage_proportion(country, year):
     country = alias(country)
     agc_percent = source.get_usage_percentage(country,year,0)
     ind_percent = source.get_usage_percentage(country,year,1)
-    hsh_percent = source.get_usage_percentage(country,year,2)
-    if not agc_percent or not ind_percent or not hsh_percent:
+    hou_percent = source.get_usage_percentage(country,year,2)
+    if not agc_percent or not ind_percent or not hou_percent:
         raise IndexError()
     return("Water usage in " + str(country) + " in " + str(year) + "\n" + \
            "Agricultural:" + str(round(agc_percent, 2)) + "%\n" + \
             "Industrial:" + str(round(ind_percent, 2)) + "%\n" + \
-                "Household:" + str(round(hsh_percent, 2)) + "%\n")
+                "Household:" + str(round(hou_percent, 2)) + "%\n")
