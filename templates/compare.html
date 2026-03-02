@@ -12,7 +12,7 @@
         <div class="card">
             <h1>Compare 
             </h1>
-            <p class="subtitle">Compare the water usage in a country between two years.</p>
+            <p class="subtitle">Compare the water efficiency in a country between two years.</p>
             <form method="POST" class="form">
                 <label for="country">Choose a Country:</label>
                 <select id="country" name="country">
@@ -55,15 +55,15 @@
                 </div>
                 <div class="stat">
                     <div class="stat-label">Usage in {{ year1 }}:</div>
-                    <div class="stat-value">{{ water_use_year1 }} billion m^3/year</div>
+                    <div class="stat-value">{{ water_use_year1 }} US$/m^3</div>
                 </div>
                 <div class="stat">
                     <div class="stat-label">Usage in {{ year2 }}:</div>
-                    <div class="stat-value">{{ water_use_year2 }} billion m^3/year</div>
+                    <div class="stat-value">{{ water_use_year2 }} US$/m^3</div>
                 </div>
                 <div class="stat">
                     <div class="stat-label">Difference:</div>
-                    <div class="stat-value">{{ difference }} billion m^3/year</div>
+                    <div class="stat-value">{{ difference }} US$/m^3</div>
                 </div>
             </div>
         </div>
