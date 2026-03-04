@@ -35,7 +35,7 @@ Responsible consumption & production/Clean water & sanitation
     - Terms and Conditions: CC0:Public Domain
 
 # Mock up
-![caption](website\ sketch.jpg)
+![sketch](website_sketch.jpg)
 
 # Data story
 Hi! Lloyd typing! 
