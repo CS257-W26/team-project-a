@@ -2,13 +2,11 @@
 Global Water Sources v Spending
 
 # Sustainable Development Goal(s)
-Responsible consumption & production
-Clean water & sanitation
+Responsible consumption & production/Clean water & sanitation
 
 # Features
-* Ability to compare how a country obrains its water resources v. how they spend those resources (interactable visual graph)
-* Interactable Global Map w/ data
-* Small dictionary (not the coding kind, the kind where you ask about the meanings of terms)
+* Ability to compare a country's water use efficiency over a span of time.
+* Ability to find the per-capita water usage as well as the split of household/industrial/agricultural suage split.
 
 ## Feature 1/2: Identify proportonality of country's water usage & Country per capita water usage
 
@@ -20,8 +18,8 @@ Clean water & sanitation
 
 ## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: I want to find out how the water usage in the US has changed between 2017 and 2025. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "US, 2017, 2021" and the code responds w/ a change of "0.0 billion cubic meters/year"
-* Acceptance Criteria: User can input "python3 command_line.py US 2017 2021" and will recive the values of water usage for those two years, as well as how they've changed.
+* User story: I want to find out how the water efficiency in Uzbekistan changed between 2002 and 2003. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "US, 2002, 2003" and the code responds w/ a change of "0.02 US$/m^3"
+* Acceptance Criteria: User can input "python3 command_line.py uzbezistan 2002 2003" and will recive the values of water efficiency for those two years, as well as how they've changed.
 
 # Datasets Metadata
 * Name: FAO AQUASTAT Dissemination System
@@ -37,7 +35,7 @@ Clean water & sanitation
     - Terms and Conditions: CC0:Public Domain
 
 # Mock up
-Sketches have been included.
+![sketch](website_sketch.jpg)
 
 # Data story
 Hi! Lloyd typing! 

@@ -24,15 +24,18 @@ Tuesday and/or Thursday, 4:00PM, 4th floor of Libe. Thursday primary
 Weekends as needed, time to be communicated, 4th floor of Libe
 
 ## Drop-in hour options
-Lloyed can attend Monday and Wednesday's drop in hours.
+Lloyd can attend Monday and Wednesday's drop in hours.
 Paul and Jay can attend Thursday's drop in hours.
 
 # Communication
-* Mostly via groupchat text
+* We should communicate via groupchat text, as well as possibly through email
 * Email is also to be used.
-* Meetings need to be attended by all participants (unless decided otherwise communaly)
+* Meetings need to be attended by all participants (unless decided otherwise communaly).
 
 # Conflict resolution
 * If a member fails to meet their responsibilities or our agreed-upon standards, we will first address the issue through group discussion. Should the problem persist despite our internal efforts, we will then seek further help from Anya.
 * Before a solo decision is to be made, it must be communicated.
 * Any conflit or disagreements will be resolved with a collective consensus after discussion. We strongly encourage and value communication with respect. 
+* Clear communication should be made about one's feelings towards their current ability/capacity in terms of completing the project and working as a team, meaning problems are brought up before they snowball
+* At least one individual will go into office hours to discuss specific issues if needed, whether that be with the assignment itself or with something social.
+
