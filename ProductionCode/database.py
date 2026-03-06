@@ -51,14 +51,14 @@ class DataSource:
         2 = household/domestic
         '''
         if mode == 0:
-            return self.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").agr_total
+            return self.run_string_psql("SELECT agriculture_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").agriculture_total
         if mode == 1:
-            return self.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").ind_total
+            return self.run_string_psql("SELECT industrial_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").industrial_total
         if mode == 2:
-            return self.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").hou_total
+            return self.run_string_psql("SELECT household_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").household_total
         raise ValueError()
 
     def get_total_resources(self,country: str,year:int):
