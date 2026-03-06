@@ -165,7 +165,6 @@ class TestHtmlApp(unittest.TestCase):
         HELP ME
         """
 
-        
         mock_flask_datasource_inst = mock_flask_datasource.return_value
         mock_flask_datasource_inst.get_countries.return_value = ["Albania"]
         mock_flask_datasource_inst.get_total_resources.return_value = 20
@@ -174,7 +173,6 @@ class TestHtmlApp(unittest.TestCase):
 
         mock_use_datasource_inst.get_total_resources.return_value = 20
 
-        
         response = self.run_test_site("/compare",{
             "country": "Albania",
             "year1": "2004",
