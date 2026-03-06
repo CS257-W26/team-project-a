@@ -56,8 +56,8 @@ def format_water_use_time_compare(arr: []):
     country = arr[0]
     year1 = int(arr[1])
     year2 = int(arr[2])
-    wu1 = int(arr[3])
-    wu2 = int(arr[4])
+    wu1 = int(float(arr[3]))
+    wu2 = int(float(arr[4]))
     out = "Water usage in " + country
     out += "\n" + str(year1) + ": " + str(round(wu1, 2)) + " billion m^3/year"
     out += "\n" + str(year2) + ": " + str(round(wu2, 2)) + " billion m^3/year"
