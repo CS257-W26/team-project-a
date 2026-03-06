@@ -26,9 +26,9 @@ def home():
     selected_name = ""
     error = ""
     year = None
-    agc_percent = None
-    ind_percent = None
-    hsh_percent = None
+    agricultural_percent = None
+    industrial_percent = None
+    household_percent = None
     country_per_capita = None
 
     if request.method == "POST":
@@ -41,9 +41,9 @@ def home():
         else:
             try:
                 year = int(year_value)
-                agc_percent = data_source.get_usage_percentage(selected_name, year, 0)
-                ind_percent = data_source.get_usage_percentage(selected_name, year, 1)
-                hsh_percent = data_source.get_usage_percentage(selected_name, year, 2)
+                agricultural_percent = data_source.get_usage_percentage(selected_name, year, 0)
+                industrial_percent = data_source.get_usage_percentage(selected_name, year, 1)
+                household_percent = data_source.get_usage_percentage(selected_name, year, 2)
                 country_per_capita = print_per_capita_water_use(selected_name, year)
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
@@ -54,9 +54,9 @@ def home():
         names=names,
         selected_name=selected_name,
         country_perCapita=country_per_capita,
-        agricultural=agc_percent,
-        industrial=ind_percent,
-        household=hsh_percent,
+        agricultural=agricultural_percent,
+        industrial=industrial_percent,
+        household=household_percent,
         error=error,
         year=year
     )
@@ -84,7 +84,6 @@ def compare():
     error = ""
     year1 = None
     year2 = None
-    comparison_lines = None
     wu1 =  None
     wu2 =  None
     diff = None
