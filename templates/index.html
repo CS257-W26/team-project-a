@@ -9,6 +9,15 @@
     {% include "nav.html" %}    
     <main class="page">
         <div class="card">
+            <h1>Welcome to the Global Water Statistics Website</h1>
+            <p class="subtitle">With the amount of water used globally every day, it's important for people to be 
+                capable of understanding the scope of both how water being used and how much is being used.
+                This website is dedicated to the goal of making that analysis more clearly laid out fo the general public.</p>
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+        <div class="card">
             <h1>Water Usage by Country</h1>
             <p class="subtitle">Select a country to view water usage statistics.</p>
 
@@ -64,6 +73,7 @@
             </div>
         </div>
         {% endif %}
+
     </main>
 </body>
 </html>
