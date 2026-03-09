@@ -3,7 +3,6 @@ Test command line file
 """
 
 import unittest
-import sys
 from unittest.mock import patch, MagicMock
 
 from ProductionCode.database import DataSource

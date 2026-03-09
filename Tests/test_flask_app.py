@@ -178,4 +178,4 @@ class TestHtmlApp(unittest.TestCase):
             "year1": "2004",
             "year2": "2005",
         })
-        self.assertIn("20 US$/m^3", str(response.data))
+        self.assertIn("20.0 US$/m^3", str(response.data))
