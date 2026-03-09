@@ -100,8 +100,8 @@ def compare():
                 year1 = int(year1_value)
                 year2 = int(year2_value)
                 compare_out = water_use_time_compare(selected_name, year1, year2)
-                wu1 = compare_out[3]
-                wu2 = compare_out[4]
+                wu1 = round(float(compare_out[3]) ,2)
+                wu2 = round(float(compare_out[4]) ,2)
                 diff = str(round(float(wu2) - float(wu1),2))
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
