@@ -35,12 +35,12 @@ This feature compares a country's water usage between two specified years, showi
 
 **Command:** `python3 command_line.py -usageovertime --country --year1 --year2`  
 **Example:** `python3 command_line.py -usageovertime US 2003 2004`  
-**Output:** Water usage in United States of America 2003: 1829x10^9 cubic meters/year 2004: 1829x10^9 cubic meters/year Difference: 0x10^9 cubic meters/year
+**Output:** Water usage in United States of America 2003: 25 billion m^3/year 2004: 26 billion m^3/year Difference: 1 billion m^3/year
 
 Alternatively, one can use Flask. By running the Flask program and updating the url one can obtain the same result
 **URL Addition:** `/water_use/<country>/<year1>/<year2>`
 **Example:** `/water_use/US/2003/2004`
-**Output:** Water usage in United States of America 2003: 1829x10^9 cubic meters/year 2004: 1829x10^9 cubic meters/year Difference: 0x10^9 cubic meters/year
+**Output:** Water usage in United States of America 2003: 25 billion m^3/year 2004: 26 billion m^3/year Difference: 1 billion m^3/year
 
 
 ## How to Use the Commands
