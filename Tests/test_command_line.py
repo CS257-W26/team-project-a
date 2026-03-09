@@ -7,7 +7,6 @@ import sys
 from io import StringIO
 from unittest.mock import patch, MagicMock
 
-from ProductionCode.database import DataSource
 from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.utils import print_help_statement
