@@ -135,6 +135,17 @@ class TestHtmlApp(unittest.TestCase):
         self.assertIn("42069.0 Liters per day", str(response.data))
 
     @patch("flask_app.DataSource")
+    def test_flask_app_per_capita_invalid(self,mock_datasource):
+        """Per captia test for invalid country/year"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
+        response = self.run_test_site("/",{
+            "country": "Australia",
+            "year": "2005",
+        })
+        self.assertIn("Invalid", str(response.data))
+
+    @patch("flask_app.DataSource")
     @patch("ProductionCode.usage_proportion.DataSource")
     @patch("ProductionCode.per_capita.DataSource")
     def test_flask_app_proportion(self,mock_datasource,mock_datasource_2,mock_datasource_3):
@@ -156,6 +167,19 @@ class TestHtmlApp(unittest.TestCase):
             "year": "2005",
         })
         self.assertIn("Australia", str(response.data))
+
+    @patch("flask_app.DataSource")
+    def test_flask_app_proportion_invalid(self,mock_datasource):
+        """Tests an invalid country/year for proprotion.
+        """
+
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
+        response = self.run_test_site("/",{
+            "country": "AAA",
+            "year": "2005",
+        })
+        self.assertIn("Invalid", str(response.data))
 
 
     @patch("flask_app.DataSource")
@@ -179,3 +203,21 @@ class TestHtmlApp(unittest.TestCase):
             "year2": "2005",
         })
         self.assertIn("20.0 US$/m^3", str(response.data))
+
+    @patch("flask_app.DataSource")
+    @patch("ProductionCode.use_time_compare.DataSource")
+    def test_flask_app_compare_failure(self,mock_flask_datasource,mock_use_datasource):
+        """Usage compare test for a nonexistant country."""
+        mock_flask_datasource_inst = mock_flask_datasource.return_value
+        mock_flask_datasource_inst.side_effect = ValueError()
+
+        mock_use_datasource_inst = mock_use_datasource.return_value
+
+        mock_use_datasource_inst.side_effect = ValueError()
+
+        response = self.run_test_site("/compare",{
+            "country": "HELL",
+            "year1": "2004",
+            "year2": "2005",
+        })
+        self.assertIn("Invalid", str(response.data))

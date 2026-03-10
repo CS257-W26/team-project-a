@@ -25,6 +25,18 @@ class TestDataSource(unittest.TestCase):
         self.assertEqual(13, result[0]["total_resources"])
 
     @patch("ProductionCode.database.records.Database")
+    def test_run_string_psql_invalid(self, mock_db_class):
+        """Tests runstring PSQL!"""
+        mock_db_instance = mock_db_class.return_value
+        mock_return = MagicMock()
+        mock_return.all.return_value = []
+        mock_return.__getitem__.return_value = []
+        mock_db_instance.query.return_value = mock_return
+        ds = DataSource()
+        with self.assertRaises(IndexError):
+            ds.run_string_psql("this isn't a real SQL command")
+
+    @patch("ProductionCode.database.records.Database")
     def test_run_string_psql_multiple(self, mock_db_class):
         """Tests runstring PSQL multiple"""
         mock_db_instance = mock_db_class.return_value
@@ -42,6 +54,29 @@ class TestDataSource(unittest.TestCase):
         mock_db_instance.query.return_value = [mock_row]
         ds = DataSource()
         self.assertIn("FAKE COUNTRY",ds.get_countries("fake_data_set"))
+
+    @patch("ProductionCode.database.records.Database")
+    def test_get_capita(self,mock_db_class):
+        """Tests the get per capita function."""
+        mock_db_instance = mock_db_class.return_value
+        mock_return = MagicMock()
+        mock_return.all.return_value = [{"per_capita": 13}]
+        mock_return[0].per_capita = [13]
+        mock_db_instance.query.return_value = mock_return
+        ds = DataSource()
+        self.assertIn(13,ds.get_per_capita("fake_data_set",212))
+
+    @patch("ProductionCode.database.records.Database")
+    def test_get_capita_invalid(self,mock_db_class):
+        """Tests the get per capita function with missing rows."""
+        mock_db_instance = mock_db_class.return_value
+        mock_return = MagicMock()
+        mock_db_instance.query.return_value = mock_return
+
+        ds = DataSource()
+        with self.assertRaises(IndexError):
+            ds.get_per_capita("fake_data_set",212)
+
 
     @patch("ProductionCode.database.records.Database")
     def test_get_usage_percentage(self,mock_db_class):

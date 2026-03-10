@@ -5,13 +5,6 @@ Functions for the use-type proportions analysis of water usage data
 from ProductionCode.database import DataSource
 from ProductionCode.utils import alias
 
-def validate_year(year: str) -> None:
-    """
-    Validate year input.
-    """
-    if not year.isdigit() or not 2000 <= int(year) <= 2024:
-        raise ValueError("Year must be between 2000 and 2024.")
-
 def usage_proportion(country, year):
     """
     Determines water usage proportions by sector for a given country and year.
