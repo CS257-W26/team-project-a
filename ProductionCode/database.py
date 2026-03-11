@@ -84,5 +84,5 @@ class DataSource:
         '''
         Returns a list of all the countries in the database.
         '''
-        result = self.run_string_psql_multiple("SELECT DISTINCT country FROM "+dataset1+";")
+        result = self.run_string_psql_multiple("SELECT DISTINCT country FROM "+dataset1+" ORDER BY country ASC;")
         return [row.country for row in result]
