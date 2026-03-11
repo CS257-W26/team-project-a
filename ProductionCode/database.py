@@ -7,10 +7,20 @@ import records
 import ProductionCode.psql_config as config
 class DataSource:
     '''Main datsource class, connecting to databse & running/printing the example'''
+    _instance = None
+
     def __init__(self):
         '''Constructor that initiates connection to database'''
         connect = f"postgresql://{config.USER}:{config.PASSWORD}@localhost:5432/{config.DATABASE}"
         self.db = records.Database(connect)
+
+    def __new__(cls):
+        if cls._instance is None:
+            print("Connecting to DB for the first (and only) time...")
+            cls._instance = super(DataSource, cls).__new__(cls)
+            # Initialize connection details here
+        return cls._instance
+
 
     def run_string_psql(self, str_command):
         '''
@@ -51,14 +61,14 @@ class DataSource:
         2 = household/domestic
         '''
         if mode == 0:
-            return self.run_string_psql("SELECT agriculture_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").agriculture_total
+            return self.run_string_psql("SELECT agr_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").agr_total
         if mode == 1:
-            return self.run_string_psql("SELECT industrial_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").industrial_total
+            return self.run_string_psql("SELECT ind_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").ind_total
         if mode == 2:
-            return self.run_string_psql("SELECT household_total FROM GLOBALDATA_S WHERE\
-                year = " + str(year) + " AND country = '"+country+"';").household_total
+            return self.run_string_psql("SELECT hou_total FROM GLOBALDATA_S WHERE\
+                year = " + str(year) + " AND country = '"+country+"';").hou_total
         raise ValueError()
 
     def get_total_resources(self,country: str,year:int):
