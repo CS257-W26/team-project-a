@@ -176,29 +176,6 @@ Australia,2019,78.36683403
 Australia,2020,92.27885874
 Australia,2021,78.9450945
 Australia,2022,80.30477689
-Australia and New Zealand,2000,33.06162694
-Australia and New Zealand,2001,33.86179359
-Australia and New Zealand,2002,36.04818763
-Australia and New Zealand,2003,38.07431834
-Australia and New Zealand,2004,40.16126215
-Australia and New Zealand,2005,41.99483974
-Australia and New Zealand,2006,45.42794325
-Australia and New Zealand,2007,49.53223568
-Australia and New Zealand,2008,53.48752239
-Australia and New Zealand,2009,57.64095074
-Australia and New Zealand,2010,60.0822158
-Australia and New Zealand,2011,63.98391123
-Australia and New Zealand,2012,57.38686574
-Australia and New Zealand,2013,49.84848505
-Australia and New Zealand,2014,53.48541062
-Australia and New Zealand,2015,58.29185141
-Australia and New Zealand,2016,60.81599176
-Australia and New Zealand,2017,61.68775648
-Australia and New Zealand,2018,62.1588882
-Australia and New Zealand,2019,68.98930904
-Australia and New Zealand,2020,77.88463274
-Australia and New Zealand,2021,69.9958503
-Australia and New Zealand,2022,71.45717895
 Austria,2000,75.08341081
 Austria,2001,76.77639504
 Austria,2002,78.40713636
@@ -634,52 +611,6 @@ Central African Republic,2019,17.47262011
 Central African Republic,2020,17.59259725
 Central African Republic,2021,17.76810618
 Central African Republic,2022,17.86639431
-Central Asia,2000,0.782283749
-Central Asia,2001,0.871848414
-Central Asia,2002,0.926936049
-Central Asia,2003,0.991528184
-Central Asia,2004,1.078162808
-Central Asia,2005,1.194177107
-Central Asia,2006,1.366770639
-Central Asia,2007,1.495540261
-Central Asia,2008,1.627055858
-Central Asia,2009,1.688279049
-Central Asia,2010,1.819091929
-Central Asia,2011,1.948080715
-Central Asia,2012,2.099073743
-Central Asia,2013,2.203390423
-Central Asia,2014,2.342872026
-Central Asia,2015,2.415676666
-Central Asia,2016,2.440153641
-Central Asia,2017,2.452595649
-Central Asia,2018,2.622347095
-Central Asia,2019,2.76639905
-Central Asia,2020,2.836351612
-Central Asia,2021,3.47325677
-Central Asia,2022,3.53300464
-Central and Southern Asia,2000,1.147506432
-Central and Southern Asia,2001,1.221482081
-Central and Southern Asia,2002,1.27305834
-Central and Southern Asia,2003,1.345126051
-Central and Southern Asia,2004,1.451330338
-Central and Southern Asia,2005,1.529411482
-Central and Southern Asia,2006,1.649447881
-Central and Southern Asia,2007,1.762697612
-Central and Southern Asia,2008,1.784014773
-Central and Southern Asia,2009,1.862974131
-Central and Southern Asia,2010,1.967451245
-Central and Southern Asia,2011,2.073435939
-Central and Southern Asia,2012,2.159337792
-Central and Southern Asia,2013,2.26055075
-Central and Southern Asia,2014,2.406750257
-Central and Southern Asia,2015,2.539897961
-Central and Southern Asia,2016,2.707389003
-Central and Southern Asia,2017,2.852256512
-Central and Southern Asia,2018,3.003826839
-Central and Southern Asia,2019,3.10290896
-Central and Southern Asia,2020,2.996386797
-Central and Southern Asia,2021,3.258848888
-Central and Southern Asia,2022,3.434209374
 Chad,2000,3.035827624
 Chad,2001,3.235017382
 Chad,2002,3.495513907
@@ -1016,52 +947,6 @@ Dominican Republic,2019,8.752035773
 Dominican Republic,2020,8.204757288
 Dominican Republic,2021,9.179056813
 Dominican Republic,2022,9.653521619
-Eastern Asia,2000,11.15276839
-Eastern Asia,2001,11.56189523
-Eastern Asia,2002,12.11690188
-Eastern Asia,2003,12.76277579
-Eastern Asia,2004,13.47970897
-Eastern Asia,2005,14.31362671
-Eastern Asia,2006,15.02889738
-Eastern Asia,2007,16.19647352
-Eastern Asia,2008,16.62299633
-Eastern Asia,2009,16.96829823
-Eastern Asia,2010,18.43867465
-Eastern Asia,2011,19.35305912
-Eastern Asia,2012,20.14925855
-Eastern Asia,2013,21.09873136
-Eastern Asia,2014,22.38299474
-Eastern Asia,2015,23.49252052
-Eastern Asia,2016,24.8120511
-Eastern Asia,2017,26.21066817
-Eastern Asia,2018,28.73714754
-Eastern Asia,2019,29.32586414
-Eastern Asia,2020,30.33610937
-Eastern Asia,2021,35.23414987
-Eastern Asia,2022,35.54890793
-Eastern and South-Eastern Asia,2000,9.521817451
-Eastern and South-Eastern Asia,2001,9.732500446
-Eastern and South-Eastern Asia,2002,10.0678692
-Eastern and South-Eastern Asia,2003,10.46904347
-Eastern and South-Eastern Asia,2004,10.90621415
-Eastern and South-Eastern Asia,2005,11.42431365
-Eastern and South-Eastern Asia,2006,11.07392561
-Eastern and South-Eastern Asia,2007,11.22395297
-Eastern and South-Eastern Asia,2008,11.50007752
-Eastern and South-Eastern Asia,2009,11.71890585
-Eastern and South-Eastern Asia,2010,12.64137274
-Eastern and South-Eastern Asia,2011,13.23515667
-Eastern and South-Eastern Asia,2012,13.75907168
-Eastern and South-Eastern Asia,2013,14.35865931
-Eastern and South-Eastern Asia,2014,15.09142155
-Eastern and South-Eastern Asia,2015,15.75400161
-Eastern and South-Eastern Asia,2016,16.61652651
-Eastern and South-Eastern Asia,2017,17.49423468
-Eastern and South-Eastern Asia,2018,19.06416689
-Eastern and South-Eastern Asia,2019,19.60793828
-Eastern and South-Eastern Asia,2020,19.91687304
-Eastern and South-Eastern Asia,2021,22.82458991
-Eastern and South-Eastern Asia,2022,23.10490519
 Ecuador,2000,4.79111322
 Ecuador,2001,4.916677722
 Ecuador,2002,5.11627456
@@ -1242,29 +1127,6 @@ Europe,2019,63.49647848
 Europe,2020,61.01216514
 Europe,2021,64.77940158
 Europe,2022,67.31626335
-Europe and Northern America,2000,29.17759278
-Europe and Northern America,2001,29.92247144
-Europe and Northern America,2002,30.55373096
-Europe and Northern America,2003,31.30817564
-Europe and Northern America,2004,32.53893587
-Europe and Northern America,2005,33.65289216
-Europe and Northern America,2006,35.2362538
-Europe and Northern America,2007,37.40701718
-Europe and Northern America,2008,37.72033869
-Europe and Northern America,2009,38.04185391
-Europe and Northern America,2010,39.7162064
-Europe and Northern America,2011,40.9845646
-Europe and Northern America,2012,42.11254103
-Europe and Northern America,2013,43.91042837
-Europe and Northern America,2014,45.03162404
-Europe and Northern America,2015,47.38588128
-Europe and Northern America,2016,48.18396054
-Europe and Northern America,2017,49.40567278
-Europe and Northern America,2018,50.62240025
-Europe and Northern America,2019,51.83633558
-Europe and Northern America,2020,50.26640229
-Europe and Northern America,2021,53.17706469
-Europe and Northern America,2022,54.64458252
 Fiji,2003,34.79683985
 Fiji,2004,36.42526109
 Fiji,2005,35.95624564
@@ -1928,29 +1790,6 @@ Kyrgyzstan,2019,0.9121523
 Kyrgyzstan,2020,0.857064979
 Kyrgyzstan,2021,0.882133234
 Kyrgyzstan,2022,0.92947877
-Land Locked Developing Countries,2000,1.174640802
-Land Locked Developing Countries,2001,1.269823023
-Land Locked Developing Countries,2002,1.326148386
-Land Locked Developing Countries,2003,1.383381768
-Land Locked Developing Countries,2004,1.460184301
-Land Locked Developing Countries,2005,1.558824519
-Land Locked Developing Countries,2006,1.771031186
-Land Locked Developing Countries,2007,1.940905941
-Land Locked Developing Countries,2008,2.085653439
-Land Locked Developing Countries,2009,2.18282554
-Land Locked Developing Countries,2010,2.356375679
-Land Locked Developing Countries,2011,2.49966664
-Land Locked Developing Countries,2012,2.637883005
-Land Locked Developing Countries,2013,2.777363399
-Land Locked Developing Countries,2014,2.970666958
-Land Locked Developing Countries,2015,3.06720768
-Land Locked Developing Countries,2016,3.099602067
-Land Locked Developing Countries,2017,3.196043708
-Land Locked Developing Countries,2018,3.351910453
-Land Locked Developing Countries,2019,3.498488466
-Land Locked Developing Countries,2020,3.54417548
-Land Locked Developing Countries,2021,4.001723877
-Land Locked Developing Countries,2022,4.052097197
 Lao People's Democratic Republic,2005,1.423640595
 Lao People's Democratic Republic,2006,1.233025227
 Lao People's Democratic Republic,2007,1.307242152
@@ -1969,29 +1808,6 @@ Lao People's Democratic Republic,2019,1.973910628
 Lao People's Democratic Republic,2020,2.038137378
 Lao People's Democratic Republic,2021,2.081983306
 Lao People's Democratic Republic,2022,1.909559799
-Latin America and the Caribbean,2000,13.4896114
-Latin America and the Caribbean,2001,13.11643034
-Latin America and the Caribbean,2002,12.56253354
-Latin America and the Caribbean,2003,12.28645536
-Latin America and the Caribbean,2004,12.69452746
-Latin America and the Caribbean,2005,13.02091154
-Latin America and the Caribbean,2006,13.50741318
-Latin America and the Caribbean,2007,13.8290704
-Latin America and the Caribbean,2008,13.38211785
-Latin America and the Caribbean,2009,12.62248017
-Latin America and the Caribbean,2010,12.91045368
-Latin America and the Caribbean,2011,13.42183498
-Latin America and the Caribbean,2012,13.56165107
-Latin America and the Caribbean,2013,13.90453803
-Latin America and the Caribbean,2014,13.84659996
-Latin America and the Caribbean,2015,13.77047863
-Latin America and the Caribbean,2016,13.30349364
-Latin America and the Caribbean,2017,13.32012829
-Latin America and the Caribbean,2018,13.25962943
-Latin America and the Caribbean,2019,13.08662838
-Latin America and the Caribbean,2020,12.14057872
-Latin America and the Caribbean,2021,13.2688782
-Latin America and the Caribbean,2022,13.70504578
 Latvia,2007,113.7795428
 Latvia,2008,107.8494083
 Latvia,2009,88.86997412
@@ -2008,29 +1824,6 @@ Latvia,2019,140.5981216
 Latvia,2020,133.6961372
 Latvia,2021,140.1589389
 Latvia,2022,155.0039624
-Least Developed Countries,2000,2.00981623
-Least Developed Countries,2001,2.085677238
-Least Developed Countries,2002,2.156349359
-Least Developed Countries,2003,2.268035869
-Least Developed Countries,2004,2.405904983
-Least Developed Countries,2005,2.528461664
-Least Developed Countries,2006,2.696518156
-Least Developed Countries,2007,2.944013507
-Least Developed Countries,2008,2.536591639
-Least Developed Countries,2009,2.641754441
-Least Developed Countries,2010,2.830587271
-Least Developed Countries,2011,2.966655417
-Least Developed Countries,2012,3.442666273
-Least Developed Countries,2013,3.663282078
-Least Developed Countries,2014,3.881775292
-Least Developed Countries,2015,4.015560723
-Least Developed Countries,2016,4.166416866
-Least Developed Countries,2017,4.372727964
-Least Developed Countries,2018,4.611390012
-Least Developed Countries,2019,4.845013864
-Least Developed Countries,2020,4.866048971
-Least Developed Countries,2021,5.036346297
-Least Developed Countries,2022,5.237345594
 Lebanon,2000,17.14853531
 Lebanon,2001,18.89389763
 Lebanon,2002,19.23738403
@@ -2614,75 +2407,6 @@ North Macedonia,2019,5.656838182
 North Macedonia,2020,6.041341466
 North Macedonia,2021,5.768503744
 North Macedonia,2022,4.248870181
-Northern Africa,2000,2.998295977
-Northern Africa,2001,3.0265532
-Northern Africa,2002,3.060417415
-Northern Africa,2003,3.23663372
-Northern Africa,2004,3.389430545
-Northern Africa,2005,3.617462748
-Northern Africa,2006,3.785770822
-Northern Africa,2007,4.023665628
-Northern Africa,2008,4.196679115
-Northern Africa,2009,4.242669406
-Northern Africa,2010,4.441689879
-Northern Africa,2011,4.438078048
-Northern Africa,2012,5.398185163
-Northern Africa,2013,5.423405246
-Northern Africa,2014,5.422488925
-Northern Africa,2015,5.464234647
-Northern Africa,2016,5.619754591
-Northern Africa,2017,5.75301048
-Northern Africa,2018,5.97209919
-Northern Africa,2019,6.069011053
-Northern Africa,2020,5.80424445
-Northern Africa,2021,6.27852923
-Northern Africa,2022,6.460145202
-Northern Africa and Western Asia,2000,6.111348323
-Northern Africa and Western Asia,2001,6.153608584
-Northern Africa and Western Asia,2002,6.176864218
-Northern Africa and Western Asia,2003,6.515551444
-Northern Africa and Western Asia,2004,7.133776301
-Northern Africa and Western Asia,2005,7.583835609
-Northern Africa and Western Asia,2006,8.061595362
-Northern Africa and Western Asia,2007,8.557921452
-Northern Africa and Western Asia,2008,8.990440639
-Northern Africa and Western Asia,2009,8.955209469
-Northern Africa and Western Asia,2010,9.47313352
-Northern Africa and Western Asia,2011,10.15770283
-Northern Africa and Western Asia,2012,10.92400735
-Northern Africa and Western Asia,2013,11.23256417
-Northern Africa and Western Asia,2014,11.54577189
-Northern Africa and Western Asia,2015,11.84810947
-Northern Africa and Western Asia,2016,12.05360943
-Northern Africa and Western Asia,2017,12.1294179
-Northern Africa and Western Asia,2018,12.65475212
-Northern Africa and Western Asia,2019,11.79611408
-Northern Africa and Western Asia,2020,11.73563316
-Northern Africa and Western Asia,2021,12.92542606
-Northern Africa and Western Asia,2022,13.20848379
-Northern America,2000,24.46450928
-Northern America,2001,24.69063289
-Northern America,2002,25.10230087
-Northern America,2003,25.7383819
-Northern America,2004,26.64721073
-Northern America,2005,27.51280466
-Northern America,2006,29.06013535
-Northern America,2007,30.5840075
-Northern America,2008,31.4911027
-Northern America,2009,31.58260612
-Northern America,2010,33.34071686
-Northern America,2011,34.50343819
-Northern America,2012,35.79618323
-Northern America,2013,37.2737719
-Northern America,2014,38.98112204
-Northern America,2015,40.81182261
-Northern America,2016,41.65635406
-Northern America,2017,42.50250047
-Northern America,2018,43.75921186
-Northern America,2019,44.81657684
-Northern America,2020,43.90279508
-Northern America,2021,46.34106082
-Northern America,2022,47.21468303
 Norway,2005,109.0329246
 Norway,2006,104.342741
 Norway,2007,103.9994524
@@ -2701,52 +2425,6 @@ Norway,2019,133.0968237
 Norway,2020,130.4640293
 Norway,2021,140.3422016
 Norway,2022,146.8029692
-Oceania,2000,33.51084655
-Oceania,2001,34.2825995
-Oceania,2002,36.40755892
-Oceania,2003,38.39875715
-Oceania,2004,40.44244571
-Oceania,2005,42.23976256
-Oceania,2006,45.65818421
-Oceania,2007,49.74227282
-Oceania,2008,53.61812235
-Oceania,2009,57.70523952
-Oceania,2010,60.19202683
-Oceania,2011,64.02416166
-Oceania,2012,57.58694938
-Oceania,2013,50.1902667
-Oceania,2014,53.86456038
-Oceania,2015,58.66570284
-Oceania,2016,61.19585677
-Oceania,2017,62.09184223
-Oceania,2018,62.56262349
-Oceania,2019,69.32817976
-Oceania,2020,77.9097502
-Oceania,2021,70.16406435
-Oceania,2022,71.71645329
-Oceania (excluding Australia and New Zealand),2000,64.30495318
-Oceania (excluding Australia and New Zealand),2001,61.59233843
-Oceania (excluding Australia and New Zealand),2002,58.01167072
-Oceania (excluding Australia and New Zealand),2003,56.53120335
-Oceania (excluding Australia and New Zealand),2004,55.09891746
-Oceania (excluding Australia and New Zealand),2005,54.17997155
-Oceania (excluding Australia and New Zealand),2006,56.51631404
-Oceania (excluding Australia and New Zealand),2007,59.16213066
-Oceania (excluding Australia and New Zealand),2008,59.17348053
-Oceania (excluding Australia and New Zealand),2009,60.29131295
-Oceania (excluding Australia and New Zealand),2010,64.53635372
-Oceania (excluding Australia and New Zealand),2011,65.58325483
-Oceania (excluding Australia and New Zealand),2012,66.43719592
-Oceania (excluding Australia and New Zealand),2013,67.93677488
-Oceania (excluding Australia and New Zealand),2014,72.6225605
-Oceania (excluding Australia and New Zealand),2015,76.08744265
-Oceania (excluding Australia and New Zealand),2016,78.59738746
-Oceania (excluding Australia and New Zealand),2017,80.95778636
-Oceania (excluding Australia and New Zealand),2018,81.81868584
-Oceania (excluding Australia and New Zealand),2019,83.9412757
-Oceania (excluding Australia and New Zealand),2020,78.88185384
-Oceania (excluding Australia and New Zealand),2021,77.68767568
-Oceania (excluding Australia and New Zealand),2022,83.49413959
 Oman,2000,33.76742791
 Oman,2001,35.5957671
 Oman,2002,35.72664014
@@ -3201,29 +2879,6 @@ Slovenia,2019,45.51102516
 Slovenia,2020,41.48763705
 Slovenia,2021,48.3391356
 Slovenia,2022,55.80448822
-Small Island Developing States,2000,17.8170329
-Small Island Developing States,2001,17.98454427
-Small Island Developing States,2002,18.29261596
-Small Island Developing States,2003,18.67489722
-Small Island Developing States,2004,18.57503372
-Small Island Developing States,2005,19.43770791
-Small Island Developing States,2006,20.53547656
-Small Island Developing States,2007,21.59072918
-Small Island Developing States,2008,20.9747158
-Small Island Developing States,2009,20.57922101
-Small Island Developing States,2010,21.81427275
-Small Island Developing States,2011,22.21813064
-Small Island Developing States,2012,22.42923076
-Small Island Developing States,2013,22.75871072
-Small Island Developing States,2014,23.35769564
-Small Island Developing States,2015,24.46302623
-Small Island Developing States,2016,24.48767011
-Small Island Developing States,2017,25.23434636
-Small Island Developing States,2018,26.14276855
-Small Island Developing States,2019,26.71581551
-Small Island Developing States,2020,25.35866125
-Small Island Developing States,2021,27.36448195
-Small Island Developing States,2022,28.76799927
 Somalia,2001,0.301660082
 Somalia,2002,0.315812035
 Somalia,2003,0.333894569
@@ -3280,52 +2935,6 @@ South Sudan,2019,9.377804695
 South Sudan,2020,8.849006455
 South Sudan,2021,8.879453198
 South Sudan,2022,8.962944394
-South-eastern Asia,2000,4.645813714
-South-eastern Asia,2001,4.548935238
-South-eastern Asia,2002,4.550459397
-South-eastern Asia,2003,4.584095238
-South-eastern Asia,2004,4.62651049
-South-eastern Asia,2005,4.737765134
-South-eastern Asia,2006,3.883995034
-South-eastern Asia,2007,3.517227168
-South-eastern Asia,2008,3.609507951
-South-eastern Asia,2009,3.654418533
-South-eastern Asia,2010,3.841685219
-South-eastern Asia,2011,3.969718725
-South-eastern Asia,2012,4.166290478
-South-eastern Asia,2013,4.31690933
-South-eastern Asia,2014,4.476576114
-South-eastern Asia,2015,4.638109354
-South-eastern Asia,2016,4.823504438
-South-eastern Asia,2017,5.046622025
-South-eastern Asia,2018,5.317841692
-South-eastern Asia,2019,5.630490648
-South-eastern Asia,2020,5.382221995
-South-eastern Asia,2021,5.565868808
-South-eastern Asia,2022,5.863200222
-Southern Asia,2000,1.198962069
-Southern Asia,2001,1.268842135
-Southern Asia,2002,1.319409571
-Southern Asia,2003,1.391685367
-Southern Asia,2004,1.499915743
-Southern Asia,2005,1.572364356
-Southern Asia,2006,1.683975715
-Southern Asia,2007,1.7949923
-Southern Asia,2008,1.801606952
-Southern Asia,2009,1.88232259
-Southern Asia,2010,1.983850494
-Southern Asia,2011,2.086987655
-Southern Asia,2012,2.165781156
-Southern Asia,2013,2.266680727
-Southern Asia,2014,2.413587557
-Southern Asia,2015,2.553410168
-Southern Asia,2016,2.736861445
-Southern Asia,2017,2.89801192
-Southern Asia,2018,3.046284304
-Southern Asia,2019,3.140146916
-Southern Asia,2020,3.013568491
-Southern Asia,2021,3.239011413
-Southern Asia,2022,3.424958133
 Spain,2000,23.42940801
 Spain,2001,24.67508382
 Spain,2002,25.60613341
@@ -3366,29 +2975,6 @@ Sri Lanka,2019,6.647020488
 Sri Lanka,2020,6.445468473
 Sri Lanka,2021,6.670072986
 Sri Lanka,2022,6.197680995
-Sub-Saharan Africa,2000,8.001724168
-Sub-Saharan Africa,2001,7.96123391
-Sub-Saharan Africa,2002,7.461375159
-Sub-Saharan Africa,2003,7.72953955
-Sub-Saharan Africa,2004,8.256748147
-Sub-Saharan Africa,2005,8.695190655
-Sub-Saharan Africa,2006,9.190016094
-Sub-Saharan Africa,2007,9.703326412
-Sub-Saharan Africa,2008,10.06919041
-Sub-Saharan Africa,2009,10.2576373
-Sub-Saharan Africa,2010,10.97901251
-Sub-Saharan Africa,2011,11.58001167
-Sub-Saharan Africa,2012,12.05246657
-Sub-Saharan Africa,2013,12.60889859
-Sub-Saharan Africa,2014,13.00141132
-Sub-Saharan Africa,2015,13.02965989
-Sub-Saharan Africa,2016,12.90886685
-Sub-Saharan Africa,2017,13.20553157
-Sub-Saharan Africa,2018,13.33188718
-Sub-Saharan Africa,2019,13.69292878
-Sub-Saharan Africa,2020,13.1044279
-Sub-Saharan Africa,2021,13.63913544
-Sub-Saharan Africa,2022,13.99213704
 Sudan,2012,1.928448613
 Sudan,2013,2.139153005
 Sudan,2014,2.254812356
@@ -3873,52 +3459,6 @@ Viet Nam,2019,3.286321631
 Viet Nam,2020,3.368123348
 Viet Nam,2021,3.459858906
 Viet Nam,2022,3.758071661
-Western Asia,2000,8.320628678
-Western Asia,2001,8.469649
-Western Asia,2002,8.533974082
-Western Asia,2003,9.007045516
-Western Asia,2004,10.02419348
-Western Asia,2005,10.65942547
-Western Asia,2006,11.38378794
-Western Asia,2007,12.13730904
-Western Asia,2008,12.80498057
-Western Asia,2009,12.77186008
-Western Asia,2010,13.59759774
-Western Asia,2011,14.59728235
-Western Asia,2012,15.2218516
-Western Asia,2013,15.72842944
-Western Asia,2014,16.32597627
-Western Asia,2015,16.81997867
-Western Asia,2016,16.9216375
-Western Asia,2017,17.01520641
-Western Asia,2018,17.9500327
-Western Asia,2019,15.72357703
-Western Asia,2020,16.06271592
-Western Asia,2021,18.02670638
-Western Asia,2022,18.10800049
-World,2000,12.52449195
-World,2001,12.69506279
-World,2002,12.82509092
-World,2003,13.09030962
-World,2004,13.55061221
-World,2005,13.97580368
-World,2006,14.21897858
-World,2007,14.62318308
-World,2008,14.60536742
-World,2009,14.43616984
-World,2010,15.01671053
-World,2011,15.53579013
-World,2012,15.93373744
-World,2013,16.39906435
-World,2014,16.90478024
-World,2015,17.46995535
-World,2016,17.90849133
-World,2017,18.43517642
-World,2018,19.25451814
-World,2019,19.5507192
-World,2020,19.22074295
-World,2021,21.04488375
-World,2022,21.4972968
 Yemen,2004,10.45644154
 Yemen,2005,10.99124585
 Yemen,2006,11.59096569
