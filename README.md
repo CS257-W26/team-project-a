@@ -66,3 +66,23 @@ The website has a very clear design which enables easy reading for someone who's
 
 # Reworks
 - J: Reworked the method for obtaining use time compare
+
+# Option A: Code Design Improvements
+* Implementation of a Singleton
+    - What was the issue?
+    - What were the specific files/lines that were changed?
+    - How did the change happen?
+* Encapsulation
+    - What was the issue?
+    - What were the specific files/lines that were changed?
+    - How did the change happen?
+
+# Option B: Front End Design Improvements
+* Drop-down order and ease of use
+    - What was the issue?
+    - What were the specific files/lines that were changed?
+    - How did the change happen?
+* Improvements in satisficing
+    - What was the issue?
+    - What were the specific files/lines that were changed?
+    - How did the change happen?
