@@ -11,10 +11,17 @@ from ProductionCode.database import DataSource
 app = Flask(__name__)
 api = Blueprint('api', __name__)
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
+@app.route('/')
+def homepage():
     """
-    Display homepage with country selection form.
+    Display the homepage.
+    """
+    return render_template("index.html")
+
+@app.route('/usage', methods=['GET', 'POST'])
+def usage():
+    """
+    Display water usage statistics by country and year.
 
     On GET: renders form with all available countries.
     On POST: renders selected country's water usage data.
@@ -50,7 +57,7 @@ def home():
 
 
     return render_template(
-        "index.html",
+        "usage.html",
         names=names,
         selected_name=selected_name,
         country_perCapita=country_per_capita,

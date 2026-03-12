@@ -128,7 +128,7 @@ class TestHtmlApp(unittest.TestCase):
         mock_datasource_inst = mock_datasource.return_value
         mock_datasource_inst.get_per_capita.return_value = 42069#number does not matter.
         mock_datasource_inst.get_countries.return_value = ["Australia"]
-        response = self.run_test_site("/",{
+        response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
@@ -139,7 +139,7 @@ class TestHtmlApp(unittest.TestCase):
         """Per captia test for invalid country/year"""
         mock_datasource_inst = mock_datasource.return_value
         mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
-        response = self.run_test_site("/",{
+        response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
@@ -162,7 +162,7 @@ class TestHtmlApp(unittest.TestCase):
         mock_datasource_inst = mock_datasource.return_value
         mock_datasource.get_usage_percentage.return_value = 20
         mock_datasource_inst.get_countries.return_value = ["Australia"]
-        response = self.run_test_site("/",{
+        response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
@@ -175,7 +175,7 @@ class TestHtmlApp(unittest.TestCase):
 
         mock_datasource_inst = mock_datasource.return_value
         mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
-        response = self.run_test_site("/",{
+        response = self.run_test_site("/usage",{
             "country": "AAA",
             "year": "2005",
         })
