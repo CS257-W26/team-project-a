@@ -80,8 +80,9 @@ The website has a very clear design which enables easy reading for someone who's
 # Option B: Front End Design Improvements
 * Drop-down order and ease of use
     - What was the issue?
-    - What were the specific files/lines that were changed?
-    - How did the change happen?
+        Drop down menus for lists of countries (both on the main page and the compare page) were not listed in alphabetical order. There were also many combinations of countries (Subsaharan Africa, Oceania minus Australia, Impoverished Island Nations, etc.) in the Compare stats' list that made an already excessive list more bloated. Both dropdowns were hard to navigate, especially in the context of people using the website in user testing.
+    - What were the specific files/lines that were changed? How were they changed?
+        For the first issue, line 94 of database.py in ProductionCode was changed to include "ORDER BY country ASC". For the removal of the countries, this actually was done outside of the code and was done manually in the csv itself. This was something that was smoother to do by hand than through SQL.
 * Improvements in satisficing
     - What was the issue?
     - What were the specific files/lines that were changed?
