@@ -7,7 +7,7 @@ import records
 import ProductionCode.psql_config as config
 class DataSource:
     '''Main datsource class, connecting to databse & running/printing the example'''
-    _instance = None
+    instance = None
 
     def __init__(self):
         '''Constructor that initiates connection to database'''
@@ -15,11 +15,17 @@ class DataSource:
         self.db = records.Database(connect)
 
     def __new__(cls):
-        if cls._instance is None:
+        if cls.instance is None:
             print("Connecting to DB for the first (and only) time...")
-            cls._instance = super(DataSource, cls).__new__(cls)
+            cls.instance = super(DataSource, cls).__new__(cls)
             # Initialize connection details here
-        return cls._instance
+        return cls.instance
+
+    def tear_down(self):
+        """Removes the singleton for
+        testing
+        """
+        self.instance = None
 
 
     def run_string_psql(self, str_command):
@@ -84,5 +90,6 @@ class DataSource:
         '''
         Returns a list of all the countries in the database.
         '''
-        result = self.run_string_psql_multiple("SELECT DISTINCT country FROM "+dataset1+" ORDER BY country ASC;")
+        result = self.run_string_psql_multiple\
+            ("SELECT DISTINCT country FROM "+dataset1+" ORDER BY country ASC;")
         return [row.country for row in result]

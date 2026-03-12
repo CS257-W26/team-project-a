@@ -12,9 +12,12 @@ from ProductionCode.database import DataSource
 class TestDataSource(unittest.TestCase):
     """Tests basic datasource functions"""
 
+
+
     @patch("ProductionCode.database.records.Database")
     def test_run_string_psql(self, mock_db_class):
         """Tests runstring PSQL!"""
+        DataSource.instance = None
         mock_db_instance = mock_db_class.return_value
         mock_return = MagicMock()
         mock_return.all.return_value = [{"total_resources": 13}]
@@ -27,6 +30,7 @@ class TestDataSource(unittest.TestCase):
     @patch("ProductionCode.database.records.Database")
     def test_run_string_psql_invalid(self, mock_db_class):
         """Tests runstring PSQL!"""
+        DataSource.instance = None
         mock_db_instance = mock_db_class.return_value
         mock_return = MagicMock()
         mock_return.all.return_value = []
