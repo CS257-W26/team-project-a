@@ -171,6 +171,6 @@ def page_not_found(e):
 def main():
     """Main function to run the Flask app."""
     app.register_blueprint(api, url_prefix='/api')
-    app.run(host="0.0.0.0", port=5310)
+    app.run(host="0.0.0.0", port=5207)
 if __name__ == '__main__':
     main()
