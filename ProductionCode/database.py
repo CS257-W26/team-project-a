@@ -22,14 +22,6 @@ class DataSource:
         self.db = records.Database(connect)
         self._initialized = True
 
-    def tear_down(self):
-        """Removes the singleton for
-        testing
-        """
-        type(self).instance = None
-        self._initialized = False
-
-
     def run_string_psql(self, str_command):
         '''
         Takes in self and a string equating to a psql command
