@@ -73,7 +73,7 @@ The website has a very clear design which enables easy reading for someone who's
     - What was the issue?
         Before implementing the singleton pattern, each call to DataSource() could create a new database connection. Since the project calls DataSource() from multiple locations, this led to unnecessary connection creation and made shared access to the database harder to manage and reason about.
     - What were the specific files/lines that were changed?
-        The singleton implementation was added to the DataSource class in ProductionCode/database.py, specifically around lines 17–22, where the __new__ method and class-level instance variable were introduced.
+        The singleton implementation was added to the DataSource class in ProductionCode/database.py, specifically around lines 11–17, where the __new__ method and class-level instance variable were introduced.
     - How did the change happen?
         The DataSource class now maintains a class-level instance variable and overrides the __new__ method to ensure that only one instance of the class can be created. The first time DataSource() is called, the object is created and the database connection is initialized in __init__. Any new calls return the same existing instance instead of creating a new one. This centralizes database access and prevents repeatedly creating new database objects.
 
