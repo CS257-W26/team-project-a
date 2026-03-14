@@ -55,7 +55,6 @@ def usage():
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
 
-
     return render_template(
         "usage.html",
         names=names,
