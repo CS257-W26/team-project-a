@@ -20,5 +20,5 @@ def get_per_capita_water_use(country: str, year: str) -> float:
     if filtered_data:
         return float(round(filtered_data, 2))
     raise IndexError(
-        "Country or year not found. Pick another country or pick years from 2000-2024."
+        "Country or year not found. Please pick another country or pick years from 2000-2024."
     )
