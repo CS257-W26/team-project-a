@@ -6,7 +6,6 @@ from flask import Flask, Blueprint, request, render_template
 from ProductionCode.use_time_compare import water_use_time_compare, get_compare_countries
 from ProductionCode.usage_proportion import usage_proportion, get_usage_proportion, get_countries
 from ProductionCode.per_capita import get_per_capita_water_use
-from ProductionCode.database import DataSource
 
 app = Flask(__name__)
 api = Blueprint('api', __name__)

@@ -61,11 +61,8 @@ class TestFlaskApp(unittest.TestCase):
         cur_app = app.test_client()
         return cur_app.get(url, follow_redirects=True)
 
-    @patch("flask_app.DataSource")
-    def test_flask_app_homepage(self,mock_datasource):
+    def test_flask_app_homepage(self):
         """Homepage test for flask"""
-        mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.get_per_capita.return_value = None
         response = self.run_test_site("/")
         self.assertIn("Water Usage Statistics", str(response.data))
 
