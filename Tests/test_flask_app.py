@@ -119,62 +119,63 @@ class TestHtmlApp(unittest.TestCase):
         cur_app = app.test_client()
         return cur_app.post(url,data=post_data)
 
-    @patch("flask_app.DataSource")
-    @patch("ProductionCode.per_capita.DataSource")
-    def test_flask_app_per_capita(self,mock_datasource,mock_datasource_2):
+    @patch("flask_app.get_per_capita_water_use")
+    @patch("flask_app.get_usage_proportion")
+    @patch("flask_app.get_countries")
+    def test_flask_app_per_capita(self,mock_get_countries,mock_get_usage_proportion,mock_get_per_capita):
         """Per captia test. Very scuffed. IDK how to do this better."""
-        mock_datasource_2 = MagicMock()
-        mock_datasource_2.get_per_capita.return_value = 1337
-        mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.get_per_capita.return_value = 42069#number does not matter.
-        mock_datasource_inst.get_countries.return_value = ["Australia"]
+        mock_get_countries.return_value = ["Australia"]
+        mock_get_usage_proportion.return_value = {
+            "Agricultural": 20,
+            "Industrial": 20,
+            "Household": 20,
+        }
+        mock_get_per_capita.return_value = 42069.0
         response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
         self.assertIn("42069.0 Liters per day", str(response.data))
 
-    @patch("flask_app.DataSource")
-    def test_flask_app_per_capita_invalid(self,mock_datasource):
+    @patch("flask_app.get_usage_proportion")
+    @patch("flask_app.get_countries")
+    def test_flask_app_per_capita_invalid(self,mock_get_countries,mock_get_usage_proportion):
         """Per captia test for invalid country/year"""
-        mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
+        mock_get_countries.return_value = ["Australia"]
+        mock_get_usage_proportion.side_effect = ValueError()
         response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
         self.assertIn("Invalid", str(response.data))
 
-    @patch("flask_app.DataSource")
-    @patch("ProductionCode.usage_proportion.DataSource")
-    @patch("ProductionCode.per_capita.DataSource")
-    def test_flask_app_proportion(self,mock_datasource,mock_datasource_2,mock_datasource_3):
+    @patch("flask_app.get_per_capita_water_use")
+    @patch("flask_app.get_usage_proportion")
+    @patch("flask_app.get_countries")
+    def test_flask_app_proportion(self,mock_get_countries,mock_get_usage_proportion,mock_get_per_capita):
         """This test does not work properly?? I'm not sure how to fix it. Lol.
         Should test weather the proportions work.
         """
-        mock_datasource_2_inst = mock_datasource_2.return_value
-        mock_datasource_2_inst.get_usage_percentage.return_value = 20 #number does not matter.
-
-        mock_datasource3_inst = mock_datasource_3.return_value
-        mock_datasource3_inst.get_per_capita.return_value = 42069#number does not matter.
-
-
-        mock_datasource_inst = mock_datasource.return_value
-        mock_datasource.get_usage_percentage.return_value = 20
-        mock_datasource_inst.get_countries.return_value = ["Australia"]
+        mock_get_countries.return_value = ["Australia"]
+        mock_get_usage_proportion.return_value = {
+            "Agricultural": 20,
+            "Industrial": 20,
+            "Household": 20,
+        }
+        mock_get_per_capita.return_value = 42069
         response = self.run_test_site("/usage",{
             "country": "Australia",
             "year": "2005",
         })
         self.assertIn("Australia", str(response.data))
 
-    @patch("flask_app.DataSource")
-    def test_flask_app_proportion_invalid(self,mock_datasource):
+    @patch("flask_app.get_usage_proportion")
+    @patch("flask_app.get_countries")
+    def test_flask_app_proportion_invalid(self,mock_get_countries,mock_get_usage_proportion):
         """Tests an invalid country/year for proprotion.
         """
-
-        mock_datasource_inst = mock_datasource.return_value
-        mock_datasource_inst.get_usage_percentage.side_effect = ValueError()
+        mock_get_countries.return_value = ["Australia"]
+        mock_get_usage_proportion.side_effect = ValueError()
         response = self.run_test_site("/usage",{
             "country": "AAA",
             "year": "2005",
@@ -182,20 +183,14 @@ class TestHtmlApp(unittest.TestCase):
         self.assertIn("Invalid", str(response.data))
 
 
-    @patch("flask_app.DataSource")
-    @patch("ProductionCode.use_time_compare.DataSource")
-    def test_flask_app_compare(self,mock_flask_datasource,mock_use_datasource):
+    @patch("flask_app.water_use_time_compare")
+    @patch("flask_app.get_compare_countries")
+    def test_flask_app_compare(self,mock_get_compare_countries,mock_water_use_time_compare):
         """Usage compare. Very scuffed. IDK how to do this better.
         HELP ME
         """
-
-        mock_flask_datasource_inst = mock_flask_datasource.return_value
-        mock_flask_datasource_inst.get_countries.return_value = ["Albania"]
-        mock_flask_datasource_inst.get_total_resources.return_value = 20
-
-        mock_use_datasource_inst = mock_use_datasource.return_value
-
-        mock_use_datasource_inst.get_total_resources.return_value = 20
+        mock_get_compare_countries.return_value = ["Albania"]
+        mock_water_use_time_compare.return_value = ["Albania", "2004", "2005", "20", "20"]
 
         response = self.run_test_site("/compare",{
             "country": "Albania",
@@ -204,16 +199,12 @@ class TestHtmlApp(unittest.TestCase):
         })
         self.assertIn("20.0 US$/m^3", str(response.data))
 
-    @patch("flask_app.DataSource")
-    @patch("ProductionCode.use_time_compare.DataSource")
-    def test_flask_app_compare_failure(self,mock_flask_datasource,mock_use_datasource):
+    @patch("flask_app.water_use_time_compare")
+    @patch("flask_app.get_compare_countries")
+    def test_flask_app_compare_failure(self,mock_get_compare_countries,mock_water_use_time_compare):
         """Usage compare test for a nonexistant country."""
-        mock_flask_datasource_inst = mock_flask_datasource.return_value
-        mock_flask_datasource_inst.side_effect = ValueError()
-
-        mock_use_datasource_inst = mock_use_datasource.return_value
-
-        mock_use_datasource_inst.side_effect = ValueError()
+        mock_get_compare_countries.return_value = ["Albania"]
+        mock_water_use_time_compare.side_effect = ValueError()
 
         response = self.run_test_site("/compare",{
             "country": "HELL",

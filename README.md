@@ -77,6 +77,25 @@ The website has a very clear design which enables easy reading for someone who's
     - How did the change happen?
         The DataSource class now maintains a class-level instance variable and overrides the __new__ method to ensure that only one instance of the class can be created. The first time DataSource() is called, the object is created and the database connection is initialized in __init__. Any new calls return the same existing instance instead of creating a new one. This centralizes database access and prevents repeatedly creating new database objects.
 
+* Improving Encapsulation
+    - What was the issue?
+        Originally, the Flask routes in flask_app.py were doing too much work. Instead of only handling web requests and responses, they were also responsible for tasks like retrieving data, validating inputs, and formatting results. This made flask_app.py large, harder to read, and more difficult to test. Essentially, the web layer was handling logic that should have been placed in separate modules.
+
+    - What were the specific files/lines that were changed?
+        New functions for retrieving countries in datatables:
+
+        - get_countries() (Productioncode/usage_proportions.py lines 8-13)
+        - get_compare_countries() (Productioncode/use_time_compare.py lines 8-14)
+
+        In flask_app.py, all direct calls to DataSource() and other lines that interacted with the new Datasource instances were removed. Instead, the routes now call helper functions from the ProductionCode modules to retrieve the needed data.
+
+        New helper function:
+        - get_usage_proportion() in ProductionCode/usage_proportion.py, which handles retrieving the usage proportion data.
+
+    - How did the change happen?
+        During our second code review, group C identified that the Flask routes contained too much application logic, which was an example of poor encapsulation. To fix this, we improved the code by making flask_app.py focus only on handling requests and returning responses, while the helper modules handle the actual data processing. This separation makes the code easier to maintain, test, and understand.
+
+
 # Option B: Front End Design Improvements
 * Drop-down order and ease of use
     - What was the issue?

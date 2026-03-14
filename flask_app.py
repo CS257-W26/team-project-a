@@ -3,9 +3,9 @@ Flask application for global water usage analysis.
 """
 
 from flask import Flask, Blueprint, request, render_template
-from ProductionCode.use_time_compare import water_use_time_compare
-from ProductionCode.usage_proportion import usage_proportion
-from ProductionCode.per_capita import print_per_capita_water_use
+from ProductionCode.use_time_compare import water_use_time_compare, get_compare_countries
+from ProductionCode.usage_proportion import usage_proportion, get_usage_proportion, get_countries
+from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.database import DataSource
 
 app = Flask(__name__)
@@ -28,8 +28,7 @@ def usage():
     Returns:
         Rendered template with country list and selected data.
     """
-    data_source = DataSource()
-    names = data_source.get_countries("GLOBALDATA_S")
+    names = get_countries()
     selected_name = ""
     error = ""
     year = None
@@ -48,10 +47,11 @@ def usage():
         else:
             try:
                 year = int(year_value)
-                agricultural_percent = data_source.get_usage_percentage(selected_name, year, 0)
-                industrial_percent = data_source.get_usage_percentage(selected_name, year, 1)
-                household_percent = data_source.get_usage_percentage(selected_name, year, 2)
-                country_per_capita = print_per_capita_water_use(selected_name, year)
+                usage_data = get_usage_proportion(selected_name, year)
+                agricultural_percent = usage_data["Agricultural"]
+                industrial_percent = usage_data["Industrial"]
+                household_percent = usage_data["Household"]
+                country_per_capita = get_per_capita_water_use(selected_name, year)
             except (ValueError, IndexError):
                 error = "Invalid country or year selection."
 
@@ -85,8 +85,7 @@ def compare():
     Returns:
         Rendered template with country list and selected data.
     """
-    data_source = DataSource()
-    names = data_source.get_countries("AQTE")
+    names = get_compare_countries()
     selected_name = ""
     error = ""
     year1 = None
@@ -146,7 +145,7 @@ def usage_proportion_route(country, year):
     try:
         result = usage_proportion(country, year)
         return result
-    except (ValueError, KeyError) as e:
+    except (ValueError, KeyError, IndexError) as e:
         return f"Error: {str(e)}"
 
 @api.route('/per_capita/<country>/<year>/')
@@ -155,9 +154,9 @@ def per_capita_route(country, year):
     Returns per capita water usage for a given country and year.
     """
     try:
-        value = print_per_capita_water_use(country, year)
-        return value
-    except (ValueError, KeyError) as e:
+        value = get_per_capita_water_use(country, year)
+        return f"{value} Liters per day"
+    except (ValueError, KeyError, IndexError) as e:
         return f"Error: {str(e)}"
 
 @app.errorhandler(404)

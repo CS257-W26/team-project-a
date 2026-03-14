@@ -5,6 +5,14 @@ Functions for the temporal comparison of water usage data
 from ProductionCode.database import DataSource
 from ProductionCode.utils import alias
 
+
+def get_compare_countries():
+    """
+    Fetch list of countries available for compare feature.
+    @return: List of country names
+    """
+    return DataSource().get_countries("AQTE")
+
 def validate_years(year1: int, year2: int) -> None:
     """
     Validate years are within range.
@@ -64,3 +72,4 @@ def format_water_use_time_compare(arr: []):
     out += "\n" + "Difference:"
     out += "\n" + str(round(wu2 - wu1, 2)) + " billion m^3/year"
     return out
+    

@@ -4,7 +4,7 @@ This will be the entry point for the project when run from the command line.
 """
 
 import sys
-from ProductionCode.per_capita import print_per_capita_water_use
+from ProductionCode.per_capita import get_per_capita_water_use
 from ProductionCode.usage_proportion import usage_proportion
 from ProductionCode.use_time_compare import water_use_time_compare, print_water_use_time_compare
 
@@ -26,7 +26,8 @@ def main():
         if not check_arg_count(len(sys.argv), 4):
             return
         try:
-            print(print_per_capita_water_use(sys.argv[2], sys.argv[3]))
+            value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
+            print(f"{value} Liters per day")
             return
         except ValueError as e:
             print(e)
