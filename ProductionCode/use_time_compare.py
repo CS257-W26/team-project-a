@@ -72,4 +72,3 @@ def format_water_use_time_compare(arr: []):
     out += "\n" + "Difference:"
     out += "\n" + str(round(wu2 - wu1, 2)) + " billion m^3/year"
     return out
-
