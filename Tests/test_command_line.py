@@ -90,6 +90,38 @@ class CommandLineTest(unittest.TestCase):
             printed_out,
         )
 
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_per_capita_command_failure(self,mock_datasource):
+        """Test percapita command with a missing response"""
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_per_capita.return_value = None
+        # Do not ask me why this works. I have NO idea.
+        sys.argv = ["command_line.py", "-percapita", "Argentina", "2024"]
+        with self.assertRaises(IndexError):
+            self._run_and_return_output()
+
+    @patch("ProductionCode.per_capita.DataSource")
+    def test_per_capita_command_noargs(self,mock_datasource):
+        """Test percapita command with missing arguments."""
+
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_per_capita.return_value = 364.38
+        sys.argv = ["command_line.py", "-percapita"]
+        printed_out = self._run_and_return_output()
+        self.assertIn(
+            "Example",
+            printed_out,
+        )
+
+    @patch("ProductionCode.usage_proportion.DataSource")
+    def test_usage_prop_command_fail(self,mock_datasource):
+        """Test usageproportion command with missing data."""
+
+        mock_datasource_inst = mock_datasource.return_value
+        mock_datasource_inst.get_usage_percentage.return_value = None
+        sys.argv = ["command_line.py", "-usageproportion","USA","2001"]
+        with self.assertRaises(IndexError):
+            self._run_and_return_output()
 
 class PerCapitaWaterUseTest(unittest.TestCase):
     """Tests percapita water use"""
