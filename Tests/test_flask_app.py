@@ -119,7 +119,8 @@ class TestHtmlApp(unittest.TestCase):
     @patch("flask_app.get_per_capita_water_use")
     @patch("flask_app.get_usage_proportion")
     @patch("flask_app.get_countries")
-    def test_flask_app_per_capita(self,mock_get_countries,mock_get_usage_proportion,mock_get_per_capita):
+    def test_flask_app_per_capita(self,mock_get_countries,
+                                  mock_get_usage_proportion,mock_get_per_capita):
         """Per captia test. Very scuffed. IDK how to do this better."""
         mock_get_countries.return_value = ["Australia"]
         mock_get_usage_proportion.return_value = {
@@ -149,7 +150,8 @@ class TestHtmlApp(unittest.TestCase):
     @patch("flask_app.get_per_capita_water_use")
     @patch("flask_app.get_usage_proportion")
     @patch("flask_app.get_countries")
-    def test_flask_app_proportion(self,mock_get_countries,mock_get_usage_proportion,mock_get_per_capita):
+    def test_flask_app_proportion(self,mock_get_countries,
+                                  mock_get_usage_proportion,mock_get_per_capita):
         """This test does not work properly?? I'm not sure how to fix it. Lol.
         Should test weather the proportions work.
         """
