@@ -27,7 +27,7 @@ def main():
             return
         try:
             value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
-            print(f"{value} Liters per day")
+            print(f"{sys.argv[2]}'s Water Usage per Capita: {value} Liters per day")
             return
         except ValueError as e:
             print(e)
