@@ -3,7 +3,7 @@ Flask application for global water usage analysis.
 """
 
 from flask import Flask, Blueprint, request, render_template
-from ProductionCode.use_time_compare import water_use_time_compare, get_compare_countries
+from ProductionCode.use_time_compare import water_use_time_compare, get_compare_countries, format_water_use_time_compare
 from ProductionCode.usage_proportion import usage_proportion, get_usage_proportion, get_countries
 from ProductionCode.per_capita import get_per_capita_water_use
 
@@ -130,7 +130,7 @@ def water_use_route(country, year1, year2):
     """
     try:
         result = water_use_time_compare(country, year1, year2)
-        return result
+        return format_water_use_time_compare(result)
     except (ValueError, KeyError) as e:
         return f"Error: {str(e)}"
 
