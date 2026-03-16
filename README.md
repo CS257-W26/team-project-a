@@ -102,7 +102,18 @@ The website has a very clear design which enables easy reading for someone who's
         Drop down menus for lists of countries (both on the main page and the compare page) were not listed in alphabetical order. There were also many combinations of countries (Subsaharan Africa, Oceania minus Australia, Impoverished Island Nations, etc.) in the Compare stats' list that made an already excessive list more bloated. Both dropdowns were hard to navigate, especially in the context of people using the website in user testing.
     - What were the specific files/lines that were changed? How were they changed?
         For the first issue, line 94 of database.py in ProductionCode was changed to include "ORDER BY country ASC". For the removal of the countries, this actually was done outside of the code and was done manually in the csv itself. This was something that was smoother to do by hand than through SQL.
-* Improvements in satisficing
-    - What was the issue?
-    - What were the specific files/lines that were changed?
     - How did the change happen?
+        During the user testing, we noticed that users took quite a while to find the requested countries (at least those not familiar with dropdown
+        search functionality). They were often confused by the fact that the list was not in alphabetical order. 
+* Main menu improvements for readability
+    - What was the issue?
+        When using the website, users struggled to A. tell the difference between the usage page and the compare page, and B. struggled to
+        navigate to the required pages. They also didn't recognize that the home page was where the usage entry was.  
+    - What were the specific files/lines that were changed?
+        index.html was turned into usage.html, and a new index.html was made as the home page with buttons to go to the compare and usage pages.
+        flask_app.py's homepage() function was changed to return the new index.html function, and the route for usage() was changed, no longer making
+        it the default route
+    - How did the change happen?
+        Once again, during the user testing, we had many instances of users not knowing where to go for each task, and yet more situations where they input
+        the right data into the wrong page, thinking it was the other page. Users were also confused on how to get back to the usage page,
+        assuming that the home page was a different thing.
