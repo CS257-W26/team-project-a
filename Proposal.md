@@ -18,7 +18,7 @@ Responsible consumption & production/Clean water & sanitation
 
 ## Feature 3: Water usage over time
 * Person responsible: Jay
-* User story: I want to find out how the water efficiency in Uzbekistan changed between 2002 and 2003. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "US, 2002, 2003" and the code responds w/ a change of "0.02 US$/m^3"
+* User story: I want to find out how the water efficiency in Uzbekistan changed between 2002 and 2003. I can give a country and 2 years to the CLI and it will return how water usage has changed. I input "Uzbekistan, 2002, 2003" and the code responds w/ a change of "0.02 US$/m^3"
 * Acceptance Criteria: User can input "python3 command_line.py Uzbekistan 2002 2003" and will receive the values of water efficiency for those two years, as well as how they've changed.
 
 # Datasets Metadata
